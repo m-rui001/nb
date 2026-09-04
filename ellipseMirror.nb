@@ -1,0 +1,275 @@
+(* Content-type: application/vnd.wolfram.cdf.text *)
+
+(*** Wolfram CDF File ***)
+(* http://www.wolfram.com/cdf *)
+
+(* CreatedBy='Wolfram 14.3' *)
+
+(*************************************************************************)
+(*                                                                       *)
+(*                                                                       *)
+(*  This file was created under the Wolfram Enterprise licensing terms.  *)
+(*                                                                       *)
+(*       For additional information concerning CDF licensing see:        *)
+(*                                                                       *)
+(*        www.wolfram.com/cdf/adopting-cdf/licensing-options.html        *)
+(*                                                                       *)
+(*                                                                       *)
+(*                                                                       *)
+(*************************************************************************)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[      1060,         20]
+NotebookDataLength[      8954,        252]
+NotebookOptionsPosition[      9511,        251]
+NotebookOutlinePosition[      9901,        267]
+CellTagsIndexPosition[      9858,        264]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{"Module", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+    "a", ",", "b", ",", "mapMinus", ",", "mapPlus", ",", "ellipse", ",", 
+     "rectGrid", ",", "ellipseGrid", ",", "Epoint"}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", "\:692d\:5706\:53c2\:6570", "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"a", "=", "2"}], ";", 
+    RowBox[{"b", "=", "1"}], ";", "\n", 
+    RowBox[{
+    "(*", "\:4e24\:4e2a\:5206\:652f\:7684\:53cd\:5c04\:6620\:5c04", "*)"}], 
+    "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"mapMinus", "[", 
+      RowBox[{"u_", ",", "v_"}], "]"}], ":=", 
+     RowBox[{"Module", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"z", "=", 
+         RowBox[{"u", "+", 
+          RowBox[{"v", " ", "I"}]}]}], "}"}], ",", 
+       RowBox[{"ReIm", "[", 
+        FractionBox[
+         RowBox[{
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{
+             SuperscriptBox["a", "2"], " ", "+", 
+             SuperscriptBox["b", "2"]}], " ", ")"}], "z"}], "-", 
+          RowBox[{"2", " ", "a", " ", "b", 
+           SqrtBox[
+            RowBox[{
+             SuperscriptBox["z", "2"], "-", 
+             SuperscriptBox["a", "2"], "+", 
+             SuperscriptBox["b", "2"]}]]}]}], 
+         RowBox[{
+          SuperscriptBox["a", "2"], "-", 
+          SuperscriptBox["b", "2"]}]], "]"}]}], "]"}]}], ";", 
+    RowBox[{"(*", 
+     RowBox[{"z", "=", 
+      RowBox[{"0", " ", "\:662f\:51fd\:6570\:7684\:5206\:652f\:70b9"}]}], 
+     "*)"}], "\n", 
+    RowBox[{
+     RowBox[{"mapPlus", "[", 
+      RowBox[{"u_", ",", "v_"}], "]"}], ":=", 
+     RowBox[{"Module", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"z", "=", 
+         RowBox[{"u", "+", 
+          RowBox[{"v", " ", "I"}]}]}], "}"}], ",", 
+       RowBox[{"ReIm", "[", 
+        FractionBox[
+         RowBox[{
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{
+             SuperscriptBox["a", "2"], " ", "+", 
+             SuperscriptBox["b", "2"]}], " ", ")"}], "z"}], "+", 
+          RowBox[{"2", " ", "a", " ", "b", 
+           SqrtBox[
+            RowBox[{
+             SuperscriptBox["z", "2"], "-", 
+             SuperscriptBox["a", "2"], "+", 
+             SuperscriptBox["b", "2"]}]]}]}], 
+         RowBox[{
+          SuperscriptBox["a", "2"], "-", 
+          SuperscriptBox["b", "2"]}]], "]"}]}], "]"}]}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{"(*", "\:692d\:5706\:8fb9\:754c", "*)"}], "\n", 
+    RowBox[{"ellipse", "=", 
+     RowBox[{"ParametricPlot", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"a", " ", 
+          RowBox[{"Cos", "[", "t", "]"}]}], ",", 
+         RowBox[{"b", " ", 
+          RowBox[{"Sin", "[", "t", "]"}]}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"t", ",", "0", ",", 
+         RowBox[{"2", " ", "Pi"}]}], "}"}], ",", 
+       RowBox[{"PlotStyle", "->", 
+        RowBox[{"{", 
+         RowBox[{"Black", ",", "Thick"}], "}"}]}]}], "]"}]}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{"(*", 
+     RowBox[{"\:539f\:59cb\:77e9\:5f62\:7f51\:683c", " ", 
+      RowBox[{"(", "\:692d\:5706\:5916", ")"}]}], "*)"}], "\n", 
+    RowBox[{"rectGrid", "=", 
+     RowBox[{"Graphics", "[", 
+      RowBox[{"{", 
+       RowBox[{"Table", "[", 
+        RowBox[{
+         RowBox[{"Line", "[", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"x", ",", "y"}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"x", "+", "0.2"}], ",", "y"}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"x", "+", "0.2"}], ",", 
+              RowBox[{"y", "+", "0.2"}]}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"x", ",", 
+              RowBox[{"y", "+", "0.2"}]}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"x", ",", "y"}], "}"}]}], "}"}], "]"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"x", ",", 
+           RowBox[{"-", "1"}], ",", "3", ",", "0.2"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"y", ",", "1", ",", "2.2", ",", "0.2"}], "}"}]}], "]"}], 
+       "}"}], "]"}]}], ";", "\n", 
+    RowBox[{"(*", 
+     RowBox[{
+     "\:692d\:5706\:5185\:7684\:6620\:5c04\:7f51\:683c", "\:ff1a", 
+      "\:4e24\:4e2a\:5206\:652f\:90fd\:753b", ",", 
+      "\:5de6\:6d4b\:5206\:652f\:7528mapPlus", ",", 
+      "\:53f3\:4fa7\:5206\:652f\:7528mapMinus", ",", 
+      RowBox[{"\:53bb\:9664x", "=", 
+       RowBox[{"0", "\:5947\:70b9"}]}]}], "*)"}], "\[IndentingNewLine]", 
+    RowBox[{"ellipseGrid", "=", 
+     RowBox[{"Graphics", "[", 
+      RowBox[{"{", 
+       RowBox[{"Red", ",", 
+        RowBox[{"Table", "[", 
+         RowBox[{
+          RowBox[{"Line", "[", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"mapPlus", "[", 
+              RowBox[{"x", ",", "y"}], "]"}], ",", 
+             RowBox[{"mapPlus", "[", 
+              RowBox[{
+               RowBox[{"x", "+", "0.2"}], ",", "y"}], "]"}], ",", 
+             RowBox[{"mapPlus", "[", 
+              RowBox[{
+               RowBox[{"x", "+", "0.2"}], ",", 
+               RowBox[{"y", "+", "0.2"}]}], "]"}], ",", 
+             RowBox[{"mapPlus", "[", 
+              RowBox[{"x", ",", 
+               RowBox[{"y", "+", "0.2"}]}], "]"}], ",", 
+             RowBox[{"mapPlus", "[", 
+              RowBox[{"x", ",", "y"}], "]"}]}], "}"}], "]"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"x", ",", 
+            RowBox[{"-", "1.001"}], ",", 
+            RowBox[{"-", "0.201"}], ",", "0.2"}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"y", ",", "1", ",", "2.2", ",", "0.2"}], "}"}]}], "]"}], ",",
+         "Cyan", ",", 
+        RowBox[{"Table", "[", 
+         RowBox[{
+          RowBox[{"Line", "[", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"mapMinus", "[", 
+              RowBox[{"x", ",", "y"}], "]"}], ",", 
+             RowBox[{"mapMinus", "[", 
+              RowBox[{
+               RowBox[{"x", "+", "0.2"}], ",", "y"}], "]"}], ",", 
+             RowBox[{"mapMinus", "[", 
+              RowBox[{
+               RowBox[{"x", "+", "0.2"}], ",", 
+               RowBox[{"y", "+", "0.2"}]}], "]"}], ",", 
+             RowBox[{"mapMinus", "[", 
+              RowBox[{"x", ",", 
+               RowBox[{"y", "+", "0.2"}]}], "]"}], ",", 
+             RowBox[{"mapMinus", "[", 
+              RowBox[{"x", ",", "y"}], "]"}]}], "}"}], "]"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"x", ",", "0.001", ",", "3", ",", "0.2"}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"y", ",", "1", ",", "2.2", ",", "0.2"}], "}"}]}], "]"}]}], 
+       "}"}], "]"}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{"(*", "\:4e2d\:5fc3\:70b9", "*)"}], "\n", 
+    RowBox[{"Epoint", "=", 
+     RowBox[{"Graphics", "[", 
+      RowBox[{"{", 
+       RowBox[{"Black", ",", 
+        RowBox[{"PointSize", "[", "Large", "]"}], ",", 
+        RowBox[{"Point", "[", 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0"}], "}"}], "]"}], ",", 
+        RowBox[{"Text", "[", 
+         RowBox[{
+          RowBox[{"Style", "[", 
+           RowBox[{"\"\<E\>\"", ",", "Bold", ",", "14"}], "]"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"0.2", ",", 
+            RowBox[{"-", "0.1"}]}], "}"}]}], "]"}]}], "}"}], "]"}]}], ";", 
+    "\n", 
+    RowBox[{"(*", "\:6700\:7ec8\:56fe\:50cf", "*)"}], "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"Show", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+        "rectGrid", ",", "ellipseGrid", ",", "ellipse", ",", "Epoint"}], 
+        "}"}], ",", 
+       RowBox[{"PlotRange", "->", "All"}], ",", 
+       RowBox[{"Axes", "->", "False"}], ",", 
+       RowBox[{"Frame", "->", "False"}], ",", 
+       RowBox[{"ImageSize", "->", "500"}]}], "]"}], "//", 
+     RowBox[{
+      RowBox[{"Framed", "[", 
+       RowBox[{"#", ",", 
+        RowBox[{"Background", "->", "LightGreen"}], ",", 
+        RowBox[{"RoundingRadius", "->", "15"}]}], "]"}], "&"}]}]}]}], 
+  "]"}]], "Input",ExpressionUUID->"be478731-d6f4-43e8-99e3-d4f6aea62b32"]
+},
+WindowSize->{808, 820},
+WindowMargins->{{4, Automatic}, {Automatic, 4}},
+FrontEndVersion->"14.3 for Mac OS X ARM (64-bit) (July 8, 2025)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"640305b7-5522-44f5-b6c5-b43ee87ad12a"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[1460, 33, 8047, 216, 673, "Input",ExpressionUUID->"be478731-d6f4-43e8-99e3-d4f6aea62b32"]
+}
+]
+*)
+
+(* End of internal cache information *)
+

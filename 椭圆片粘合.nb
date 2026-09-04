@@ -1,0 +1,444 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 14.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     17072,        436]
+NotebookOptionsPosition[     16528,        417]
+NotebookOutlinePosition[     16985,        435]
+CellTagsIndexPosition[     16942,        432]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[{
+ RowBox[{"Clear", "[", "\"\<`*\>\"", "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Manipulate", "[", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{"S", "[", "y_", "]"}], ":=", 
+     RowBox[{"b", " ", 
+      RowBox[{"EllipticE", "[", 
+       RowBox[{
+        RowBox[{"ArcSin", "[", 
+         FractionBox["y", "b"], "]"}], ",", 
+        RowBox[{"1", "-", 
+         FractionBox[
+          SuperscriptBox["a", "2"], 
+          SuperscriptBox["b", "2"]]}]}], "]"}]}]}], " ", ";", " ", 
+    RowBox[{"(*", " ", 
+     RowBox[{"=", " ", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"ArcLength", "[", 
+         RowBox[{"Circle", "[", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"0", ",", " ", "0"}], "}"}], ",", " ", 
+           RowBox[{"{", 
+            RowBox[{"a", ",", " ", "b"}], "}"}], ",", " ", 
+           RowBox[{"{", 
+            RowBox[{"0", ",", " ", "\[Theta]"}], "}"}]}], "]"}], "]"}], " ", 
+        RowBox[{"(", " ", 
+         RowBox[{"y", " ", "=", " ", 
+          RowBox[{"Sin", "[", "\[Theta]", "]"}]}], " ", ")"}]}], " ", "=", 
+       " ", 
+       RowBox[{"\[Integral]", 
+        RowBox[{
+         SqrtBox[
+          RowBox[{"1", " ", "+", " ", 
+           RowBox[{
+            FractionBox[
+             SuperscriptBox["a", "2"], 
+             SuperscriptBox["b", "2"]], 
+            FractionBox[
+             RowBox[{" ", 
+              SuperscriptBox["y", "2"]}], 
+             RowBox[{"(", 
+              RowBox[{
+               SuperscriptBox["b", "2"], "-", 
+               SuperscriptBox["y", "2"]}], ")"}]]}]}]], 
+         RowBox[{"\[DifferentialD]", "y"}]}]}]}]}], " ", "*)"}], 
+    "\[IndentingNewLine]", 
+    RowBox[{"yy", "=", 
+     RowBox[{"Range", "[", 
+      RowBox[{"0", ",", "b", ",", 
+       SuperscriptBox["2.", 
+        RowBox[{"-", "8"}]]}], "]"}]}], ";", " ", 
+    RowBox[{"(*", " ", 
+     RowBox[{"\:6b65\:957f\:9009\:53d6", " ", 
+      SuperscriptBox["2", 
+       RowBox[{"-", "8"}]]}], " ", "*)"}], "\[IndentingNewLine]", 
+    RowBox[{"ss", "=", 
+     RowBox[{"S", "/@", "yy"}]}], ";", " ", 
+    RowBox[{"(*", " ", "\:5bf9\:5e94\:7684\:5f27\:957f", " ", "*)"}], 
+    "\[IndentingNewLine]", 
+    RowBox[{"Off", "[", 
+     RowBox[{"InterpolatingFunction", "::", "dmval"}], "]"}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{"f", "=", 
+     RowBox[{"Interpolation", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"ss", ",", "yy"}], "}"}], "//", "Transpose"}], "]"}]}], ";", 
+    " ", 
+    RowBox[{"(*", " ", 
+     RowBox[{
+     "\:6c42\:53cd\:51fd\:6570", "\:ff0c", 
+      "\:4f7f\:7528\:63d2\:503c\:5927\:5927\:63d0\:9ad8\:8ba1\:7b97\:6548\
+\:7387"}], " ", "*)"}], "\[IndentingNewLine]", 
+    RowBox[{"l", "=", 
+     RowBox[{"S", "[", "b", "]"}]}], ";", " ", 
+    RowBox[{"(*", " ", 
+     RowBox[{
+      RowBox[{"1", "/", "4"}], " ", "\:692d\:5706\:5f27\:957f"}], " ", "*)"}],
+     "\[IndentingNewLine]", 
+    RowBox[{"zz", "=", 
+     RowBox[{"f", "/@", 
+      RowBox[{"(", 
+       RowBox[{"l", "-", "ss"}], ")"}]}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{"g", "=", 
+     RowBox[{"x", "/.", 
+      RowBox[{
+       RowBox[{"NDSolve", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{
+            RowBox[{
+             SuperscriptBox[
+              RowBox[{
+               SuperscriptBox["x", "\[Prime]",
+                MultilineFunction->None], "[", "s", "]"}], "2"], "+", 
+             SuperscriptBox[
+              RowBox[{
+               SuperscriptBox["f", "\[Prime]",
+                MultilineFunction->None], "[", "s", "]"}], "2"], "+", 
+             SuperscriptBox[
+              RowBox[{
+               SuperscriptBox["f", "\[Prime]",
+                MultilineFunction->None], "[", 
+               RowBox[{"l", "-", "s"}], "]"}], "2"]}], "\[Equal]", "1"}], ",", 
+           RowBox[{
+            RowBox[{"x", "[", "0", "]"}], "\[Equal]", "0"}]}], "}"}], ",", 
+         "x", ",", 
+         RowBox[{"{", 
+          RowBox[{"s", ",", "0", ",", "l"}], "}"}]}], "]"}], 
+       "\[LeftDoubleBracket]", "2", "\[RightDoubleBracket]"}]}]}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{"xx", "=", 
+     RowBox[{
+      RowBox[{"g", "/@", "ss"}], "//", "Re"}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{"SetOptions", "[", 
+     RowBox[{"ListLinePlot3D", ",", " ", 
+      RowBox[{"LabelStyle", " ", "->", 
+       RowBox[{"FontFamily", " ", "->", " ", "\"\<Times New Roman\>\""}]}]}], 
+     "]"}], ";", "\[IndentingNewLine]", 
+    RowBox[{"pl", "=", 
+     RowBox[{"ListLinePlot3D", "[", 
+      RowBox[{
+       RowBox[{"Transpose", "/@", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"xx", ",", "yy", ",", "zz"}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"xx", ",", "yy", ",", 
+            RowBox[{"-", "zz"}]}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"xx", ",", 
+            RowBox[{"-", "yy"}], ",", "zz"}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"xx", ",", 
+            RowBox[{"-", "yy"}], ",", 
+            RowBox[{"-", "zz"}]}], "}"}]}], "}"}]}], ",", 
+       RowBox[{"PlotStyle", "->", "Blue"}]}], "]"}]}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{"(*", " ", 
+     RowBox[{
+      RowBox[{"\:91c7\:6837", " ", 
+       RowBox[{"1", "/", "4"}], " ", "\:7684\:70b9"}], "\:ff0c", 
+      "\:8fde\:63a5\:692d\:5706\:9762\:4e0a\:7684\:7ebf"}], " ", "*)"}], 
+    "\[IndentingNewLine]", 
+    RowBox[{"xx", "=", 
+     RowBox[{"xx", "[", 
+      RowBox[{"[", 
+       RowBox[{";;", ";;", "4"}], "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{"yy", "=", 
+     RowBox[{"yy", "[", 
+      RowBox[{"[", 
+       RowBox[{";;", ";;", "4"}], "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{"zz", "=", 
+     RowBox[{"zz", "[", 
+      RowBox[{"[", 
+       RowBox[{";;", ";;", "4"}], "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{"pl1", "=", 
+     RowBox[{"ListLinePlot3D", "[", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"Transpose", "/@", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"xx", ",", "yy", ",", "zz"}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"xx", ",", 
+              RowBox[{"-", "yy"}], ",", "zz"}], "}"}]}], "}"}]}], "//", 
+         "Transpose"}], ")"}], ",", 
+       RowBox[{"PlotStyle", "->", "LightYellow"}]}], "]"}]}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{"pl2", "=", 
+     RowBox[{"ListLinePlot3D", "[", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"Transpose", "/@", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"xx", ",", "yy", ",", 
+              RowBox[{"-", "zz"}]}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"xx", ",", 
+              RowBox[{"-", "yy"}], ",", 
+              RowBox[{"-", "zz"}]}], "}"}]}], "}"}]}], "//", "Transpose"}], 
+        ")"}], ",", 
+       RowBox[{"PlotStyle", "->", "LightYellow"}]}], "]"}]}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{"pl3", "=", 
+     RowBox[{"ListLinePlot3D", "[", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"Transpose", "/@", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"xx", ",", "yy", ",", "zz"}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"xx", ",", "yy", ",", 
+              RowBox[{"-", "zz"}]}], "}"}]}], "}"}]}], "//", "Transpose"}], 
+        ")"}], ",", 
+       RowBox[{"PlotStyle", "->", "LightBlue"}]}], "]"}]}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{"pl4", "=", 
+     RowBox[{"ListLinePlot3D", "[", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"Transpose", "/@", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"xx", ",", 
+              RowBox[{"-", "yy"}], ",", "zz"}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"xx", ",", 
+              RowBox[{"-", "yy"}], ",", 
+              RowBox[{"-", "zz"}]}], "}"}]}], "}"}]}], "//", "Transpose"}], 
+        ")"}], ",", 
+       RowBox[{"PlotStyle", "->", "LightBlue"}]}], "]"}]}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{"Show", "[", 
+     RowBox[{
+     "pl", ",", "pl1", ",", "pl2", ",", "pl3", ",", "pl4", ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{"Method", "->", 
+       RowBox[{"{", 
+        RowBox[{"\"\<RotationControl\>\"", "->", "\"\<Globe\>\""}], "}"}]}], 
+      ",", " ", 
+      RowBox[{"(*", " ", 
+       RowBox[{
+       "\:56fa\:5b9a\:65cb\:8f6c\:65b9\:5411", "\:ff0c", 
+        "\:907f\:514d\:65e0\:89c4\:5219\:65cb\:8f6c"}], " ", "*)"}], 
+      "\[IndentingNewLine]", 
+      RowBox[{"SphericalRegion", "->", "True"}], ",", " ", 
+      RowBox[{"(*", " ", 
+       RowBox[{
+       "\:56fa\:5b9a\:8fb9\:5e45", "\:ff0c", 
+        "\:907f\:514d\:7a97\:53e3\:632f\:8361"}], " ", "*)"}], 
+      "\[IndentingNewLine]", 
+      RowBox[{"BoxRatios", "\[Rule]", "Automatic"}]}], " ", 
+     RowBox[{
+     "(*", " ", 
+      "\:4f7f\:56fe\:50cf\:5750\:6807\:6bd4\:4e3a\:5b9e\:9645\:5750\:6807\
+\:6bd4", " ", "*)"}], "\[IndentingNewLine]", "]"}]}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"a", ",", "2", ",", "\"\<\:534a\:957f\:8f74\>\""}], "}"}], ",", 
+     "1", ",", "5"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"b", ",", "1", ",", "\"\<\:534a\:77ed\:8f74\>\""}], "}"}], ",", 
+     "1", ",", "a"}], "}"}], ",", "\[IndentingNewLine]", 
+   RowBox[{"ContinuousAction", "\[Rule]", "False"}], ",", " ", 
+   RowBox[{
+   "(*", " ", "\:4ec5\:5f53\:9f20\:6807\:91ca\:653e\:65f6\:66f4\:65b0", " ", 
+    "*)"}], "\[IndentingNewLine]", 
+   RowBox[{"TrackedSymbols", ":>", 
+    RowBox[{"{", 
+     RowBox[{"a", ",", "b"}], "}"}]}]}], " ", 
+  RowBox[{"(*", " ", 
+   RowBox[{
+    RowBox[{"\:4ec5\:5f53", " ", "a"}], ",", " ", 
+    RowBox[{
+    "b", " ", 
+     "\:66f4\:65b0\:65f6\:91cd\:65b0\:8ba1\:7b97\:6240\:6709\:4ee3\:7801"}]}],
+    " ", "*)"}], "\[IndentingNewLine]", "]"}]}], "Input",
+ CellChangeTimes->{{3.936865932832697*^9, 3.93686593949173*^9}, {
+   3.936865999064516*^9, 3.936866018268324*^9}, {3.936866128840965*^9, 
+   3.93686613913846*^9}, {3.936867383718002*^9, 3.936867385516825*^9}, {
+   3.93686974348806*^9, 3.936869750103746*^9}, 3.9368708053758163`*^9, {
+   3.936870973894705*^9, 3.936871028407381*^9}, {3.936871131899715*^9, 
+   3.936871136024456*^9}, {3.936871264765747*^9, 3.936871282207964*^9}, {
+   3.936871619547441*^9, 3.936871632443266*^9}, {3.936872187968212*^9, 
+   3.936872224733385*^9}, {3.9368722842960005`*^9, 3.9368723036404886`*^9}, {
+   3.936872343799154*^9, 3.9368723755207796`*^9}, 3.9368725416525536`*^9},
+ CellLabel->"In[1]:=",ExpressionUUID->"8a11d384-d6b1-794e-a4c9-d3f1917cca11"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`a$$ = 2, $CellContext`b$$ = 1, 
+    Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
+    1, Typeset`name$$ = "\"\:65e0\:6807\:9898\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`a$$], 2, "\:534a\:957f\:8f74"}, 1, 5, ControlType -> 
+      Manipulator}, {{
+       Hold[$CellContext`b$$], 1, "\:534a\:77ed\:8f74"}, 1, 
+      Dynamic[$CellContext`a$$], ControlType -> Manipulator}}, 
+    Typeset`size$$ = {324., {164., 168.84790926981418`}}, Typeset`update$$ = 
+    0, Typeset`initDone$$, Typeset`skipInitDone$$ = True}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`a$$ = 2, $CellContext`b$$ = 1}, 
+      "ControllerVariables" :> {}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> ($CellContext`S[
+          Pattern[$CellContext`y$, 
+           Blank[]]] := $CellContext`b$$ EllipticE[
+           ArcSin[$CellContext`y$/$CellContext`b$$], 
+           1 - $CellContext`a$$^2/$CellContext`b$$^2]; $CellContext`yy = 
+        Range[0, $CellContext`b$$, 2.^(-8)]; $CellContext`ss = 
+        Map[$CellContext`S, $CellContext`yy]; Off[
+         MessageName[InterpolatingFunction, "dmval"]]; $CellContext`f = 
+        Interpolation[
+          
+          Transpose[{$CellContext`ss, $CellContext`yy}]]; $CellContext`l = \
+$CellContext`S[$CellContext`b$$]; $CellContext`zz = 
+        Map[$CellContext`f, $CellContext`l - $CellContext`ss]; $CellContext`g = 
+        ReplaceAll[$CellContext`x, 
+          Part[
+           
+           NDSolve[{
+            Derivative[1][$CellContext`x][$CellContext`s]^2 + 
+              Derivative[1][$CellContext`f][$CellContext`s]^2 + 
+              Derivative[
+                1][$CellContext`f][$CellContext`l - $CellContext`s]^2 == 
+             1, $CellContext`x[0] == 0}, $CellContext`x, {$CellContext`s, 
+             0, $CellContext`l}], 2]]; $CellContext`xx = Re[
+          Map[$CellContext`g, $CellContext`ss]]; 
+       SetOptions[
+        ListLinePlot3D, 
+         LabelStyle -> (FontFamily -> "Times New Roman")]; $CellContext`pl = 
+        ListLinePlot3D[
+          Map[
+          Transpose, {{$CellContext`xx, $CellContext`yy, $CellContext`zz}, \
+{$CellContext`xx, $CellContext`yy, -$CellContext`zz}, {$CellContext`xx, \
+-$CellContext`yy, $CellContext`zz}, {$CellContext`xx, -$CellContext`yy, \
+-$CellContext`zz}}], PlotStyle -> Blue]; $CellContext`xx = 
+        Part[$CellContext`xx, 
+          Span[1, All, 4]]; $CellContext`yy = Part[$CellContext`yy, 
+          Span[1, All, 4]]; $CellContext`zz = Part[$CellContext`zz, 
+          Span[1, All, 4]]; $CellContext`pl1 = ListLinePlot3D[
+          Transpose[
+           Map[
+           Transpose, {{$CellContext`xx, $CellContext`yy, $CellContext`zz}, \
+{$CellContext`xx, -$CellContext`yy, $CellContext`zz}}]], PlotStyle -> 
+          LightYellow]; $CellContext`pl2 = ListLinePlot3D[
+          Transpose[
+           Map[
+           Transpose, {{$CellContext`xx, $CellContext`yy, -$CellContext`zz}, \
+{$CellContext`xx, -$CellContext`yy, -$CellContext`zz}}]], PlotStyle -> 
+          LightYellow]; $CellContext`pl3 = ListLinePlot3D[
+          Transpose[
+           Map[
+           Transpose, {{$CellContext`xx, $CellContext`yy, $CellContext`zz}, \
+{$CellContext`xx, $CellContext`yy, -$CellContext`zz}}]], PlotStyle -> 
+          LightBlue]; $CellContext`pl4 = ListLinePlot3D[
+          Transpose[
+           Map[
+           Transpose, {{$CellContext`xx, -$CellContext`yy, $CellContext`zz}, \
+{$CellContext`xx, -$CellContext`yy, -$CellContext`zz}}]], PlotStyle -> 
+          LightBlue]; 
+       Show[$CellContext`pl, $CellContext`pl1, $CellContext`pl2, \
+$CellContext`pl3, $CellContext`pl4, Method -> {"RotationControl" -> "Globe"}, 
+         SphericalRegion -> True, BoxRatios -> Automatic]), 
+      "Specifications" :> {{{$CellContext`a$$, 2, "\:534a\:957f\:8f74"}, 1, 
+         5}, {{$CellContext`b$$, 1, "\:534a\:77ed\:8f74"}, 1, 
+         Dynamic[$CellContext`a$$]}}, 
+      "Options" :> {
+       ContinuousAction -> False, 
+        TrackedSymbols :> {$CellContext`a$$, $CellContext`b$$}}, 
+      "DefaultOptions" :> {}],
+     ImageSizeCache->{852., {190.42062981973868`, 195.57937018026132`}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{
+  3.936871283450964*^9, {3.93687191012091*^9, 3.936871922199344*^9}, 
+   3.9368721288981*^9, 3.936872312006349*^9, 3.936872554548361*^9},
+ CellLabel->"Out[2]=",ExpressionUUID->"c342fb73-87d6-5445-b7c1-c2d0badc4866"]
+}, Open  ]]
+},
+WindowSize->{961.125, 573.375},
+WindowMargins->{{51.75, Automatic}, {7.875, Automatic}},
+Magnification:>0.9 Inherited,
+FrontEndVersion->"14.0 for Microsoft Windows (64-bit) (2023\:5e7412\:670812\
+\:65e5)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"effe184a-f0ac-8348-944b-58f9933be00c"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 10777, 288, 865, "Input",ExpressionUUID->"8a11d384-d6b1-794e-a4c9-d3f1917cca11"],
+Cell[11360, 312, 5152, 102, 403, "Output",ExpressionUUID->"c342fb73-87d6-5445-b7c1-c2d0badc4866"]
+}, Open  ]]
+}
+]
+*)
+

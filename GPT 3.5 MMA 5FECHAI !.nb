@@ -1,0 +1,189 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      5821,        179]
+NotebookOptionsPosition[      5453,        161]
+NotebookOutlinePosition[      5810,        177]
+CellTagsIndexPosition[      5767,        174]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"partitions", "=", 
+    RowBox[{"IntegerPartitions", "[", 
+     RowBox[{"5", ",", 
+      RowBox[{"{", "3", "}"}], ",", 
+      RowBox[{"Range", "[", 
+       RowBox[{"5", ",", "1", ",", 
+        RowBox[{"-", "1"}]}], "]"}]}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+  "\n", 
+  RowBox[{
+  "(*", "\:8ba1\:7b97\:6bcf\:4e2a\:5206\:62c6\:5f62\:5f0f\:7684\:5168\:6392\
+\:5217\:53ca\:5176\:6570\:91cf", "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"countPermutations", "[", "partition_", "]"}], ":=", 
+    RowBox[{"Module", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"unique", ",", "counts", ",", "totalPermutations"}], "}"}], 
+      ",", 
+      RowBox[{
+       RowBox[{"unique", "=", 
+        RowBox[{"Union", "[", "partition", "]"}]}], ";", 
+       RowBox[{"(*", "\:627e\:5230\:552f\:4e00\:5143\:7d20", "*)"}], 
+       RowBox[{"counts", "=", 
+        RowBox[{"Counts", "[", "partition", "]"}]}], ";", 
+       RowBox[{
+       "(*", "\:7edf\:8ba1\:6bcf\:4e2a\:5143\:7d20\:7684\:6570\:91cf", "*)"}], 
+       RowBox[{"totalPermutations", "=", 
+        RowBox[{
+         RowBox[{"Factorial", "[", 
+          RowBox[{"Total", "[", "counts", "]"}], "]"}], "/", 
+         RowBox[{"Product", "[", 
+          RowBox[{
+           RowBox[{"Factorial", "[", 
+            RowBox[{"counts", "[", 
+             RowBox[{"unique", "[", 
+              RowBox[{"[", "i", "]"}], "]"}], "]"}], "]"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"i", ",", 
+             RowBox[{"Length", "[", "unique", "]"}]}], "}"}]}], "]"}]}]}], 
+       ";", "\[IndentingNewLine]", 
+       RowBox[{"{", 
+        RowBox[{"partition", ",", "totalPermutations"}], "}"}]}]}], "]"}]}], 
+   ";"}], "\[IndentingNewLine]", "\n", 
+  RowBox[{
+  "(*", "\:8ba1\:7b97\:6240\:6709\:5206\:62c6\:5f62\:5f0f\:53ca\:5176\:6392\
+\:5217\:6570", "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"results", "=", 
+    RowBox[{"countPermutations", "/@", "partitions"}]}], ";"}], 
+  "\[IndentingNewLine]", "\n", 
+  RowBox[{
+  "(*", "\:8f93\:51fa\:5206\:62c6\:5f62\:5f0f\:53ca\:5176\:6392\:5217\:6570", 
+   "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"results", "//", "TableForm"}], "\[IndentingNewLine]", "\n", 
+  RowBox[{"(*", "\:8ba1\:7b97\:4f4d\:6570", "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"countDigits", "[", "partition_", "]"}], ":=", 
+    RowBox[{"Length", "[", 
+     RowBox[{"ToString", "[", 
+      RowBox[{"Total", "[", "partition", "]"}], "]"}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]", "\n", 
+  RowBox[{"(*", "\:6c47\:603b\:4f4d\:6570", "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"totalDigits", "=", 
+    RowBox[{"Total", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{
+        RowBox[{"countDigits", "[", 
+         RowBox[{"#", "[", 
+          RowBox[{"[", "1", "]"}], "]"}], "]"}], "*", 
+        RowBox[{"#", "[", 
+         RowBox[{"[", "2", "]"}], "]"}]}], "&"}], "/@", "results"}], "]"}]}], 
+   ";"}], "\[IndentingNewLine]", "\n", 
+  RowBox[{
+  "(*", "\:8f93\:51fa\:7ed3\:679c", 
+   "*)"}]}], "\[IndentingNewLine]", "totalDigits"}], "Input",
+ CellChangeTimes->{{3.937520301696412*^9, 3.9375203016994033`*^9}}],
+
+Cell[BoxData[
+ InterpretationBox[GridBox[{
+    {GridBox[{
+       {"1"},
+       {"1"},
+       {"3"}
+      },
+      GridBoxAlignment->{
+       "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+        "RowsIndexed" -> {}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.7]}, 
+          Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.1]}, 
+          Offset[0.2]}, "RowsIndexed" -> {}}], "3"},
+    {GridBox[{
+       {"1"},
+       {"2"},
+       {"2"}
+      },
+      GridBoxAlignment->{
+       "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+        "RowsIndexed" -> {}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.7]}, 
+          Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.1]}, 
+          Offset[0.2]}, "RowsIndexed" -> {}}], "3"}
+   },
+   GridBoxAlignment->{
+    "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+     "RowsIndexed" -> {}},
+   GridBoxSpacings->{"Columns" -> {
+       Offset[0.27999999999999997`], {
+        Offset[2.0999999999999996`]}, 
+       Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+       Offset[0.2], {
+        Offset[0.4]}, 
+       Offset[0.2]}, "RowsIndexed" -> {}}],
+  TableForm[{{{1, 1, 3}, 3}, {{1, 2, 2}, 3}}]]], "Output",
+ CellChangeTimes->{3.9375203056627083`*^9}],
+
+Cell[BoxData["0"], "Output",
+ CellChangeTimes->{3.9375203056647034`*^9}]
+}, Open  ]]
+},
+WindowSize->{759, 581},
+WindowMargins->{{Automatic, 295}, {16, Automatic}},
+FrontEndVersion->"10.3 for Microsoft Windows (64-bit) (2015\:5e7411\:67084\
+\:65e5)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 3250, 87, 664, "Input"],
+Cell[3833, 111, 1529, 44, 104, "Output"],
+Cell[5365, 157, 72, 1, 31, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+

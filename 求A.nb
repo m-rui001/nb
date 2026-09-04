@@ -1,0 +1,553 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 14.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     18376,        543]
+NotebookOptionsPosition[     17869,        525]
+NotebookOutlinePosition[     18290,        542]
+CellTagsIndexPosition[     18247,        539]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[{
+ RowBox[{"n", ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"\[EmptyUpTriangle]\[CapitalPhi]", "[", 
+   RowBox[{"r_", ",", "z_"}], "]"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"\[CapitalPhi]", "[", 
+    RowBox[{"r_", ",", " ", "\[Phi]_", ",", " ", "z_"}], "]"}], ":=", 
+   RowBox[{
+    RowBox[{"\[EmptyUpTriangle]\[CapitalPhi]", "[", 
+     RowBox[{"r", ",", "z"}], "]"}], "+", 
+    RowBox[{"n", " ", "\[Phi]"}]}]}], " ", ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"\[CapitalTheta]", "[", 
+    RowBox[{"r_", ",", " ", "z_"}], "]"}], ";"}], "\n", "\n"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"m", "[", 
+    RowBox[{"\[CapitalTheta]_", ",", "\[CapitalPhi]_"}], "]"}], ":=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Sin", "[", "\[CapitalTheta]", "]"}], 
+      RowBox[{"Cos", "[", "\[CapitalPhi]", "]"}]}], ",", 
+     RowBox[{
+      RowBox[{"Sin", "[", "\[CapitalTheta]", "]"}], 
+      RowBox[{"Sin", "[", "\[CapitalPhi]", "]"}]}], ",", 
+     RowBox[{"Cos", "[", "\[CapitalTheta]", "]"}]}], "}"}]}], "\n", 
+  "\n"}], "\n", 
+ RowBox[{
+  RowBox[{"dmd\[CapitalTheta]", " ", "=", " ", 
+   RowBox[{"D", "[", 
+    RowBox[{
+     RowBox[{"m", "[", 
+      RowBox[{"\[CapitalTheta]", ",", "\[CapitalPhi]"}], "]"}], ",", " ", 
+     "\[CapitalTheta]"}], "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"dmd\[CapitalPhi]", " ", "=", " ", 
+   RowBox[{"D", "[", 
+    RowBox[{
+     RowBox[{"m", "[", 
+      RowBox[{"\[CapitalTheta]", ",", "\[CapitalPhi]"}], "]"}], ",", " ", 
+     "\[CapitalPhi]"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"d\[CapitalPhi]dr", " ", "=", " ", 
+   RowBox[{"D", "[", 
+    RowBox[{
+     RowBox[{"\[CapitalPhi]", "[", 
+      RowBox[{"r", ",", " ", "\[Phi]", ",", " ", "z"}], "]"}], ",", "r"}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"d\[CapitalPhi]d\[Phi]", " ", "=", " ", 
+   RowBox[{"D", "[", 
+    RowBox[{
+     RowBox[{"\[CapitalPhi]", "[", 
+      RowBox[{"r", ",", " ", "\[Phi]", ",", " ", "z"}], "]"}], ",", 
+     "\[Phi]"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"d\[CapitalPhi]dz", " ", "=", " ", 
+   RowBox[{"D", "[", 
+    RowBox[{
+     RowBox[{"\[CapitalPhi]", "[", 
+      RowBox[{"r", ",", " ", "\[Phi]", ",", " ", "z"}], "]"}], ",", "z"}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"d\[CapitalTheta]dr", " ", "=", " ", 
+   RowBox[{"D", "[", 
+    RowBox[{
+     RowBox[{"\[CapitalTheta]", "[", 
+      RowBox[{"r", ",", " ", "z"}], "]"}], ",", "r"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"d\[CapitalTheta]dz", " ", "=", " ", 
+   RowBox[{"D", "[", 
+    RowBox[{
+     RowBox[{"\[CapitalTheta]", "[", 
+      RowBox[{"r", ",", " ", "z"}], "]"}], ",", "z"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"dmdr", "=", 
+    RowBox[{
+     RowBox[{"dmd\[CapitalTheta]", " ", "d\[CapitalTheta]dr"}], "+", 
+     RowBox[{"dmd\[CapitalPhi]", " ", "d\[CapitalPhi]dr"}]}]}], ";"}], 
+  "\n"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"dmd\[Phi]", "=", 
+    RowBox[{"dmd\[CapitalPhi]", " ", "d\[CapitalPhi]d\[Phi]"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"dmdz", "=", 
+    RowBox[{
+     RowBox[{"dmd\[CapitalTheta]", " ", "d\[CapitalTheta]dz"}], "+", 
+     RowBox[{"dmd\[CapitalPhi]", " ", "d\[CapitalPhi]dz"}]}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{" ", 
+  RowBox[{
+   RowBox[{"Fr", "=", 
+    RowBox[{"Simplify", "[", 
+     RowBox[{
+      RowBox[{"1", "/", "r"}], " ", 
+      RowBox[{
+       RowBox[{"m", "[", 
+        RowBox[{"\[CapitalTheta]", ",", "\[CapitalPhi]"}], "]"}], ".", 
+       RowBox[{"dmd\[Phi]", "\[Cross]", "dmdz"}]}]}], "]"}]}], 
+   ";"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"F\[Phi]", "=", 
+   RowBox[{"Simplify", "[", " ", 
+    RowBox[{
+     RowBox[{"m", "[", 
+      RowBox[{"\[CapitalTheta]", ",", "\[CapitalPhi]"}], "]"}], ".", 
+     RowBox[{"dmdz", "\[Cross]", "dmdr"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"Fz", "=", 
+    RowBox[{"Simplify", "[", 
+     RowBox[{
+      RowBox[{"1", "/", "r"}], " ", 
+      RowBox[{
+       RowBox[{"m", "[", 
+        RowBox[{"\[CapitalTheta]", ",", "\[CapitalPhi]"}], "]"}], ".", 
+       RowBox[{"dmdr", "\[Cross]", "dmd\[Phi]"}]}]}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Ar", "[", 
+   RowBox[{"\[CapitalTheta]_", ",", "\[CapitalPhi]_"}], "]"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"A\[Phi]", "[", 
+   RowBox[{"\[CapitalTheta]_", ",", "\[CapitalPhi]_"}], "]"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"Az", "[", 
+    RowBox[{"\[CapitalTheta]_", ",", "\[CapitalPhi]_"}], "]"}], ";"}], 
+  "\[IndentingNewLine]", "\[IndentingNewLine]", 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"dArd\[CapitalTheta]", " ", "=", " ", 
+   RowBox[{"D", "[", 
+    RowBox[{
+     RowBox[{"Ar", "[", 
+      RowBox[{"\[CapitalTheta]", ",", "\[CapitalPhi]"}], "]"}], ",", " ", 
+     "\[CapitalTheta]"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"dArd\[CapitalPhi]", " ", "=", " ", 
+    RowBox[{"D", "[", 
+     RowBox[{
+      RowBox[{"Ar", "[", 
+       RowBox[{"\[CapitalTheta]", ",", "\[CapitalPhi]"}], "]"}], ",", " ", 
+      "\[CapitalPhi]"}], "]"}]}], ";"}], "\n"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"dA\[Phi]d\[CapitalTheta]", " ", "=", " ", 
+   RowBox[{"D", "[", 
+    RowBox[{
+     RowBox[{"A\[Phi]", "[", 
+      RowBox[{"\[CapitalTheta]", ",", "\[CapitalPhi]"}], "]"}], ",", " ", 
+     "\[CapitalTheta]"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"dA\[Phi]d\[CapitalPhi]", " ", "=", " ", 
+   RowBox[{"D", "[", 
+    RowBox[{
+     RowBox[{"A\[Phi]", "[", 
+      RowBox[{"\[CapitalTheta]", ",", "\[CapitalPhi]"}], "]"}], ",", " ", 
+     "\[CapitalPhi]"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"dAzd\[CapitalTheta]", " ", "=", " ", 
+   RowBox[{"D", "[", 
+    RowBox[{
+     RowBox[{"Az", "[", 
+      RowBox[{"\[CapitalTheta]", ",", "\[CapitalPhi]"}], "]"}], ",", " ", 
+     "\[CapitalTheta]"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"dAzd\[CapitalPhi]", " ", "=", " ", 
+    RowBox[{"D", "[", 
+     RowBox[{
+      RowBox[{"Az", "[", 
+       RowBox[{"\[CapitalTheta]", ",", "\[CapitalPhi]"}], "]"}], ",", " ", 
+      "\[CapitalPhi]"}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"dAzd\[Phi]", "=", 
+   RowBox[{"dAzd\[CapitalPhi]", " ", "d\[CapitalPhi]d\[Phi]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"dA\[Phi]dz", "=", 
+   RowBox[{
+    RowBox[{"dA\[Phi]d\[CapitalTheta]", " ", "d\[CapitalTheta]dz"}], "+", 
+    RowBox[{"dA\[Phi]d\[CapitalPhi]", " ", "d\[CapitalPhi]dz"}]}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"dArdz", "=", 
+   RowBox[{
+    RowBox[{"dArd\[CapitalTheta]", " ", "d\[CapitalTheta]dz"}], "+", 
+    RowBox[{"dArd\[CapitalPhi]", " ", "d\[CapitalPhi]dz"}]}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"dAzdr", "=", 
+   RowBox[{
+    RowBox[{"dAzd\[CapitalTheta]", " ", "d\[CapitalTheta]dr"}], "+", 
+    RowBox[{"dAzd\[CapitalPhi]", " ", "d\[CapitalPhi]dr"}]}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"dArd\[Phi]", "=", 
+   RowBox[{"dArd\[CapitalPhi]", " ", "d\[CapitalPhi]d\[Phi]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"dA\[Phi]dr", "=", 
+   RowBox[{
+    RowBox[{"dA\[Phi]d\[CapitalTheta]", " ", "d\[CapitalTheta]dr"}], "+", 
+    RowBox[{"dA\[Phi]d\[CapitalPhi]", " ", "d\[CapitalPhi]dr"}]}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"DSolve", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{
+        FractionBox["1", "r"], " ", "dAzd\[Phi]"}], "-", "dA\[Phi]dz"}], "==",
+       "Fr"}], ",", 
+     RowBox[{
+      RowBox[{"dArdz", "-", "dAzdr"}], "==", "F\[Phi]"}], ",", 
+     RowBox[{
+      RowBox[{
+       FractionBox["1", "r"], 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"A\[Phi]", "[", 
+          RowBox[{"\[CapitalTheta]", ",", "\[CapitalPhi]"}], "]"}], "+", 
+         RowBox[{"r", " ", "dA\[Phi]dr"}], "-", "dArd\[Phi]"}], ")"}]}], "==",
+       "Fz"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"Az", "[", 
+      RowBox[{"\[CapitalTheta]", ",", "\[CapitalPhi]"}], "]"}], ",", 
+     RowBox[{"A\[Phi]", "[", 
+      RowBox[{"\[CapitalTheta]", ",", "\[CapitalPhi]"}], "]"}], ",", 
+     RowBox[{"Ar", "[", 
+      RowBox[{"\[CapitalTheta]", ",", "\[CapitalPhi]"}], "]"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\[CapitalTheta]", ",", "\[CapitalPhi]"}], "}"}]}], 
+  "]"}], "\[IndentingNewLine]"}], "Input",
+ CellChangeTimes->{{3.923972721218334*^9, 3.92397275403001*^9}},
+ CellLabel->"In[41]:=",ExpressionUUID->"f50909b0-9137-bc4d-af5b-c7deb6befbba"],
+
+Cell[BoxData[
+ RowBox[{"DSolve", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       FractionBox[
+        RowBox[{"n", " ", 
+         RowBox[{
+          SuperscriptBox["Az", 
+           TagBox[
+            RowBox[{"(", 
+             RowBox[{"0", ",", "1"}], ")"}],
+            Derivative],
+           MultilineFunction->None], "[", 
+          RowBox[{"\[CapitalTheta]", ",", "\[CapitalPhi]"}], "]"}]}], "r"], 
+       "-", 
+       RowBox[{
+        RowBox[{
+         SuperscriptBox["A\[Phi]", 
+          TagBox[
+           RowBox[{"(", 
+            RowBox[{"0", ",", "1"}], ")"}],
+           Derivative],
+          MultilineFunction->None], "[", 
+         RowBox[{"\[CapitalTheta]", ",", "\[CapitalPhi]"}], "]"}], " ", 
+        RowBox[{
+         SuperscriptBox["\[EmptyUpTriangle]\[CapitalPhi]", 
+          TagBox[
+           RowBox[{"(", 
+            RowBox[{"0", ",", "1"}], ")"}],
+           Derivative],
+          MultilineFunction->None], "[", 
+         RowBox[{"r", ",", "z"}], "]"}]}], "-", 
+       RowBox[{
+        RowBox[{
+         SuperscriptBox["\[CapitalTheta]", 
+          TagBox[
+           RowBox[{"(", 
+            RowBox[{"0", ",", "1"}], ")"}],
+           Derivative],
+          MultilineFunction->None], "[", 
+         RowBox[{"r", ",", "z"}], "]"}], " ", 
+        RowBox[{
+         SuperscriptBox["A\[Phi]", 
+          TagBox[
+           RowBox[{"(", 
+            RowBox[{"1", ",", "0"}], ")"}],
+           Derivative],
+          MultilineFunction->None], "[", 
+         RowBox[{"\[CapitalTheta]", ",", "\[CapitalPhi]"}], "]"}]}]}], 
+      "\[Equal]", 
+      RowBox[{"-", 
+       FractionBox[
+        RowBox[{"n", " ", 
+         RowBox[{"Sin", "[", "\[CapitalTheta]", "]"}], " ", 
+         RowBox[{
+          SuperscriptBox["\[CapitalTheta]", 
+           TagBox[
+            RowBox[{"(", 
+             RowBox[{"0", ",", "1"}], ")"}],
+            Derivative],
+           MultilineFunction->None], "[", 
+          RowBox[{"r", ",", "z"}], "]"}]}], "r"]}]}], ",", 
+     RowBox[{
+      RowBox[{
+       RowBox[{
+        RowBox[{
+         SuperscriptBox["Ar", 
+          TagBox[
+           RowBox[{"(", 
+            RowBox[{"0", ",", "1"}], ")"}],
+           Derivative],
+          MultilineFunction->None], "[", 
+         RowBox[{"\[CapitalTheta]", ",", "\[CapitalPhi]"}], "]"}], " ", 
+        RowBox[{
+         SuperscriptBox["\[EmptyUpTriangle]\[CapitalPhi]", 
+          TagBox[
+           RowBox[{"(", 
+            RowBox[{"0", ",", "1"}], ")"}],
+           Derivative],
+          MultilineFunction->None], "[", 
+         RowBox[{"r", ",", "z"}], "]"}]}], "+", 
+       RowBox[{
+        RowBox[{
+         SuperscriptBox["\[CapitalTheta]", 
+          TagBox[
+           RowBox[{"(", 
+            RowBox[{"0", ",", "1"}], ")"}],
+           Derivative],
+          MultilineFunction->None], "[", 
+         RowBox[{"r", ",", "z"}], "]"}], " ", 
+        RowBox[{
+         SuperscriptBox["Ar", 
+          TagBox[
+           RowBox[{"(", 
+            RowBox[{"1", ",", "0"}], ")"}],
+           Derivative],
+          MultilineFunction->None], "[", 
+         RowBox[{"\[CapitalTheta]", ",", "\[CapitalPhi]"}], "]"}]}], "-", 
+       RowBox[{
+        RowBox[{
+         SuperscriptBox["Az", 
+          TagBox[
+           RowBox[{"(", 
+            RowBox[{"1", ",", "0"}], ")"}],
+           Derivative],
+          MultilineFunction->None], "[", 
+         RowBox[{"\[CapitalTheta]", ",", "\[CapitalPhi]"}], "]"}], " ", 
+        RowBox[{
+         SuperscriptBox["\[CapitalTheta]", 
+          TagBox[
+           RowBox[{"(", 
+            RowBox[{"1", ",", "0"}], ")"}],
+           Derivative],
+          MultilineFunction->None], "[", 
+         RowBox[{"r", ",", "z"}], "]"}]}], "-", 
+       RowBox[{
+        RowBox[{
+         SuperscriptBox["Az", 
+          TagBox[
+           RowBox[{"(", 
+            RowBox[{"0", ",", "1"}], ")"}],
+           Derivative],
+          MultilineFunction->None], "[", 
+         RowBox[{"\[CapitalTheta]", ",", "\[CapitalPhi]"}], "]"}], " ", 
+        RowBox[{
+         SuperscriptBox["\[EmptyUpTriangle]\[CapitalPhi]", 
+          TagBox[
+           RowBox[{"(", 
+            RowBox[{"1", ",", "0"}], ")"}],
+           Derivative],
+          MultilineFunction->None], "[", 
+         RowBox[{"r", ",", "z"}], "]"}]}]}], "\[Equal]", 
+      RowBox[{
+       RowBox[{"Sin", "[", "\[CapitalTheta]", "]"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"-", 
+           RowBox[{
+            SuperscriptBox["\[EmptyUpTriangle]\[CapitalPhi]", 
+             TagBox[
+              RowBox[{"(", 
+               RowBox[{"0", ",", "1"}], ")"}],
+              Derivative],
+             MultilineFunction->None], "[", 
+            RowBox[{"r", ",", "z"}], "]"}]}], " ", 
+          RowBox[{
+           SuperscriptBox["\[CapitalTheta]", 
+            TagBox[
+             RowBox[{"(", 
+              RowBox[{"1", ",", "0"}], ")"}],
+             Derivative],
+            MultilineFunction->None], "[", 
+           RowBox[{"r", ",", "z"}], "]"}]}], "+", 
+         RowBox[{
+          RowBox[{
+           SuperscriptBox["\[CapitalTheta]", 
+            TagBox[
+             RowBox[{"(", 
+              RowBox[{"0", ",", "1"}], ")"}],
+             Derivative],
+            MultilineFunction->None], "[", 
+           RowBox[{"r", ",", "z"}], "]"}], " ", 
+          RowBox[{
+           SuperscriptBox["\[EmptyUpTriangle]\[CapitalPhi]", 
+            TagBox[
+             RowBox[{"(", 
+              RowBox[{"1", ",", "0"}], ")"}],
+             Derivative],
+            MultilineFunction->None], "[", 
+           RowBox[{"r", ",", "z"}], "]"}]}]}], ")"}]}]}], ",", 
+     RowBox[{
+      FractionBox[
+       RowBox[{
+        RowBox[{"A\[Phi]", "[", 
+         RowBox[{"\[CapitalTheta]", ",", "\[CapitalPhi]"}], "]"}], "-", 
+        RowBox[{"n", " ", 
+         RowBox[{
+          SuperscriptBox["Ar", 
+           TagBox[
+            RowBox[{"(", 
+             RowBox[{"0", ",", "1"}], ")"}],
+            Derivative],
+           MultilineFunction->None], "[", 
+          RowBox[{"\[CapitalTheta]", ",", "\[CapitalPhi]"}], "]"}]}], "+", 
+        RowBox[{"r", " ", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{
+            RowBox[{
+             SuperscriptBox["A\[Phi]", 
+              TagBox[
+               RowBox[{"(", 
+                RowBox[{"1", ",", "0"}], ")"}],
+               Derivative],
+              MultilineFunction->None], "[", 
+             RowBox[{"\[CapitalTheta]", ",", "\[CapitalPhi]"}], "]"}], " ", 
+            RowBox[{
+             SuperscriptBox["\[CapitalTheta]", 
+              TagBox[
+               RowBox[{"(", 
+                RowBox[{"1", ",", "0"}], ")"}],
+               Derivative],
+              MultilineFunction->None], "[", 
+             RowBox[{"r", ",", "z"}], "]"}]}], "+", 
+           RowBox[{
+            RowBox[{
+             SuperscriptBox["A\[Phi]", 
+              TagBox[
+               RowBox[{"(", 
+                RowBox[{"0", ",", "1"}], ")"}],
+               Derivative],
+              MultilineFunction->None], "[", 
+             RowBox[{"\[CapitalTheta]", ",", "\[CapitalPhi]"}], "]"}], " ", 
+            RowBox[{
+             SuperscriptBox["\[EmptyUpTriangle]\[CapitalPhi]", 
+              TagBox[
+               RowBox[{"(", 
+                RowBox[{"1", ",", "0"}], ")"}],
+               Derivative],
+              MultilineFunction->None], "[", 
+             RowBox[{"r", ",", "z"}], "]"}]}]}], ")"}]}]}], "r"], "\[Equal]", 
+      FractionBox[
+       RowBox[{"n", " ", 
+        RowBox[{"Sin", "[", "\[CapitalTheta]", "]"}], " ", 
+        RowBox[{
+         SuperscriptBox["\[CapitalTheta]", 
+          TagBox[
+           RowBox[{"(", 
+            RowBox[{"1", ",", "0"}], ")"}],
+           Derivative],
+          MultilineFunction->None], "[", 
+         RowBox[{"r", ",", "z"}], "]"}]}], "r"]}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"Az", "[", 
+      RowBox[{"\[CapitalTheta]", ",", "\[CapitalPhi]"}], "]"}], ",", 
+     RowBox[{"A\[Phi]", "[", 
+      RowBox[{"\[CapitalTheta]", ",", "\[CapitalPhi]"}], "]"}], ",", 
+     RowBox[{"Ar", "[", 
+      RowBox[{"\[CapitalTheta]", ",", "\[CapitalPhi]"}], "]"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\[CapitalTheta]", ",", "\[CapitalPhi]"}], "}"}]}], 
+  "]"}]], "Output",
+ CellChangeTimes->{3.923972756885889*^9},
+ CellLabel->"Out[74]=",ExpressionUUID->"fe3f1865-f2b9-144a-9fdb-3866bddbd90b"]
+}, Open  ]]
+},
+WindowSize->{1141.2, 574.8},
+WindowMargins->{{Automatic, 96}, {Automatic, 106.8}},
+FrontEndVersion->"14.0 for Microsoft Windows (64-bit) (2023\:5e7412\:670812\
+\:65e5)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"1a828914-523f-6f42-8605-6061a9035d44"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 8873, 250, 1235, "Input",ExpressionUUID->"f50909b0-9137-bc4d-af5b-c7deb6befbba"],
+Cell[9456, 274, 8397, 248, 133, "Output",ExpressionUUID->"fe3f1865-f2b9-144a-9fdb-3866bddbd90b"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+

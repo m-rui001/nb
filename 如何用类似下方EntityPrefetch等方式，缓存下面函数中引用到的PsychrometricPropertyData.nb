@@ -1,0 +1,402 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 14.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     17166,        392]
+NotebookOptionsPosition[     16160,        368]
+NotebookOutlinePosition[     16616,        386]
+CellTagsIndexPosition[     16573,        383]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{"(*", 
+  RowBox[{
+  "\:5982\:4f55\:7528\:7c7b\:4f3c\:4e0b\:65b9EntityPrefetch\:7b49\:65b9\:5f0f\
+", "\:ff0c", 
+   RowBox[{
+   "\:7f13\:5b58\:4e0b\:9762\:51fd\:6570\:4e2d\:5f15\:7528\:5230\:7684\
+PsychrometricPropertyData", " ", "\:6570\:636e\:7684\:503c"}], "\:ff0c", 
+   "\:8fd9\:6837\:4f1a\:901f\:5ea6\:4f1a\:5feb\:4e9b"}], "*)"}]], "Input",
+ CellChangeTimes->{{3.928798729697548*^9, 
+  3.9287988195757084`*^9}},ExpressionUUID->"2d580b23-f34d-264c-9c21-\
+52f4995c20df"],
+
+Cell[BoxData["EntityPrefetch"], "Input",
+ CellChangeTimes->{{3.9287985812062473`*^9, 
+  3.9287985967037354`*^9}},ExpressionUUID->"b29a4cbb-3d78-3f47-8800-\
+9a578b46ecf8"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"zhongYinMinChen", "=", 
+   RowBox[{"{", 
+    RowBox[{
+    "\"\<Compressibility Factor\:538b\:7f29\:7cfb\:6570\>\"", ",", 
+     "\"\<Dew Point Temperature\:9732\:70b9\:6e29\:5ea6\>\"", ",", 
+     "\"\<Dry Bulb Temperature\:5e72\:7403\:6e29\:5ea6\>\"", ",", 
+     "\"\<Humidity Ratio\:6e7f\:5ea6\:6bd4\>\"", ",", 
+     "\"\<Mass Density\:5bc6\:5ea6\>\"", ",", 
+     "\"\<Molar Enthalpy\:6469\:5c14\:7113\>\"", ",", 
+     "\"\<Molar Entropy\:6469\:5c14\:71b5\>\"", ",", 
+     "\"\<Molar Isobaric Heat \
+Capacity\:7b49\:538b\:6469\:5c14\:70ed\:5bb9\>\"", ",", 
+     "\"\<Molar Isochoric Heat Capacity\:7b49\:5bb9\:6469\:5c14\:70ed\:5bb9\>\
+\"", ",", "\"\<Molar Mass\:5e73\:5747\:6469\:5c14\:8d28\:91cf\>\"", ",", 
+     "\"\<Mole Fraction Dry Air\:5e72\:71e5\:7a7a\:6c14\:6469\:5c14\:5206\
+\:6570\>\"", ",", 
+     "\"\<Mole Fraction Water\:6c34\:84b8\:6c14\:6469\:5c14\:5206\:6570\>\"", 
+     ",", "\"\<Prandtl Number\:52a8\:91cf\:6269\:6563\:7387\:4e0e\:70ed\:6269\
+\:6563\:7387\:4e4b\:6bd4\>\"", ",", "\"\<Pressure\:6c14\:538b\>\"", ",", 
+     "\"\<Psychrometric Constant\:7113\:6e7f\:5e38\:6570\>\"", ",", 
+     "\"\<Relative Humidity\:76f8\:5bf9\:6e7f\:5ea6\>\"", ",", 
+     "\"\<Saturation Degree\:9971\:548c\:5ea6\>\"", ",", 
+     "\"\<Sound Speed\:58f0\:901f\>\"", ",", 
+     "\"\<Specific Enthalpy\:6bd4\:7113\>\"", ",", 
+     "\"\<Specific Entropy\:6bd4\:71b5\>\"", ",", 
+     "\"\<Specific Isobaric Heat Capacity\:7b49\:538b\:6bd4\:70ed\>\"", ",", 
+     "\"\<Specific Isochoric Heat Capacity\:7b49\:5bb9\:6bd4\:70ed\>\"", ",", 
+     "\"\<Specific Volume\:6bd4\:5bb9\>\"", ",", 
+     "\"\<Thermal Conductivity\:70ed\:5bfc\:7387\>\"", ",", 
+     "\"\<Thermal Diffusivity\:70ed\:6269\:6563\:7387\>\"", ",", 
+     "\"\<Viscosity\:7c98\:5ea6\>\"", ",", 
+     "\"\<Wet Bulb Temperature\:6e7f\:7403\:6e29\:5ea6\>\""}], "}"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.922567727199528*^9, 3.922567759196978*^9}, {
+   3.92256784822081*^9, 3.92256786074108*^9}, {3.922567928333549*^9, 
+   3.9225679287013626`*^9}, {3.922568022953125*^9, 3.922568034009756*^9}, 
+   3.9225684829715195`*^9, {3.922568528010033*^9, 3.922568532955183*^9}, {
+   3.922568566596409*^9, 3.922568574621935*^9}, {3.923511844151657*^9, 
+   3.923511849631819*^9}},
+ CellLabel->"In[11]:=",ExpressionUUID->"fc047e12-a09c-834c-ac54-8bf33b243535"],
+
+Cell[BoxData[
+ RowBox[{"(*", 
+  RowBox[{"\:683c\:5f0f\:4e3a", "\:ff1a", 
+   RowBox[{"wenShiShuJu", "[", 
+    RowBox[{"\:6444\:6c0f\:6e29\:5ea6\:2103", ",", 
+     RowBox[{"\:76f8\:5bf9\:6e7f\:5ea6RH", "%"}]}], "]"}]}], "*)"}]], "Input",
+ CellChangeTimes->{{3.9225696478644886`*^9, 3.922569700365923*^9}, 
+   3.922571262959069*^9},
+ CellLabel->"In[6]:=",ExpressionUUID->"55be553c-ed38-dd4b-a554-62eccd1d8920"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"wenShiShuJu", "[", 
+   RowBox[{"wd_", ",", "xdsd_"}], "]"}], ":=", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"shuJu", ",", "shuLiang"}], "}"}], ",", 
+    RowBox[{
+     RowBox[{"shuJu", "=", 
+      RowBox[{"PsychrometricPropertyData", "[", 
+       RowBox[{"\[LeftAssociation]", 
+        RowBox[{
+         RowBox[{"\"\<DryBulbTemperature\>\"", "\[Rule]", 
+          RowBox[{"Quantity", "[", 
+           RowBox[{"wd", ",", "\"\<DegreesCelsius\>\""}], "]"}]}], ",", 
+         RowBox[{"\"\<RelativeHumidity\>\"", "\[Rule]", 
+          RowBox[{"Quantity", "[", 
+           RowBox[{"xdsd", ",", "\"\<Percent\>\""}], "]"}]}]}], 
+        "\[RightAssociation]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"shuLiang", "=", 
+      RowBox[{"UnitConvert", "[", 
+       RowBox[{
+        RowBox[{"shuJu", "//", "Values"}], "//", "N"}], "]"}]}], ";", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"Range", "@", "27"}], ",", "zhongYinMinChen", ",", 
+         "shuLiang"}], "}"}], "//", "Transpose"}], "//", "TableForm"}]}]}], 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.922568415499872*^9, 3.9225684488456974`*^9}, {
+   3.922568600793972*^9, 3.922568601678728*^9}, {3.9225686338352585`*^9, 
+   3.922568644019558*^9}, {3.922568685940723*^9, 3.922568784782038*^9}, {
+   3.9225704165173016`*^9, 3.922570424943582*^9}, 3.922571263992392*^9},
+ CellLabel->"In[9]:=",ExpressionUUID->"11a26dd0-ba77-5b4e-8838-30f2e31e26a3"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"wenShiShuJu", "[", 
+  RowBox[{"25", ",", "70"}], "]"}]], "Input",
+ CellChangeTimes->{{3.922568812463833*^9, 3.922568829284727*^9}, 
+   3.922571269634024*^9, {3.9225732799725685`*^9, 3.922573302725088*^9}},
+ CellLabel->"In[12]:=",ExpressionUUID->"0a3385e5-32cb-e84e-a34b-bac3106ff63e"],
+
+Cell[BoxData[
+ TagBox[GridBox[{
+    {"1", "\<\"Compressibility Factor\:538b\:7f29\:7cfb\:6570\"\>", 
+     "0.9996074197012643`"},
+    {"2", "\<\"Dew Point Temperature\:9732\:70b9\:6e29\:5ea6\"\>", 
+     TemplateBox[{"292.0388888888889`", "\"K\"", "kelvins", "\"Kelvins\""},
+      "Quantity"]},
+    {"3", "\<\"Dry Bulb Temperature\:5e72\:7403\:6e29\:5ea6\"\>", 
+     TemplateBox[{"298.15000000000003`", "\"K\"", "kelvins", "\"Kelvins\""},
+      "Quantity"]},
+    {"4", "\<\"Humidity Ratio\:6e7f\:5ea6\:6bd4\"\>", "0.014000000000000002`"},
+    {"5", "\<\"Mass Density\:5bc6\:5ea6\"\>", 
+     TemplateBox[{"1.174568408173667`", 
+       RowBox[{"\"kg\"", "\[InvisibleSpace]", "\"/\"", "\[InvisibleSpace]", 
+         SuperscriptBox["\"m\"", "3"]}], "kilograms per meter cubed", 
+       FractionBox["\"Kilograms\"", 
+        SuperscriptBox["\"Meters\"", "3"]]},
+      "Quantity"]},
+    {"6", "\<\"Molar Enthalpy\:6469\:5c14\:7113\"\>", 
+     TemplateBox[{"1717.`", 
+       RowBox[{"\"kg\"", "\[ThinSpace]", 
+         SuperscriptBox["\"m\"", "2"], "\[NegativeMediumSpace]", "\"/(\"", 
+         "\[InvisibleSpace]", 
+         SuperscriptBox["\"s\"", "2"], "\[InvisibleSpace]", "\"mol\"", 
+         "\[InvisibleSpace]", "\")\""}], 
+       "kilogram meters squared per second squared mole", 
+       FractionBox[
+        RowBox[{"\"Kilograms\"", " ", 
+          SuperscriptBox["\"Meters\"", "2"]}], 
+        RowBox[{"\"Moles\"", " ", 
+          SuperscriptBox["\"Seconds\"", "2"]}]]},
+      "Quantity"]},
+    {"7", "\<\"Molar Entropy\:6469\:5c14\:71b5\"\>", 
+     TemplateBox[{"6.12916269687329`", 
+       RowBox[{"\"kg\"", "\[ThinSpace]", 
+         SuperscriptBox["\"m\"", "2"], "\[NegativeMediumSpace]", "\"/(\"", 
+         "\[InvisibleSpace]", 
+         SuperscriptBox["\"s\"", "2"], "\[InvisibleSpace]", "\"K\"", 
+         "\[ThinSpace]", "\"mol\"", "\[InvisibleSpace]", "\")\""}], 
+       "kilogram meters squared per second squared kelvin mole", 
+       FractionBox[
+        RowBox[{"\"Kilograms\"", " ", 
+          SuperscriptBox["\"Meters\"", "2"]}], 
+        RowBox[{"\"Kelvins\"", " ", "\"Moles\"", " ", 
+          SuperscriptBox["\"Seconds\"", "2"]}]]},
+      "Quantity"]},
+    {"8", "\<\"Molar Isobaric Heat Capacity\:7b49\:538b\:6469\:5c14\:70ed\
+\:5bb9\"\>", 
+     TemplateBox[{"30.16428031896545`", 
+       RowBox[{"\"kg\"", "\[ThinSpace]", 
+         SuperscriptBox["\"m\"", "2"], "\[NegativeMediumSpace]", "\"/(\"", 
+         "\[InvisibleSpace]", 
+         SuperscriptBox["\"s\"", "2"], "\[InvisibleSpace]", "\"K\"", 
+         "\[ThinSpace]", "\"mol\"", "\[InvisibleSpace]", "\")\""}], 
+       "kilogram meters squared per second squared kelvin mole", 
+       FractionBox[
+        RowBox[{"\"Kilograms\"", " ", 
+          SuperscriptBox["\"Meters\"", "2"]}], 
+        RowBox[{"\"Kelvins\"", " ", "\"Moles\"", " ", 
+          SuperscriptBox["\"Seconds\"", "2"]}]]},
+      "Quantity"]},
+    {"9", "\<\"Molar Isochoric Heat Capacity\:7b49\:5bb9\:6469\:5c14\:70ed\
+\:5bb9\"\>", 
+     TemplateBox[{"21.97623572099195`", 
+       RowBox[{"\"kg\"", "\[ThinSpace]", 
+         SuperscriptBox["\"m\"", "2"], "\[NegativeMediumSpace]", "\"/(\"", 
+         "\[InvisibleSpace]", 
+         SuperscriptBox["\"s\"", "2"], "\[InvisibleSpace]", "\"K\"", 
+         "\[ThinSpace]", "\"mol\"", "\[InvisibleSpace]", "\")\""}], 
+       "kilogram meters squared per second squared kelvin mole", 
+       FractionBox[
+        RowBox[{"\"Kilograms\"", " ", 
+          SuperscriptBox["\"Meters\"", "2"]}], 
+        RowBox[{"\"Kelvins\"", " ", "\"Moles\"", " ", 
+          SuperscriptBox["\"Seconds\"", "2"]}]]},
+      "Quantity"]},
+    {"10", "\<\"Molar Mass\:5e73\:5747\:6469\:5c14\:8d28\:91cf\"\>", 
+     TemplateBox[{"0.028725000000000004`", 
+       RowBox[{
+        "\"kg\"", "\[InvisibleSpace]", "\"/\"", "\[InvisibleSpace]", 
+         "\"mol\""}], "kilograms per mole", 
+       FractionBox["\"Kilograms\"", "\"Moles\""]},
+      "Quantity"]},
+    {"11", "\<\"Mole Fraction Dry Air\:5e72\:71e5\:7a7a\:6c14\:6469\:5c14\
+\:5206\:6570\"\>", "0.9780081085701692`"},
+    {"12", "\<\"Mole Fraction Water\:6c34\:84b8\:6c14\:6469\:5c14\:5206\:6570\
+\"\>", "0.021991891429830823`"},
+    {"13", "\<\"Prandtl \
+Number\:52a8\:91cf\:6269\:6563\:7387\:4e0e\:70ed\:6269\:6563\:7387\:4e4b\:6bd4\
+\"\>", "0.7570331516474362`"},
+    {"14", "\<\"Pressure\:6c14\:538b\"\>", 
+     TemplateBox[{"101325.`", 
+       RowBox[{
+        "\"kg\"", "\[InvisibleSpace]", "\"/(\"", "\[InvisibleSpace]", "\"m\"",
+          "\[ThinSpace]", 
+         SuperscriptBox["\"s\"", "2"], "\[InvisibleSpace]", "\")\""}], 
+       "kilograms per meter second squared", 
+       FractionBox["\"Kilograms\"", 
+        RowBox[{"\"Meters\"", " ", 
+          SuperscriptBox["\"Seconds\"", "2"]}]]},
+      "Quantity"]},
+    {"15", "\<\"Psychrometric Constant\:7113\:6e7f\:5e38\:6570\"\>", 
+     TemplateBox[{"76.71669206944057`", 
+       RowBox[{
+        "\"kg\"", "\[InvisibleSpace]", "\"/(\"", "\[InvisibleSpace]", "\"m\"",
+          "\[ThinSpace]", 
+         SuperscriptBox["\"s\"", "2"], "\[InvisibleSpace]", "\"K\"", 
+         "\[InvisibleSpace]", "\")\""}], 
+       "kilograms per meter second squared kelvin", 
+       FractionBox["\"Kilograms\"", 
+        RowBox[{"\"Kelvins\"", " ", "\"Meters\"", " ", 
+          SuperscriptBox["\"Seconds\"", "2"]}]]},
+      "Quantity"]},
+    {"16", "\<\"Relative Humidity\:76f8\:5bf9\:6e7f\:5ea6\"\>", 
+     "0.7000000000000001`"},
+    {"17", "\<\"Saturation Degree\:9971\:548c\:5ea6\"\>", 
+     "0.6932540769640492`"},
+    {"18", "\<\"Sound Speed\:58f0\:901f\"\>", 
+     TemplateBox[{"344.7539406181912`", 
+       RowBox[{
+        "\"m\"", "\[InvisibleSpace]", "\"/\"", "\[InvisibleSpace]", "\"s\""}],
+        "meters per second", 
+       FractionBox["\"Meters\"", "\"Seconds\""]},
+      "Quantity"]},
+    {"19", "\<\"Specific Enthalpy\:6bd4\:7113\"\>", 
+     TemplateBox[{"60626.810506564085`", 
+       RowBox[{
+         SuperscriptBox["\"m\"", "2"], "\[NegativeMediumSpace]", "\"/\"", 
+         "\[InvisibleSpace]", 
+         SuperscriptBox["\"s\"", "2"]}], "meters squared per second squared", 
+       FractionBox[
+        SuperscriptBox["\"Meters\"", "2"], 
+        SuperscriptBox["\"Seconds\"", "2"]]},
+      "Quantity"]},
+    {"20", "\<\"Specific Entropy\:6bd4\:71b5\"\>", 
+     TemplateBox[{"216.35660992081625`", 
+       RowBox[{
+         SuperscriptBox["\"m\"", "2"], "\[NegativeMediumSpace]", "\"/(\"", 
+         "\[InvisibleSpace]", 
+         SuperscriptBox["\"s\"", "2"], "\[InvisibleSpace]", "\"K\"", 
+         "\[InvisibleSpace]", "\")\""}], 
+       "meters squared per second squared kelvin", 
+       FractionBox[
+        SuperscriptBox["\"Meters\"", "2"], 
+        RowBox[{"\"Kelvins\"", " ", 
+          SuperscriptBox["\"Seconds\"", "2"]}]]},
+      "Quantity"]},
+    {"21", "\<\"Specific Isobaric Heat Capacity\:7b49\:538b\:6bd4\:70ed\"\>", 
+     TemplateBox[{"1050.0991810798962`", 
+       RowBox[{
+         SuperscriptBox["\"m\"", "2"], "\[NegativeMediumSpace]", "\"/(\"", 
+         "\[InvisibleSpace]", 
+         SuperscriptBox["\"s\"", "2"], "\[InvisibleSpace]", "\"K\"", 
+         "\[InvisibleSpace]", "\")\""}], 
+       "meters squared per second squared kelvin", 
+       FractionBox[
+        SuperscriptBox["\"Meters\"", "2"], 
+        RowBox[{"\"Kelvins\"", " ", 
+          SuperscriptBox["\"Seconds\"", "2"]}]]},
+      "Quantity"]},
+    {"22", "\<\"Specific Isochoric Heat Capacity\:7b49\:5bb9\:6bd4\:70ed\"\>", 
+     TemplateBox[{"765.0514744528106`", 
+       RowBox[{
+         SuperscriptBox["\"m\"", "2"], "\[NegativeMediumSpace]", "\"/(\"", 
+         "\[InvisibleSpace]", 
+         SuperscriptBox["\"s\"", "2"], "\[InvisibleSpace]", "\"K\"", 
+         "\[InvisibleSpace]", "\")\""}], 
+       "meters squared per second squared kelvin", 
+       FractionBox[
+        SuperscriptBox["\"Meters\"", "2"], 
+        RowBox[{"\"Kelvins\"", " ", 
+          SuperscriptBox["\"Seconds\"", "2"]}]]},
+      "Quantity"]},
+    {"23", "\<\"Specific Volume\:6bd4\:5bb9\"\>", 
+     TemplateBox[{"0.8632538388469276`", 
+       RowBox[{
+         SuperscriptBox["\"m\"", "3"], "\[NegativeMediumSpace]", "\"/\"", 
+         "\[InvisibleSpace]", "\"kg\""}], "meters cubed per kilogram", 
+       FractionBox[
+        SuperscriptBox["\"Meters\"", "3"], "\"Kilograms\""]},
+      "Quantity"]},
+    {"24", "\<\"Thermal Conductivity\:70ed\:5bfc\:7387\"\>", 
+     TemplateBox[{"0.02671424519896596`", 
+       RowBox[{
+        "\"kg\"", "\[ThinSpace]", "\"m\"", "\[InvisibleSpace]", "\"/(\"", 
+         "\[InvisibleSpace]", 
+         SuperscriptBox["\"s\"", "3"], "\[InvisibleSpace]", "\"K\"", 
+         "\[InvisibleSpace]", "\")\""}], 
+       "kilogram meters per second cubed kelvin", 
+       FractionBox[
+        RowBox[{"\"Kilograms\"", " ", "\"Meters\""}], 
+        RowBox[{"\"Kelvins\"", " ", 
+          SuperscriptBox["\"Seconds\"", "3"]}]]},
+      "Quantity"]},
+    {"25", "\<\"Thermal Diffusivity\:70ed\:6269\:6563\:7387\"\>", 
+     TemplateBox[{"0.000021349829892537125`", 
+       RowBox[{
+         SuperscriptBox["\"m\"", "2"], "\[NegativeMediumSpace]", "\"/\"", 
+         "\[InvisibleSpace]", "\"s\""}], "meters squared per second", 
+       FractionBox[
+        SuperscriptBox["\"Meters\"", "2"], "\"Seconds\""]},
+      "Quantity"]},
+    {"26", "\<\"Viscosity\:7c98\:5ea6\"\>", 
+     TemplateBox[{"0.0000192587229865832`", 
+       RowBox[{
+        "\"kg\"", "\[InvisibleSpace]", "\"/(\"", "\[InvisibleSpace]", "\"m\"",
+          "\[ThinSpace]", "\"s\"", "\[InvisibleSpace]", "\")\""}], 
+       "kilograms per meter second", 
+       FractionBox["\"Kilograms\"", 
+        RowBox[{"\"Meters\"", " ", "\"Seconds\""}]]},
+      "Quantity"]},
+    {"27", "\<\"Wet Bulb Temperature\:6e7f\:7403\:6e29\:5ea6\"\>", 
+     TemplateBox[{"294.2611111111111`", "\"K\"", "kelvins", "\"Kelvins\""},
+      "Quantity"]}
+   },
+   GridBoxAlignment->{"Columns" -> {{Left}}, "Rows" -> {{Baseline}}},
+   GridBoxSpacings->{"Columns" -> {
+       Offset[0.27999999999999997`], {
+        Offset[2.0999999999999996`]}, 
+       Offset[0.27999999999999997`]}, "Rows" -> {
+       Offset[0.2], {
+        Offset[0.4]}, 
+       Offset[0.2]}}],
+  Function[BoxForm`e$, 
+   TableForm[BoxForm`e$]]]], "Output",
+ CellChangeTimes->{3.9287988815920353`*^9, 3.928798930129389*^9},
+ CellLabel->
+  "Out[12]//TableForm=",ExpressionUUID->"e7d263be-7b3d-6442-a6ab-\
+c5ed5067e817"]
+}, Open  ]]
+},
+WindowSize->{958, 734.5},
+WindowMargins->{{5, Automatic}, {-19, Automatic}},
+TaggingRules-><|"TryRealOnly" -> False|>,
+FrontEndVersion->"14.0 for Microsoft Windows (64-bit) (2023\:5e7412\:67081\
+\:65e5)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"25b116c9-33fb-b640-a389-cecd94e14657"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 494, 11, 28, "Input",ExpressionUUID->"2d580b23-f34d-264c-9c21-52f4995c20df"],
+Cell[1055, 33, 170, 3, 43, "Input",ExpressionUUID->"b29a4cbb-3d78-3f47-8800-9a578b46ecf8"],
+Cell[1228, 38, 2345, 41, 167, "Input",ExpressionUUID->"fc047e12-a09c-834c-ac54-8bf33b243535"],
+Cell[3576, 81, 407, 8, 30, "Input",ExpressionUUID->"55be553c-ed38-dd4b-a554-62eccd1d8920"],
+Cell[3986, 91, 1510, 35, 203, "Input",ExpressionUUID->"11a26dd0-ba77-5b4e-8838-30f2e31e26a3"],
+Cell[CellGroupData[{
+Cell[5521, 130, 308, 5, 28, "Input",ExpressionUUID->"0a3385e5-32cb-e84e-a34b-bac3106ff63e"],
+Cell[5832, 137, 10312, 228, 676, "Output",ExpressionUUID->"e7d263be-7b3d-6442-a6ab-c5ed5067e817"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+

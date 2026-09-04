@@ -1,0 +1,186 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      6535,        178]
+NotebookOptionsPosition[      5939,        159]
+NotebookOutlinePosition[      6488,        179]
+CellTagsIndexPosition[      6445,        176]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"f", "[", "x_", "]"}], ":=", 
+  SqrtBox[
+   RowBox[{
+    RowBox[{"-", "1"}], "+", 
+    SuperscriptBox["x", "2"]}]]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"length", "[", 
+    RowBox[{
+     RowBox[{"xf_", "?", "NumericQ"}], ",", "f_"}], "]"}], ":=", 
+   RowBox[{"NIntegrate", "[", 
+    RowBox[{
+     RowBox[{"Sqrt", "[", 
+      RowBox[{"1", "+", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"f", "'"}], "[", "z", "]"}], "^", "2"}]}], "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"z", ",", "1", ",", "xf"}], "}"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"findx", "[", 
+    RowBox[{"ell_", ",", "f_"}], "]"}], ":=", 
+   RowBox[{"x", "/.", " ", 
+    RowBox[{"FindRoot", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"length", "[", 
+        RowBox[{"x", ",", "f"}], "]"}], "\[Equal]", "ell"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"x", ",", "1"}], "}"}]}], "]"}]}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"xup", "=", "8"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"totalLength", "=", 
+   RowBox[{"length", "[", 
+    RowBox[{"xup", ",", "f"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Manipulate", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"dL", "=", 
+     RowBox[{"totalLength", "/", "nsegs"}]}], ";", "\n", 
+    RowBox[{"xvals", "=", 
+     RowBox[{"Table", "[", 
+      RowBox[{
+       RowBox[{"findx", "[", 
+        RowBox[{
+         RowBox[{"n", "*", "dL"}], ",", "f"}], "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"n", ",", "0", ",", "nsegs"}], "}"}]}], "]"}]}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{"Show", "[", 
+     RowBox[{
+      RowBox[{"Plot", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"f", "[", "x", "]"}], ",", 
+          RowBox[{"-", 
+           RowBox[{"f", "[", "x", "]"}]}]}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"x", ",", 
+          RowBox[{"-", "xup"}], ",", "xup"}], "}"}]}], "]"}], ",", 
+      RowBox[{"Graphics", "[", 
+       RowBox[{"{", 
+        RowBox[{"Red", ",", 
+         RowBox[{"PointSize", "[", "Large", "]"}], ",", 
+         RowBox[{"Point", "[", 
+          RowBox[{"Transpose", "[", 
+           RowBox[{"{", 
+            RowBox[{"xvals", ",", 
+             RowBox[{"f", "/@", "xvals"}]}], "}"}], "]"}], "]"}], ",", 
+         RowBox[{"Point", "[", 
+          RowBox[{"Transpose", "[", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"-", "xvals"}], ",", 
+             RowBox[{"f", "/@", 
+              RowBox[{"-", "xvals"}]}]}], "}"}], "]"}], "]"}], ",", 
+         RowBox[{"Point", "[", 
+          RowBox[{"Transpose", "[", 
+           RowBox[{"{", 
+            RowBox[{"xvals", ",", 
+             RowBox[{"-", 
+              RowBox[{"f", "/@", "xvals"}]}]}], "}"}], "]"}], "]"}], ",", 
+         RowBox[{"Point", "[", 
+          RowBox[{"Transpose", "[", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"-", "xvals"}], ",", 
+             RowBox[{"-", 
+              RowBox[{"f", "/@", 
+               RowBox[{"-", "xvals"}]}]}]}], "}"}], "]"}], "]"}]}], "}"}], 
+       "]"}], ",", 
+      RowBox[{"AspectRatio", "\[Rule]", "Automatic"}]}], 
+     "\[IndentingNewLine]", "\n", "]"}]}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"nsegs", ",", "1", ",", "\"\<nsegs\>\""}], "}"}], ",", "1", ",",
+      "10", ",", "1", ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
+   RowBox[{"ControlPlacement", "\[Rule]", "Top"}], ",", 
+   RowBox[{"SaveDefinitions", "\[Rule]", "True"}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.8372492067314053`*^9, 3.837249264051684*^9}, 
+   3.8372494495462933`*^9, {3.8372496080983624`*^9, 3.8372496082443705`*^9}, 
+   3.8372496582752323`*^9, {3.837250362744526*^9, 3.837250363904592*^9}, 
+   3.8372504720177755`*^9, {3.837250621741339*^9, 3.837250639574359*^9}, {
+   3.8372508492403517`*^9, 3.8372508497163787`*^9}, {3.837250882838273*^9, 
+   3.837250883186293*^9}, {3.8372511307424526`*^9, 3.8372511403880043`*^9}, {
+   3.83725127195953*^9, 3.8372512761377687`*^9}, {3.8372513456667457`*^9, 
+   3.837251367156975*^9}, 3.8372514110564857`*^9, {3.8372515366896715`*^9, 
+   3.8372515713886557`*^9}, {3.837251641073642*^9, 3.8372516704923244`*^9}, {
+   3.837251725610477*^9, 3.837251731644822*^9}, {3.8372532561640196`*^9, 
+   3.8372532632704263`*^9}, {3.8372533145383587`*^9, 
+   3.8372534092767773`*^9}, {3.837253462196804*^9, 3.837253489564369*^9}, {
+   3.837253560589432*^9, 3.837253589337076*^9}, {3.8372536396089516`*^9, 
+   3.837253652565693*^9}, {3.8698214899846845`*^9, 3.8698215149391117`*^9}, {
+   3.869822194364148*^9, 3.869822235345492*^9}, 3.878023368124193*^9, {
+   3.8780234332089157`*^9, 3.8780234335389347`*^9}, {3.878023702188301*^9, 
+   3.878023704108411*^9}, {3.8780238544300084`*^9, 3.878023869050845*^9}, {
+   3.8780240776147738`*^9, 3.8780240922176094`*^9}, {3.878024292569069*^9, 
+   3.878024311322141*^9}, {3.878024569448905*^9, 3.87802457879344*^9}, {
+   3.878024637525799*^9, 3.8780246690176*^9}},
+ CellLabel->
+  "22/11/21 21:10:42 \
+In[1]:=",ExpressionUUID->"a34297be-eecd-4600-8719-999857faba7a"],
+
+Cell[BoxData[""], "Input",
+ GeneratedCell->False,
+ CellAutoOverwrite->False,
+ CellChangeTimes->{
+  3.878024734424341*^9, {3.8780247645390635`*^9, 
+   3.8780247699043703`*^9}},ExpressionUUID->"2f6968b1-b643-43fd-883c-\
+9090eaf03910"]
+},
+WindowSize->{750., 515.4},
+WindowMargins->{{163.79999999999998`, Automatic}, {Automatic, 21}},
+TaggingRules->{
+ "WelcomeScreenSettings" -> {"FEStarting" -> False}, "TryRealOnly" -> False},
+CellContext->Notebook,
+FrontEndVersion->"12.2 for Microsoft Windows (64-bit) (2020\:5e7412\:67087\
+\:65e5)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"5902c684-90c0-4a1f-ab13-9138e2e753dd"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 5142, 129, 464, "Input",ExpressionUUID->"a34297be-eecd-4600-8719-999857faba7a"],
+Cell[5703, 151, 232, 6, 28, "Input",ExpressionUUID->"2f6968b1-b643-43fd-883c-9090eaf03910"]
+}
+]
+*)
+

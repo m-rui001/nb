@@ -1,0 +1,563 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     29667,        555]
+NotebookOptionsPosition[     28124,        526]
+NotebookOutlinePosition[     28510,        543]
+CellTagsIndexPosition[     28467,        540]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"k1", "=", "1.3"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"k2", "=", "0.28"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"k4", "=", "3"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"kp", "=", "10"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"ke", "=", "1000"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"\[Mu]", "=", "1.6"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"a1", "=", 
+   RowBox[{"10", "^", "4.05"}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.9205985719505744`*^9, 3.920598635113272*^9}, {
+   3.9205987300125694`*^9, 3.920598776300682*^9}, {3.9205988238026347`*^9, 
+   3.9205988792268453`*^9}, {3.920598933798191*^9, 3.9205989462951765`*^9}, 
+   3.920599006616787*^9, 3.920599041360811*^9, {3.9205991303902187`*^9, 
+   3.9205991306348495`*^9}, {3.920599244237747*^9, 3.920599258201349*^9}, {
+   3.920601597785797*^9, 3.9206016378926735`*^9}, 3.9206017787652597`*^9, 
+   3.9206031929287024`*^9, {3.920603365339081*^9, 
+   3.920603369075802*^9}},ExpressionUUID->"906ade3b-6731-47d9-a4fb-\
+359770e6691c"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"t", ",", "a", ",", "b"}], "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"sol", " ", "=", " ", 
+       RowBox[{"First", "[", 
+        RowBox[{"NDSolve", "[", 
+         RowBox[{
+          RowBox[{"{", "\[IndentingNewLine]", 
+           RowBox[{
+            RowBox[{
+             RowBox[{
+              RowBox[{"a", "'"}], "[", "t", "]"}], " ", "\[Equal]", " ", 
+             RowBox[{
+              RowBox[{
+               FormBox["k1",
+                TraditionalForm], "*", 
+               RowBox[{"a", "[", "t", "]"}], "*", 
+               RowBox[{"(", 
+                RowBox[{"1", "-", 
+                 FractionBox[
+                  RowBox[{"a", "[", "t", "]"}], "a1"]}], ")"}]}], "-", 
+              RowBox[{
+               FormBox["k2",
+                TraditionalForm], "*", 
+               RowBox[{"a", "[", "t", "]"}], "*", 
+               RowBox[{"b", "[", "t", "]"}]}], "-", 
+              RowBox[{"a", "[", "t", "]"}]}]}], ",", 
+            RowBox[{
+             RowBox[{"a", "[", 
+              RowBox[{"t", " ", "/;", " ", 
+               RowBox[{"t", " ", "\[LessEqual]", " ", "0"}]}], "]"}], " ", 
+             "\[Equal]", "28.303"}], ",", "\[IndentingNewLine]", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"b", "'"}], "[", "t", "]"}], " ", "\[Equal]", 
+             RowBox[{"1", "+", 
+              FractionBox[
+               RowBox[{
+                RowBox[{"b", "[", "t", "]"}], "*", 
+                RowBox[{"a", "[", 
+                 RowBox[{"t", "-", "\[Tau]"}], "]"}]}], 
+               RowBox[{"kp", "+", 
+                RowBox[{"a", "[", 
+                 RowBox[{"t", "-", "\[Tau]"}], "]"}]}]], "-", 
+              RowBox[{"k4", "*", 
+               FractionBox[
+                RowBox[{
+                 RowBox[{"a", "[", "t", "]"}], "*", 
+                 RowBox[{"b", "[", "t", "]"}]}], 
+                RowBox[{"ke", "+", 
+                 RowBox[{"a", "[", "t", "]"}]}]]}], "-", 
+              RowBox[{"\[Mu]", "*", 
+               RowBox[{"b", "[", "t", "]"}]}]}]}], ",", 
+            RowBox[{
+             RowBox[{"b", "[", 
+              RowBox[{"t", " ", "/;", " ", 
+               RowBox[{"t", " ", "\[LessEqual]", " ", "0"}]}], "]"}], "  ", 
+             "\[Equal]", "1.05972"}]}], "}"}], ",", "\[IndentingNewLine]", 
+          RowBox[{"{", 
+           RowBox[{"a", ",", "b"}], "}"}], ",", " ", 
+          RowBox[{"{", 
+           RowBox[{"t", ",", "0", ",", "4000"}], "}"}]}], "]"}], "]"}]}], ";",
+       "\[IndentingNewLine]", 
+      RowBox[{"{", 
+       RowBox[{"Plot", "[", 
+        RowBox[{
+         RowBox[{"Evaluate", "[", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"a", "[", "t", "]"}], "}"}], " ", "/.", " ", "sol"}], 
+          "]"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"t", ",", "0", ",", "4000"}], "}"}], ",", 
+         RowBox[{"Frame", "\[Rule]", "True"}], ",", 
+         RowBox[{"FrameLabel", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{"\"\<yiiij\>\"", ",", "\"\<P53i Level\>\""}], "}"}]}], ",", 
+         RowBox[{"PlotRange", "\[Rule]", "All"}], ",", 
+         RowBox[{"PlotStyle", "\[Rule]", 
+          RowBox[{"{", "Black", "}"}]}], ",", 
+         RowBox[{"BaseStyle", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"FontWeight", "\[Rule]", "\"\<Bold\>\""}], ",", 
+            RowBox[{"FontSize", "\[Rule]", "18"}]}], "}"}]}]}], "]"}], 
+       "}"}]}]}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\[Tau]", ",", "0.5"}], "}"}], ",", "0", ",", "30", ",", 
+     "0.1"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.920599352295251*^9, 3.9205993531559153`*^9}, {
+   3.9205993863238487`*^9, 3.920599493328636*^9}, {3.920599558723801*^9, 
+   3.920599568050202*^9}, {3.92059979665326*^9, 3.9205998016538596`*^9}, 
+   3.9205998725679207`*^9, {3.9205999590513425`*^9, 3.9205999952148113`*^9}, {
+   3.92060012161806*^9, 3.9206001438311853`*^9}, 3.920600174441653*^9, {
+   3.920600225098937*^9, 3.920600228175128*^9}, {3.920600262705031*^9, 
+   3.920600268727167*^9}, {3.9206003494286437`*^9, 3.920600349647336*^9}, {
+   3.9206004997742596`*^9, 3.920600526593889*^9}, {3.9206005951507697`*^9, 
+   3.9206006412835073`*^9}, {3.920600930770075*^9, 3.920600935185172*^9}, {
+   3.9206010470238996`*^9, 3.920601047897813*^9}, {3.9206011269671316`*^9, 
+   3.9206011297103868`*^9}, 3.9206012435762672`*^9, {3.92060134187426*^9, 
+   3.9206013429757233`*^9}, {3.9206014038484163`*^9, 3.9206014278119855`*^9}, 
+   3.920601922316465*^9, {3.920602754912175*^9, 3.9206027636406937`*^9}, {
+   3.920602835120187*^9, 3.920602858243825*^9}, {3.9206029327117248`*^9, 
+   3.9206029519233646`*^9}, {3.920602985678958*^9, 3.920603001222392*^9}, {
+   3.9206031181595864`*^9, 3.9206031369808197`*^9}, 3.920603295278101*^9, {
+   3.9206033858172584`*^9, 3.920603390793703*^9}, 3.9206040051298532`*^9},
+ CellLabel->"In[12]:=",ExpressionUUID->"7d2fad09-fe9d-44c8-bac4-fc6ed536b626"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`\[Tau]$$ = 0.5, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"\:65e0\:6807\:9898\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`\[Tau]$$], 0.5}, 0, 30, 0.1}}, Typeset`size$$ = {
+    254., {79., 86.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
+    Typeset`skipInitDone$$ = True, $CellContext`\[Tau]$12868$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, "Variables" :> {$CellContext`\[Tau]$$ = 0.5}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`\[Tau]$$, $CellContext`\[Tau]$12868$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> 
+      Module[{$CellContext`t$, $CellContext`a$, $CellContext`b$}, \
+$CellContext`sol = First[
+           
+           NDSolve[{
+            Derivative[
+              1][$CellContext`a$][$CellContext`t$] == $CellContext`k1 \
+$CellContext`a$[$CellContext`t$] (
+                1 - $CellContext`a$[$CellContext`t$]/$CellContext`a1) - \
+$CellContext`k2 $CellContext`a$[$CellContext`t$] \
+$CellContext`b$[$CellContext`t$] - $CellContext`a$[$CellContext`t$], \
+$CellContext`a$[
+               Condition[$CellContext`t$, $CellContext`t$ <= 0]] == 28.303, 
+             Derivative[1][$CellContext`b$][$CellContext`t$] == 
+             1 + $CellContext`b$[$CellContext`t$] \
+$CellContext`a$[$CellContext`t$ - $CellContext`\[Tau]$$]/($CellContext`kp + \
+$CellContext`a$[$CellContext`t$ - $CellContext`\[Tau]$$]) - $CellContext`k4 \
+($CellContext`a$[$CellContext`t$] \
+$CellContext`b$[$CellContext`t$]/($CellContext`ke + \
+$CellContext`a$[$CellContext`t$])) - $CellContext`\[Mu] \
+$CellContext`b$[$CellContext`t$], $CellContext`b$[
+               Condition[$CellContext`t$, $CellContext`t$ <= 0]] == 
+             1.05972}, {$CellContext`a$, $CellContext`b$}, {$CellContext`t$, 
+             0, 4000}]]; {
+          Plot[
+           Evaluate[
+            ReplaceAll[{
+              $CellContext`a$[$CellContext`t$]}, $CellContext`sol]], \
+{$CellContext`t$, 0, 4000}, Frame -> True, 
+           FrameLabel -> {"yiiij", "P53i Level"}, PlotRange -> All, 
+           PlotStyle -> {Black}, 
+           BaseStyle -> {FontWeight -> "Bold", FontSize -> 18}]}], 
+      "Specifications" :> {{{$CellContext`\[Tau]$$, 0.5}, 0, 30, 0.1}}, 
+      "Options" :> {}, "DefaultOptions" :> {}],
+     ImageSizeCache->{332., {135., 143.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{3.920604014050848*^9},
+ CellLabel->"Out[12]=",ExpressionUUID->"a10f940f-5837-4f22-950e-381e1dfee29a"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "NDSolve","ndnum",
+   "\"Encountered non-numerical value for a derivative at \\!\\(\\*RowBox[{\\\
+\"t$12975\\\"}]\\) == \\!\\(\\*RowBox[{\\\"0\\\"}]\\).\"",2,13,198,
+   34547684268803304104,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.920604014144968*^9},
+ CellLabel->"",ExpressionUUID->"deecad0a-8b1d-4d69-a067-1ec14d6e081d"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "ReplaceAll","reps",
+   "\"\\!\\(\\*RowBox[{\\\"{\\\", \
+RowBox[{RowBox[{RowBox[{SuperscriptBox[\\\"a$12975\\\", \\\"\[Prime]\\\", \
+Rule[MultilineFunction, None]], \\\"[\\\", \\\"t$12975\\\", \\\"]\\\"}], \\\"\
+\[Equal]\\\", RowBox[{RowBox[{\\\"-\\\", RowBox[{\\\"a$12975\\\", \\\"[\\\", \
+\\\"t$12975\\\", \\\"]\\\"}]}], \\\"+\\\", RowBox[{\\\"k1\\\", \\\" \\\", \
+RowBox[{\\\"a$12975\\\", \\\"[\\\", \\\"t$12975\\\", \\\"]\\\"}], \\\" \\\", \
+RowBox[{\\\"(\\\", RowBox[{\\\"1\\\", \\\"-\\\", \
+FractionBox[RowBox[{\\\"a$12975\\\", \\\"[\\\", \\\"t$12975\\\", \\\"]\\\"}], \
+\\\"a1\\\"]}], \\\")\\\"}]}], \\\"-\\\", RowBox[{\\\"k2\\\", \\\" \\\", \
+RowBox[{\\\"a$12975\\\", \\\"[\\\", \\\"t$12975\\\", \\\"]\\\"}], \\\" \\\", \
+RowBox[{\\\"b$12975\\\", \\\"[\\\", \\\"t$12975\\\", \\\"]\\\"}]}]}]}], \\\",\
+\\\", RowBox[{RowBox[{\\\"a$12975\\\", \\\"[\\\", RowBox[{\\\"t$12975\\\", \\\
+\"/;\\\", RowBox[{\\\"t$12975\\\", \\\"\[LessEqual]\\\", \\\"0\\\"}]}], \\\"]\
+\\\"}], \\\"\[Equal]\\\", \\\"28.303`\\\"}], \\\",\\\", \
+RowBox[{RowBox[{SuperscriptBox[\\\"b$12975\\\", \\\"\[Prime]\\\", \
+Rule[MultilineFunction, None]], \\\"[\\\", \\\"t$12975\\\", \\\"]\\\"}], \\\"\
+\[Equal]\\\", RowBox[{\\\"1\\\", \\\"-\\\", RowBox[{\\\"\[Mu]\\\", \\\" \\\", \
+RowBox[{\\\"b$12975\\\", \\\"[\\\", \\\"t$12975\\\", \\\"]\\\"}]}], \
+\\\"+\\\", FractionBox[RowBox[{RowBox[{\\\"a$12975\\\", \\\"[\\\", \
+RowBox[{RowBox[{\\\"-\\\", \\\"0.5`\\\"}], \\\"+\\\", \\\"t$12975\\\"}], \
+\\\"]\\\"}], \\\" \\\", RowBox[{\\\"b$12975\\\", \\\"[\\\", \\\"t$12975\\\", \
+\\\"]\\\"}]}], RowBox[{\\\"kp\\\", \\\"+\\\", RowBox[{\\\"a$12975\\\", \
+\\\"[\\\", RowBox[{\\\"Plus\\\", \\\"[\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \
+\\\"2\\\", \\\"\[RightSkeleton]\\\"}], \\\"]\\\"}], \\\"]\\\"}]}]], \
+\\\"-\\\", FractionBox[RowBox[{\\\"k4\\\", \\\" \\\", \
+RowBox[{\\\"a$12975\\\", \\\"[\\\", \\\"t$12975\\\", \\\"]\\\"}], \\\" \\\", \
+RowBox[{\\\"b$12975\\\", \\\"[\\\", \\\"t$12975\\\", \\\"]\\\"}]}], \
+RowBox[{\\\"ke\\\", \\\"+\\\", RowBox[{\\\"a$12975\\\", \\\"[\\\", \
+\\\"t$12975\\\", \\\"]\\\"}]}]]}]}], \\\",\\\", RowBox[{RowBox[{\\\"b$12975\\\
+\", \\\"[\\\", RowBox[{\\\"t$12975\\\", \\\"/;\\\", RowBox[{\\\"t$12975\\\", \
+\\\"\[LessEqual]\\\", \\\"0\\\"}]}], \\\"]\\\"}], \\\"\[Equal]\\\", \
+\\\"1.05972`\\\"}]}], \\\"}\\\"}]\\) is neither a list of replacement rules \
+nor a valid dispatch table, and so cannot be used for replacing.\"",2,13,199,
+   34547684268803304104,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.920604014223465*^9},
+ CellLabel->"",ExpressionUUID->"94152e7d-e782-42c9-b9b0-0c60e3c18c54"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "ReplaceAll","reps",
+   "\"\\!\\(\\*RowBox[{\\\"{\\\", \
+RowBox[{RowBox[{RowBox[{SuperscriptBox[\\\"a$12975\\\", \\\"\[Prime]\\\", \
+Rule[MultilineFunction, None]], \\\"[\\\", \\\"0.08171428571428571`\\\", \
+\\\"]\\\"}], \\\"\[Equal]\\\", RowBox[{RowBox[{\\\"-\\\", RowBox[{\\\"a$12975\
+\\\", \\\"[\\\", \\\"0.08171428571428571`\\\", \\\"]\\\"}]}], \\\"+\\\", \
+RowBox[{\\\"k1\\\", \\\" \\\", RowBox[{\\\"a$12975\\\", \\\"[\\\", \
+\\\"0.08171428571428571`\\\", \\\"]\\\"}], \\\" \\\", RowBox[{\\\"(\\\", \
+RowBox[{\\\"1\\\", \\\"-\\\", FractionBox[RowBox[{\\\"a$12975\\\", \\\"[\\\", \
+\\\"0.08171428571428571`\\\", \\\"]\\\"}], \\\"a1\\\"]}], \\\")\\\"}]}], \
+\\\"-\\\", RowBox[{\\\"k2\\\", \\\" \\\", RowBox[{\\\"a$12975\\\", \\\"[\\\", \
+\\\"0.08171428571428571`\\\", \\\"]\\\"}], \\\" \\\", \
+RowBox[{\\\"b$12975\\\", \\\"[\\\", \\\"0.08171428571428571`\\\", \
+\\\"]\\\"}]}]}]}], \\\",\\\", RowBox[{RowBox[{\\\"a$12975\\\", \\\"[\\\", \
+RowBox[{\\\"0.08171428571428571`\\\", \\\"/;\\\", RowBox[{\\\"t$12975\\\", \\\
+\"\[LessEqual]\\\", \\\"0\\\"}]}], \\\"]\\\"}], \\\"\[Equal]\\\", \\\"28.303`\
+\\\"}], \\\",\\\", RowBox[{RowBox[{SuperscriptBox[\\\"b$12975\\\", \\\"\
+\[Prime]\\\", Rule[MultilineFunction, None]], \\\"[\\\", \
+\\\"0.08171428571428571`\\\", \\\"]\\\"}], \\\"\[Equal]\\\", \
+RowBox[{\\\"1\\\", \\\"-\\\", RowBox[{\\\"\[Mu]\\\", \\\" \\\", \
+RowBox[{\\\"b$12975\\\", \\\"[\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \\\"20\\\
+\", \\\"\[RightSkeleton]\\\"}], \\\"]\\\"}]}], \\\"+\\\", \
+FractionBox[RowBox[{RowBox[{\\\"\[LeftSkeleton]\\\", \\\"1\\\", \\\"\
+\[RightSkeleton]\\\"}], RowBox[{\\\"\[LeftSkeleton]\\\", \\\"1\\\", \\\"\
+\[RightSkeleton]\\\"}], RowBox[{\\\"\[LeftSkeleton]\\\", \\\"1\\\", \\\"\
+\[RightSkeleton]\\\"}]}], RowBox[{\\\"kp\\\", \\\"+\\\", RowBox[{\\\"\
+\[LeftSkeleton]\\\", \\\"1\\\", \\\"\[RightSkeleton]\\\"}]}]], \\\"-\\\", \
+FractionBox[RowBox[{\\\"k4\\\", \\\" \\\", RowBox[{\\\"a$12975\\\", \
+\\\"[\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \\\"20\\\", \
+\\\"\[RightSkeleton]\\\"}], \\\"]\\\"}], \\\" \\\", RowBox[{\\\"b$12975\\\", \
+\\\"[\\\", \\\"0.08171428571428571`\\\", \\\"]\\\"}]}], RowBox[{\\\"ke\\\", \
+\\\"+\\\", RowBox[{\\\"a$12975\\\", \\\"[\\\", \\\"0.08171428571428571`\\\", \
+\\\"]\\\"}]}]]}]}], \\\",\\\", RowBox[{RowBox[{\\\"b$12975\\\", \\\"[\\\", \
+RowBox[{\\\"0.08171428571428571`\\\", \\\"/;\\\", RowBox[{\\\"t$12975\\\", \\\
+\"\[LessEqual]\\\", \\\"0\\\"}]}], \\\"]\\\"}], \\\"\[Equal]\\\", \
+\\\"1.05972`\\\"}]}], \\\"}\\\"}]\\) is neither a list of replacement rules \
+nor a valid dispatch table, and so cannot be used for replacing.\"",2,13,200,
+   34547684268803304104,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.9206040143800926`*^9},
+ CellLabel->"",ExpressionUUID->"f431f079-fbd5-4f7e-b92c-e216f2ed3d9d"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "ReplaceAll","reps",
+   "\"\\!\\(\\*RowBox[{\\\"{\\\", \
+RowBox[{RowBox[{RowBox[{SuperscriptBox[\\\"a$12975\\\", \\\"\[Prime]\\\", \
+Rule[MultilineFunction, None]], \\\"[\\\", \\\"0.08171428571428571`\\\", \
+\\\"]\\\"}], \\\"\[Equal]\\\", RowBox[{RowBox[{RowBox[{\\\"-\\\", \
+\\\"1.`\\\"}], \\\" \\\", RowBox[{\\\"a$12975\\\", \\\"[\\\", \
+\\\"0.08171428571428571`\\\", \\\"]\\\"}]}], \\\"+\\\", RowBox[{\\\"k1\\\", \
+\\\" \\\", RowBox[{\\\"a$12975\\\", \\\"[\\\", \\\"0.08171428571428571`\\\", \
+\\\"]\\\"}], \\\" \\\", RowBox[{\\\"(\\\", RowBox[{RowBox[{\\\"1.`\\\", \\\"\
+\[VeryThinSpace]\\\"}], \\\"-\\\", FractionBox[RowBox[{\\\"1.`\\\", \\\" \
+\\\", RowBox[{\\\"a$12975\\\", \\\"[\\\", \\\"0.08171428571428571`\\\", \\\"]\
+\\\"}]}], \\\"a1\\\"]}], \\\")\\\"}]}], \\\"-\\\", RowBox[{\\\"1.`\\\", \\\" \
+\\\", \\\"k2\\\", \\\" \\\", RowBox[{\\\"a$12975\\\", \\\"[\\\", \
+\\\"0.08171428571428571`\\\", \\\"]\\\"}], \\\" \\\", \
+RowBox[{\\\"b$12975\\\", \\\"[\\\", \\\"0.08171428571428571`\\\", \
+\\\"]\\\"}]}]}]}], \\\",\\\", RowBox[{RowBox[{\\\"a$12975\\\", \\\"[\\\", \
+RowBox[{\\\"0.08171428571428571`\\\", \\\"/;\\\", RowBox[{\\\"t$12975\\\", \\\
+\"\[LessEqual]\\\", \\\"0.`\\\"}]}], \\\"]\\\"}], \\\"\[Equal]\\\", \
+\\\"28.303`\\\"}], \\\",\\\", RowBox[{RowBox[{SuperscriptBox[\\\"b$12975\\\", \
+\\\"\[Prime]\\\", Rule[MultilineFunction, None]], \\\"[\\\", \
+\\\"0.08171428571428571`\\\", \\\"]\\\"}], \\\"\[Equal]\\\", RowBox[{RowBox[{\
+\\\"1.`\\\", \\\"\[VeryThinSpace]\\\"}], \\\"-\\\", RowBox[{\\\"1.`\\\", \\\" \
+\\\", \\\"\[Mu]\\\", \\\" \\\", RowBox[{\\\"\[LeftSkeleton]\\\", \\\"1\\\", \
+\\\"\[RightSkeleton]\\\"}]}], \\\"+\\\", FractionBox[RowBox[{\\\"\
+\[LeftSkeleton]\\\", \\\"1\\\", \\\"\[RightSkeleton]\\\"}], RowBox[{\\\"\
+\[LeftSkeleton]\\\", \\\"1\\\", \\\"\[RightSkeleton]\\\"}]], \\\"-\\\", \
+FractionBox[RowBox[{\\\"1.`\\\", \\\" \\\", \\\"k4\\\", \\\" \\\", RowBox[{\\\
+\"\[LeftSkeleton]\\\", \\\"1\\\", \\\"\[RightSkeleton]\\\"}], \\\" \\\", \
+RowBox[{\\\"b$12975\\\", \\\"[\\\", \\\"0.08171428571428571`\\\", \
+\\\"]\\\"}]}], RowBox[{\\\"ke\\\", \\\"+\\\", RowBox[{\\\"a$12975\\\", \
+\\\"[\\\", \\\"0.08171428571428571`\\\", \\\"]\\\"}]}]]}]}], \\\",\\\", \
+RowBox[{RowBox[{\\\"b$12975\\\", \\\"[\\\", \
+RowBox[{\\\"0.08171428571428571`\\\", \\\"/;\\\", RowBox[{\\\"t$12975\\\", \\\
+\"\[LessEqual]\\\", \\\"0.`\\\"}]}], \\\"]\\\"}], \\\"\[Equal]\\\", \
+\\\"1.05972`\\\"}]}], \\\"}\\\"}]\\) is neither a list of replacement rules \
+nor a valid dispatch table, and so cannot be used for replacing.\"",2,13,201,
+   34547684268803304104,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.9206040144429855`*^9},
+ CellLabel->"",ExpressionUUID->"8140920d-a20d-41a9-9dd2-c74a1b49ae9c"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "General","stop",
+   "\"Further output of \\!\\(\\*StyleBox[RowBox[{\\\"ReplaceAll\\\", \
+\\\"::\\\", \\\"reps\\\"}], \\\"MessageName\\\"]\\) will be suppressed during \
+this calculation.\"",2,13,202,34547684268803304104,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.920604014508978*^9},
+ CellLabel->"",ExpressionUUID->"10aae103-e017-4224-97d4-69359313e7a4"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "NDSolve","ndnum",
+   "\"Encountered non-numerical value for a derivative at \\!\\(\\*RowBox[{\\\
+\"t$13245\\\"}]\\) == \\!\\(\\*RowBox[{\\\"0\\\"}]\\).\"",2,13,203,
+   34547684268803304104,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.9206040148818502`*^9},
+ CellLabel->"",ExpressionUUID->"5a6474b1-93ce-49b7-92e7-4d32eebb97e0"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "ReplaceAll","reps",
+   "\"\\!\\(\\*RowBox[{\\\"{\\\", \
+RowBox[{RowBox[{RowBox[{SuperscriptBox[\\\"a$13245\\\", \\\"\[Prime]\\\", \
+Rule[MultilineFunction, None]], \\\"[\\\", \\\"t$13245\\\", \\\"]\\\"}], \\\"\
+\[Equal]\\\", RowBox[{RowBox[{\\\"-\\\", RowBox[{\\\"a$13245\\\", \\\"[\\\", \
+\\\"t$13245\\\", \\\"]\\\"}]}], \\\"+\\\", RowBox[{\\\"k1\\\", \\\" \\\", \
+RowBox[{\\\"a$13245\\\", \\\"[\\\", \\\"t$13245\\\", \\\"]\\\"}], \\\" \\\", \
+RowBox[{\\\"(\\\", RowBox[{\\\"1\\\", \\\"-\\\", \
+FractionBox[RowBox[{\\\"a$13245\\\", \\\"[\\\", \\\"t$13245\\\", \\\"]\\\"}], \
+\\\"a1\\\"]}], \\\")\\\"}]}], \\\"-\\\", RowBox[{\\\"k2\\\", \\\" \\\", \
+RowBox[{\\\"a$13245\\\", \\\"[\\\", \\\"t$13245\\\", \\\"]\\\"}], \\\" \\\", \
+RowBox[{\\\"b$13245\\\", \\\"[\\\", \\\"t$13245\\\", \\\"]\\\"}]}]}]}], \\\",\
+\\\", RowBox[{RowBox[{\\\"a$13245\\\", \\\"[\\\", RowBox[{\\\"t$13245\\\", \\\
+\"/;\\\", RowBox[{\\\"t$13245\\\", \\\"\[LessEqual]\\\", \\\"0\\\"}]}], \\\"]\
+\\\"}], \\\"\[Equal]\\\", \\\"28.303`\\\"}], \\\",\\\", \
+RowBox[{RowBox[{SuperscriptBox[\\\"b$13245\\\", \\\"\[Prime]\\\", \
+Rule[MultilineFunction, None]], \\\"[\\\", \\\"t$13245\\\", \\\"]\\\"}], \\\"\
+\[Equal]\\\", RowBox[{\\\"1\\\", \\\"-\\\", RowBox[{\\\"\[Mu]\\\", \\\" \\\", \
+RowBox[{\\\"b$13245\\\", \\\"[\\\", \\\"t$13245\\\", \\\"]\\\"}]}], \
+\\\"+\\\", FractionBox[RowBox[{RowBox[{\\\"a$13245\\\", \\\"[\\\", \
+RowBox[{RowBox[{\\\"-\\\", \\\"0.5`\\\"}], \\\"+\\\", \\\"t$13245\\\"}], \
+\\\"]\\\"}], \\\" \\\", RowBox[{\\\"b$13245\\\", \\\"[\\\", \\\"t$13245\\\", \
+\\\"]\\\"}]}], RowBox[{\\\"kp\\\", \\\"+\\\", RowBox[{\\\"a$13245\\\", \
+\\\"[\\\", RowBox[{\\\"Plus\\\", \\\"[\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \
+\\\"2\\\", \\\"\[RightSkeleton]\\\"}], \\\"]\\\"}], \\\"]\\\"}]}]], \
+\\\"-\\\", FractionBox[RowBox[{\\\"k4\\\", \\\" \\\", \
+RowBox[{\\\"a$13245\\\", \\\"[\\\", \\\"t$13245\\\", \\\"]\\\"}], \\\" \\\", \
+RowBox[{\\\"b$13245\\\", \\\"[\\\", \\\"t$13245\\\", \\\"]\\\"}]}], \
+RowBox[{\\\"ke\\\", \\\"+\\\", RowBox[{\\\"a$13245\\\", \\\"[\\\", \
+\\\"t$13245\\\", \\\"]\\\"}]}]]}]}], \\\",\\\", RowBox[{RowBox[{\\\"b$13245\\\
+\", \\\"[\\\", RowBox[{\\\"t$13245\\\", \\\"/;\\\", RowBox[{\\\"t$13245\\\", \
+\\\"\[LessEqual]\\\", \\\"0\\\"}]}], \\\"]\\\"}], \\\"\[Equal]\\\", \
+\\\"1.05972`\\\"}]}], \\\"}\\\"}]\\) is neither a list of replacement rules \
+nor a valid dispatch table, and so cannot be used for replacing.\"",2,13,204,
+   34547684268803304104,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.920604014913503*^9},
+ CellLabel->"",ExpressionUUID->"ee1705e0-3ab8-4432-b1d8-70982b21a196"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "ReplaceAll","reps",
+   "\"\\!\\(\\*RowBox[{\\\"{\\\", \
+RowBox[{RowBox[{RowBox[{SuperscriptBox[\\\"a$13245\\\", \\\"\[Prime]\\\", \
+Rule[MultilineFunction, None]], \\\"[\\\", \\\"0.08171428571428571`\\\", \
+\\\"]\\\"}], \\\"\[Equal]\\\", RowBox[{RowBox[{\\\"-\\\", RowBox[{\\\"a$13245\
+\\\", \\\"[\\\", \\\"0.08171428571428571`\\\", \\\"]\\\"}]}], \\\"+\\\", \
+RowBox[{\\\"k1\\\", \\\" \\\", RowBox[{\\\"a$13245\\\", \\\"[\\\", \
+\\\"0.08171428571428571`\\\", \\\"]\\\"}], \\\" \\\", RowBox[{\\\"(\\\", \
+RowBox[{\\\"1\\\", \\\"-\\\", FractionBox[RowBox[{\\\"a$13245\\\", \\\"[\\\", \
+\\\"0.08171428571428571`\\\", \\\"]\\\"}], \\\"a1\\\"]}], \\\")\\\"}]}], \
+\\\"-\\\", RowBox[{\\\"k2\\\", \\\" \\\", RowBox[{\\\"a$13245\\\", \\\"[\\\", \
+\\\"0.08171428571428571`\\\", \\\"]\\\"}], \\\" \\\", \
+RowBox[{\\\"b$13245\\\", \\\"[\\\", \\\"0.08171428571428571`\\\", \
+\\\"]\\\"}]}]}]}], \\\",\\\", RowBox[{RowBox[{\\\"a$13245\\\", \\\"[\\\", \
+RowBox[{\\\"0.08171428571428571`\\\", \\\"/;\\\", RowBox[{\\\"t$13245\\\", \\\
+\"\[LessEqual]\\\", \\\"0\\\"}]}], \\\"]\\\"}], \\\"\[Equal]\\\", \\\"28.303`\
+\\\"}], \\\",\\\", RowBox[{RowBox[{SuperscriptBox[\\\"b$13245\\\", \\\"\
+\[Prime]\\\", Rule[MultilineFunction, None]], \\\"[\\\", \
+\\\"0.08171428571428571`\\\", \\\"]\\\"}], \\\"\[Equal]\\\", \
+RowBox[{\\\"1\\\", \\\"-\\\", RowBox[{\\\"\[Mu]\\\", \\\" \\\", \
+RowBox[{\\\"b$13245\\\", \\\"[\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \\\"20\\\
+\", \\\"\[RightSkeleton]\\\"}], \\\"]\\\"}]}], \\\"+\\\", \
+FractionBox[RowBox[{RowBox[{\\\"\[LeftSkeleton]\\\", \\\"1\\\", \\\"\
+\[RightSkeleton]\\\"}], RowBox[{\\\"\[LeftSkeleton]\\\", \\\"1\\\", \\\"\
+\[RightSkeleton]\\\"}], RowBox[{\\\"\[LeftSkeleton]\\\", \\\"1\\\", \\\"\
+\[RightSkeleton]\\\"}]}], RowBox[{\\\"kp\\\", \\\"+\\\", RowBox[{\\\"\
+\[LeftSkeleton]\\\", \\\"1\\\", \\\"\[RightSkeleton]\\\"}]}]], \\\"-\\\", \
+FractionBox[RowBox[{\\\"k4\\\", \\\" \\\", RowBox[{\\\"a$13245\\\", \
+\\\"[\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \\\"20\\\", \
+\\\"\[RightSkeleton]\\\"}], \\\"]\\\"}], \\\" \\\", RowBox[{\\\"b$13245\\\", \
+\\\"[\\\", \\\"0.08171428571428571`\\\", \\\"]\\\"}]}], RowBox[{\\\"ke\\\", \
+\\\"+\\\", RowBox[{\\\"a$13245\\\", \\\"[\\\", \\\"0.08171428571428571`\\\", \
+\\\"]\\\"}]}]]}]}], \\\",\\\", RowBox[{RowBox[{\\\"b$13245\\\", \\\"[\\\", \
+RowBox[{\\\"0.08171428571428571`\\\", \\\"/;\\\", RowBox[{\\\"t$13245\\\", \\\
+\"\[LessEqual]\\\", \\\"0\\\"}]}], \\\"]\\\"}], \\\"\[Equal]\\\", \
+\\\"1.05972`\\\"}]}], \\\"}\\\"}]\\) is neither a list of replacement rules \
+nor a valid dispatch table, and so cannot be used for replacing.\"",2,13,205,
+   34547684268803304104,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.920604015023245*^9},
+ CellLabel->"",ExpressionUUID->"eaf41d40-9ff5-4156-ac7e-a5125cf33e34"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "ReplaceAll","reps",
+   "\"\\!\\(\\*RowBox[{\\\"{\\\", \
+RowBox[{RowBox[{RowBox[{SuperscriptBox[\\\"a$13245\\\", \\\"\[Prime]\\\", \
+Rule[MultilineFunction, None]], \\\"[\\\", \\\"0.08171428571428571`\\\", \
+\\\"]\\\"}], \\\"\[Equal]\\\", RowBox[{RowBox[{RowBox[{\\\"-\\\", \
+\\\"1.`\\\"}], \\\" \\\", RowBox[{\\\"a$13245\\\", \\\"[\\\", \
+\\\"0.08171428571428571`\\\", \\\"]\\\"}]}], \\\"+\\\", RowBox[{\\\"k1\\\", \
+\\\" \\\", RowBox[{\\\"a$13245\\\", \\\"[\\\", \\\"0.08171428571428571`\\\", \
+\\\"]\\\"}], \\\" \\\", RowBox[{\\\"(\\\", RowBox[{RowBox[{\\\"1.`\\\", \\\"\
+\[VeryThinSpace]\\\"}], \\\"-\\\", FractionBox[RowBox[{\\\"1.`\\\", \\\" \
+\\\", RowBox[{\\\"a$13245\\\", \\\"[\\\", \\\"0.08171428571428571`\\\", \\\"]\
+\\\"}]}], \\\"a1\\\"]}], \\\")\\\"}]}], \\\"-\\\", RowBox[{\\\"1.`\\\", \\\" \
+\\\", \\\"k2\\\", \\\" \\\", RowBox[{\\\"a$13245\\\", \\\"[\\\", \
+\\\"0.08171428571428571`\\\", \\\"]\\\"}], \\\" \\\", \
+RowBox[{\\\"b$13245\\\", \\\"[\\\", \\\"0.08171428571428571`\\\", \
+\\\"]\\\"}]}]}]}], \\\",\\\", RowBox[{RowBox[{\\\"a$13245\\\", \\\"[\\\", \
+RowBox[{\\\"0.08171428571428571`\\\", \\\"/;\\\", RowBox[{\\\"t$13245\\\", \\\
+\"\[LessEqual]\\\", \\\"0.`\\\"}]}], \\\"]\\\"}], \\\"\[Equal]\\\", \
+\\\"28.303`\\\"}], \\\",\\\", RowBox[{RowBox[{SuperscriptBox[\\\"b$13245\\\", \
+\\\"\[Prime]\\\", Rule[MultilineFunction, None]], \\\"[\\\", \
+\\\"0.08171428571428571`\\\", \\\"]\\\"}], \\\"\[Equal]\\\", RowBox[{RowBox[{\
+\\\"1.`\\\", \\\"\[VeryThinSpace]\\\"}], \\\"-\\\", RowBox[{\\\"1.`\\\", \\\" \
+\\\", \\\"\[Mu]\\\", \\\" \\\", RowBox[{\\\"\[LeftSkeleton]\\\", \\\"1\\\", \
+\\\"\[RightSkeleton]\\\"}]}], \\\"+\\\", FractionBox[RowBox[{\\\"\
+\[LeftSkeleton]\\\", \\\"1\\\", \\\"\[RightSkeleton]\\\"}], RowBox[{\\\"\
+\[LeftSkeleton]\\\", \\\"1\\\", \\\"\[RightSkeleton]\\\"}]], \\\"-\\\", \
+FractionBox[RowBox[{\\\"1.`\\\", \\\" \\\", \\\"k4\\\", \\\" \\\", RowBox[{\\\
+\"\[LeftSkeleton]\\\", \\\"1\\\", \\\"\[RightSkeleton]\\\"}], \\\" \\\", \
+RowBox[{\\\"b$13245\\\", \\\"[\\\", \\\"0.08171428571428571`\\\", \
+\\\"]\\\"}]}], RowBox[{\\\"ke\\\", \\\"+\\\", RowBox[{\\\"a$13245\\\", \
+\\\"[\\\", \\\"0.08171428571428571`\\\", \\\"]\\\"}]}]]}]}], \\\",\\\", \
+RowBox[{RowBox[{\\\"b$13245\\\", \\\"[\\\", \
+RowBox[{\\\"0.08171428571428571`\\\", \\\"/;\\\", RowBox[{\\\"t$13245\\\", \\\
+\"\[LessEqual]\\\", \\\"0.`\\\"}]}], \\\"]\\\"}], \\\"\[Equal]\\\", \
+\\\"1.05972`\\\"}]}], \\\"}\\\"}]\\) is neither a list of replacement rules \
+nor a valid dispatch table, and so cannot be used for replacing.\"",2,13,206,
+   34547684268803304104,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.9206040150544915`*^9},
+ CellLabel->"",ExpressionUUID->"eb6b2429-fd71-4e85-91e6-88548ed7de38"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "General","stop",
+   "\"Further output of \\!\\(\\*StyleBox[RowBox[{\\\"ReplaceAll\\\", \
+\\\"::\\\", \\\"reps\\\"}], \\\"MessageName\\\"]\\) will be suppressed during \
+this calculation.\"",2,13,207,34547684268803304104,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.9206040151013556`*^9},
+ CellLabel->"",ExpressionUUID->"27ed900b-9dee-4439-b803-674441b8a461"]
+}, Open  ]]
+},
+WindowSize->{1536, 773},
+WindowMargins->{{-8, Automatic}, {Automatic, -8}},
+Magnification:>1.3 Inherited,
+FrontEndVersion->"11.3 for Microsoft Windows (64-bit) (2018\:5e743\:67086\
+\:65e5)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 1107, 24, 188, "Input",ExpressionUUID->"906ade3b-6731-47d9-a4fb-359770e6691c"],
+Cell[CellGroupData[{
+Cell[1690, 48, 5105, 113, 442, "Input",ExpressionUUID->"7d2fad09-fe9d-44c8-bac4-fc6ed536b626"],
+Cell[6798, 163, 3220, 64, 303, "Output",ExpressionUUID->"a10f940f-5837-4f22-950e-381e1dfee29a"],
+Cell[10021, 229, 384, 8, 30, "Message",ExpressionUUID->"deecad0a-8b1d-4d69-a067-1ec14d6e081d"],
+Cell[10408, 239, 2643, 39, 173, "Message",ExpressionUUID->"94152e7d-e782-42c9-b9b0-0c60e3c18c54"],
+Cell[13054, 280, 2828, 42, 173, "Message",ExpressionUUID->"f431f079-fbd5-4f7e-b92c-e216f2ed3d9d"],
+Cell[15885, 324, 2759, 41, 201, "Message",ExpressionUUID->"8140920d-a20d-41a9-9dd2-c74a1b49ae9c"],
+Cell[18647, 367, 415, 8, 30, "Message",ExpressionUUID->"10aae103-e017-4224-97d4-69359313e7a4"],
+Cell[19065, 377, 386, 8, 30, "Message",ExpressionUUID->"5a6474b1-93ce-49b7-92e7-4d32eebb97e0"],
+Cell[19454, 387, 2643, 39, 173, "Message",ExpressionUUID->"ee1705e0-3ab8-4432-b1d8-70982b21a196"],
+Cell[22100, 428, 2826, 42, 173, "Message",ExpressionUUID->"eaf41d40-9ff5-4156-ac7e-a5125cf33e34"],
+Cell[24929, 472, 2759, 41, 201, "Message",ExpressionUUID->"eb6b2429-fd71-4e85-91e6-88548ed7de38"],
+Cell[27691, 515, 417, 8, 30, "Message",ExpressionUUID->"27ed900b-9dee-4439-b803-674441b8a461"]
+}, Open  ]]
+}
+]
+*)
+

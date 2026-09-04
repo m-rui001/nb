@@ -1,0 +1,131 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      3804,        123]
+NotebookOptionsPosition[      3466,        108]
+NotebookOutlinePosition[      3851,        125]
+CellTagsIndexPosition[      3808,        122]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"k1", "=", "1.3"}], ";", 
+  RowBox[{"imax", "=", 
+   SuperscriptBox["10", "4.05"]}], ";", 
+  RowBox[{"k2", "=."}], ";", 
+  RowBox[{"k3", "=", "1"}], ";", 
+  RowBox[{"k4", "=", "3"}], ";", 
+  RowBox[{"kp", "=", "10"}], ";", " ", 
+  RowBox[{"ke", "=", 
+   SuperscriptBox["10", "3"]}], ";", 
+  RowBox[{"\[Tau]", "=", "35"}], ";", 
+  RowBox[{"\[Lambda]e", "=", "1"}], ";", 
+  RowBox[{"\[Sigma]", "=", "1.0"}], ";", 
+  RowBox[{"\[Mu]", "=", "1.6"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"W", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{"NSolve", "[", 
+      RowBox[{
+       RowBox[{"{", " ", 
+        RowBox[{
+         RowBox[{
+          RowBox[{
+           RowBox[{"k1", " ", "i", 
+            RowBox[{"(", 
+             RowBox[{"1", "-", 
+              FractionBox["i", "imax"]}], ")"}]}], "-", 
+           RowBox[{"k2", " ", "i", "  ", "e"}], "-", 
+           RowBox[{"\[Sigma]", " ", "i"}]}], "\[Equal]", "0"}], ",", 
+         RowBox[{
+          RowBox[{"\[Lambda]e", " ", "+", 
+           RowBox[{"k3", " ", 
+            FractionBox[
+             RowBox[{"i", "  ", "e"}], 
+             RowBox[{"kp", "+", "i"}]]}], "-", " ", 
+           RowBox[{"k4", 
+            FractionBox[
+             RowBox[{"i", " ", "e"}], 
+             RowBox[{"ke", "+", "i"}]]}], "-", 
+           RowBox[{"\[Mu]", " ", "e"}]}], "\[Equal]", "0"}], ",", 
+         RowBox[{"y", "\[Equal]", "k2"}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"i", ",", "e", ",", "y"}], "}"}]}], "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"k2", ",", "0.1", ",", "0.55", ",", "0.003"}], "}"}]}], "]"}]}],
+   ";"}], "\n", 
+ RowBox[{
+  RowBox[{"s1", "=", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"y", ",", "i"}], "}"}], "/.", "W"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"s", "=", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"y", ",", "e"}], "}"}], "/.", "W"}]}], ";"}], "\n", 
+ RowBox[{"a1", "=", 
+  RowBox[{"ListPlot", "[", 
+   RowBox[{"s1", ",", 
+    RowBox[{"PlotStyle", "\[Rule]", 
+     RowBox[{"RGBColor", "[", 
+      RowBox[{"0", ",", "0", ",", "1"}], "]"}]}], ",", 
+    RowBox[{"AxesOrigin", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{"0", ",", "0"}], "}"}]}], ",", 
+    RowBox[{"BaseStyle", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"FontWeight", "\[Rule]", "\"\<Bold\>\""}], ",", 
+       RowBox[{"FontSize", "\[Rule]", "8"}]}], "}"}]}], ",", 
+    RowBox[{"PlotRange", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"0.2", ",", "0.5"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"-", "35"}], ",", "2000"}], "}"}]}], "}"}]}], ",", 
+    FormBox[
+     RowBox[{"Frame", "\[Rule]", 
+      StyleBox["True",
+       FontSlant->"Italic"]}],
+     TraditionalForm]}], "]"}]}]}], "Input",
+ CellChangeTimes->{3.9215282101411076`*^9},
+ CellLabel->"In[17]:=",ExpressionUUID->"41fa1923-ffee-4f2f-8d51-736bdab07286"]
+},
+WindowSize->{1536, 773},
+WindowMargins->{{-8, Automatic}, {Automatic, -8}},
+Magnification:>2. Inherited,
+FrontEndVersion->"11.3 for Microsoft Windows (64-bit) (2018\:5e743\:67086\
+\:65e5)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 2904, 86, 877, "Input",ExpressionUUID->"41fa1923-ffee-4f2f-8d51-736bdab07286"]
+}
+]
+*)
+

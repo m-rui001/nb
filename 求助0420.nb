@@ -1,0 +1,450 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 13.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     16926,        440]
+NotebookOptionsPosition[     16428,        422]
+NotebookOutlinePosition[     16843,        439]
+CellTagsIndexPosition[     16800,        436]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[{
+ RowBox[{"Clear", "[", "\"\<Global`*\>\"", "]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"\[Rho]111", "=", "1"}], ";", 
+  RowBox[{"\[Rho]121", "=", 
+   RowBox[{"-", 
+    FractionBox[
+     RowBox[{"\[ImaginaryI]", " ", "\[CapitalOmega]pc"}], 
+     RowBox[{"\[Gamma]2", "+", 
+      RowBox[{"2", " ", "\[ImaginaryI]", " ", "\[CapitalDelta]p"}]}]]}]}], 
+  ";", 
+  RowBox[{"\[Rho]131", "=", 
+   RowBox[{"-", 
+    FractionBox[
+     RowBox[{"\[CapitalOmega]c", " ", "\[CapitalOmega]Lc"}], 
+     RowBox[{
+      RowBox[{"\[Gamma]3", " ", "\[Gamma]4"}], "+", 
+      RowBox[{
+      "2", " ", "\[ImaginaryI]", " ", "\[Gamma]4", " ", "\[CapitalDelta]1"}], 
+      "+", 
+      RowBox[{
+      "2", " ", "\[ImaginaryI]", " ", "\[Gamma]3", " ", "\[CapitalDelta]2"}], 
+      "-", 
+      RowBox[{"4", " ", "\[CapitalDelta]1", " ", "\[CapitalDelta]2"}], "+", 
+      RowBox[{"\[CapitalOmega]c", " ", "\[CapitalOmega]cc"}]}]]}]}], ";", 
+  RowBox[{"\[Rho]141", "=", 
+   RowBox[{"-", 
+    FractionBox[
+     RowBox[{"\[ImaginaryI]", " ", 
+      RowBox[{"(", 
+       RowBox[{"\[Gamma]3", "+", 
+        RowBox[{"2", " ", "\[ImaginaryI]", " ", "\[CapitalDelta]1"}]}], ")"}],
+       " ", "\[CapitalOmega]Lc"}], 
+     RowBox[{
+      RowBox[{"\[Gamma]3", " ", "\[Gamma]4"}], "+", 
+      RowBox[{
+      "2", " ", "\[ImaginaryI]", " ", "\[Gamma]4", " ", "\[CapitalDelta]1"}], 
+      "+", 
+      RowBox[{
+      "2", " ", "\[ImaginaryI]", " ", "\[Gamma]3", " ", "\[CapitalDelta]2"}], 
+      "-", 
+      RowBox[{"4", " ", "\[CapitalDelta]1", " ", "\[CapitalDelta]2"}], "+", 
+      RowBox[{"\[CapitalOmega]c", " ", "\[CapitalOmega]cc"}]}]]}]}], ";", 
+  RowBox[{"\[Rho]211", "=", 
+   FractionBox[
+    RowBox[{"\[ImaginaryI]", " ", "\[CapitalOmega]p"}], 
+    RowBox[{"\[Gamma]2", "-", 
+     RowBox[{"2", " ", "\[ImaginaryI]", " ", "\[CapitalDelta]p"}]}]]}], ";", 
+  RowBox[{"\[Rho]221", "=", "0"}], ";", 
+  RowBox[{"\[Rho]231", "=", "0"}], ";", 
+  RowBox[{"\[Rho]241", "=", "0"}], ";", 
+  RowBox[{"\[Rho]311", "=", 
+   RowBox[{"-", 
+    FractionBox[
+     RowBox[{"\[CapitalOmega]cc", " ", "\[CapitalOmega]L"}], 
+     RowBox[{
+      RowBox[{"\[Gamma]3", " ", "\[Gamma]4"}], "-", 
+      RowBox[{
+      "2", " ", "\[ImaginaryI]", " ", "\[Gamma]4", " ", "\[CapitalDelta]1"}], 
+      "-", 
+      RowBox[{
+      "2", " ", "\[ImaginaryI]", " ", "\[Gamma]3", " ", "\[CapitalDelta]2"}], 
+      "-", 
+      RowBox[{"4", " ", "\[CapitalDelta]1", " ", "\[CapitalDelta]2"}], "+", 
+      RowBox[{"\[CapitalOmega]c", " ", "\[CapitalOmega]cc"}]}]]}]}], ";", 
+  RowBox[{"\[Rho]321", "=", "0"}], ";", 
+  RowBox[{"\[Rho]331", "=", "0"}], ";", 
+  RowBox[{"\[Rho]341", "=", "0"}], ";", 
+  RowBox[{"\[Rho]411", "=", 
+   FractionBox[
+    RowBox[{"\[ImaginaryI]", " ", 
+     RowBox[{"(", 
+      RowBox[{"\[Gamma]3", "-", 
+       RowBox[{"2", " ", "\[ImaginaryI]", " ", "\[CapitalDelta]1"}]}], ")"}], 
+     " ", "\[CapitalOmega]L"}], 
+    RowBox[{
+     RowBox[{"\[Gamma]3", " ", "\[Gamma]4"}], "-", 
+     RowBox[{
+     "2", " ", "\[ImaginaryI]", " ", "\[Gamma]4", " ", "\[CapitalDelta]1"}], 
+     "-", 
+     RowBox[{
+     "2", " ", "\[ImaginaryI]", " ", "\[Gamma]3", " ", "\[CapitalDelta]2"}], 
+     "-", 
+     RowBox[{"4", " ", "\[CapitalDelta]1", " ", "\[CapitalDelta]2"}], "+", 
+     RowBox[{"\[CapitalOmega]c", " ", "\[CapitalOmega]cc"}]}]]}], ";", 
+  RowBox[{"\[Rho]421", "=", "0"}], ";", 
+  RowBox[{"\[Rho]431", "=", "0"}], ";", 
+  RowBox[{"\[Rho]441", "=", "0"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Solve", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{"\[Gamma]2", " ", "\[Rho]222"}], "+", 
+       RowBox[{"\[Gamma]4", " ", "\[Rho]442"}], "-", 
+       RowBox[{
+        FractionBox["1", "2"], " ", "\[ImaginaryI]", " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"\[Rho]141", " ", "\[CapitalOmega]L"}], "-", 
+          RowBox[{"\[Rho]411", " ", "\[CapitalOmega]Lc"}], "+", 
+          RowBox[{"\[Rho]121", " ", "\[CapitalOmega]p"}], "-", 
+          RowBox[{"\[Rho]211", " ", "\[CapitalOmega]pc"}]}], ")"}]}]}], "==", 
+      "0"}], ",", 
+     RowBox[{
+      RowBox[{
+       FractionBox["1", "2"], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"-", "\[Gamma]2"}], " ", "\[Rho]212"}], "+", 
+         RowBox[{"\[ImaginaryI]", " ", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"2", " ", "\[CapitalDelta]p", " ", "\[Rho]212"}], "-", 
+            RowBox[{"\[Rho]241", " ", "\[CapitalOmega]L"}], "+", 
+            RowBox[{"\[Rho]311", " ", "\[CapitalOmega]mc"}], "+", 
+            RowBox[{"\[Rho]111", " ", "\[CapitalOmega]p"}], "-", 
+            RowBox[{"\[Rho]221", " ", "\[CapitalOmega]p"}]}], ")"}]}]}], 
+        ")"}]}], "==", "0"}], ",", 
+     RowBox[{
+      RowBox[{
+       FractionBox["1", "2"], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"-", "\[Gamma]3"}], " ", "\[Rho]312"}], "+", 
+         RowBox[{"\[ImaginaryI]", " ", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"2", " ", "\[CapitalDelta]1", " ", "\[Rho]312"}], "+", 
+            RowBox[{"\[Rho]412", " ", "\[CapitalOmega]cc"}], "-", 
+            RowBox[{"\[Rho]341", " ", "\[CapitalOmega]L"}], "+", 
+            RowBox[{"\[Rho]211", " ", "\[CapitalOmega]m"}], "-", 
+            RowBox[{"\[Rho]321", " ", "\[CapitalOmega]p"}]}], ")"}]}]}], 
+        ")"}]}], "==", "0"}], ",", 
+     RowBox[{
+      RowBox[{
+       FractionBox["1", "2"], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"-", "\[Gamma]4"}], " ", "\[Rho]412"}], "+", 
+         RowBox[{"\[ImaginaryI]", " ", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"2", " ", "\[CapitalDelta]2", " ", "\[Rho]412"}], "+", 
+            RowBox[{"\[Rho]312", " ", "\[CapitalOmega]c"}], "+", 
+            RowBox[{"\[Rho]111", " ", "\[CapitalOmega]L"}], "-", 
+            RowBox[{"\[Rho]441", " ", "\[CapitalOmega]L"}], "-", 
+            RowBox[{"\[Rho]421", " ", "\[CapitalOmega]p"}]}], ")"}]}]}], 
+        ")"}]}], "==", "0"}], ",", 
+     RowBox[{
+      RowBox[{
+       FractionBox["1", "2"], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"-", "\[Gamma]2"}], " ", "\[Rho]122"}], "-", 
+         RowBox[{"\[ImaginaryI]", " ", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"2", " ", "\[CapitalDelta]p", " ", "\[Rho]122"}], "-", 
+            RowBox[{"\[Rho]421", " ", "\[CapitalOmega]Lc"}], "+", 
+            RowBox[{"\[Rho]131", " ", "\[CapitalOmega]m"}], "+", 
+            RowBox[{"\[Rho]111", " ", "\[CapitalOmega]pc"}], "-", 
+            RowBox[{"\[Rho]221", " ", "\[CapitalOmega]pc"}]}], ")"}]}]}], 
+        ")"}]}], "==", "0"}], ",", 
+     RowBox[{
+      RowBox[{
+       RowBox[{
+        RowBox[{"-", "\[Gamma]2"}], " ", "\[Rho]222"}], "+", 
+       RowBox[{"\[Gamma]3", " ", "\[Rho]332"}], "+", 
+       RowBox[{
+        FractionBox["1", "2"], " ", "\[ImaginaryI]", " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"-", "\[Rho]231"}], " ", "\[CapitalOmega]m"}], "+", 
+          RowBox[{"\[Rho]321", " ", "\[CapitalOmega]mc"}], "+", 
+          RowBox[{"\[Rho]121", " ", "\[CapitalOmega]p"}], "-", 
+          RowBox[{"\[Rho]211", " ", "\[CapitalOmega]pc"}]}], ")"}]}]}], "==", 
+      "0"}], ",", 
+     RowBox[{
+      RowBox[{
+       FractionBox["1", "2"], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"-", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{"\[Gamma]2", "+", "\[Gamma]3", "-", 
+              RowBox[{"2", " ", "\[ImaginaryI]", " ", 
+               RowBox[{"(", 
+                RowBox[{"\[CapitalDelta]1", "-", "\[CapitalDelta]p"}], 
+                ")"}]}]}], ")"}], " ", "\[Rho]322"}], ")"}]}], "+", 
+         RowBox[{"\[ImaginaryI]", " ", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"\[Rho]422", " ", "\[CapitalOmega]cc"}], "+", 
+            RowBox[{"\[Rho]221", " ", "\[CapitalOmega]m"}], "-", 
+            RowBox[{"\[Rho]331", " ", "\[CapitalOmega]m"}], "-", 
+            RowBox[{"\[Rho]311", " ", "\[CapitalOmega]pc"}]}], ")"}]}]}], 
+        ")"}]}], "==", "0"}], ",", 
+     RowBox[{
+      RowBox[{
+       FractionBox["1", "2"], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"-", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{"\[Gamma]2", "+", "\[Gamma]4", "-", 
+              RowBox[{"2", " ", "\[ImaginaryI]", " ", 
+               RowBox[{"(", 
+                RowBox[{"\[CapitalDelta]2", "-", "\[CapitalDelta]p"}], 
+                ")"}]}]}], ")"}], " ", "\[Rho]422"}], ")"}]}], "+", 
+         RowBox[{"\[ImaginaryI]", " ", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"\[Rho]322", " ", "\[CapitalOmega]c"}], "+", 
+            RowBox[{"\[Rho]121", " ", "\[CapitalOmega]L"}], "-", 
+            RowBox[{"\[Rho]431", " ", "\[CapitalOmega]m"}], "-", 
+            RowBox[{"\[Rho]411", " ", "\[CapitalOmega]pc"}]}], ")"}]}]}], 
+        ")"}]}], "==", "0"}], ",", 
+     RowBox[{
+      RowBox[{
+       FractionBox["1", "2"], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"-", "\[Gamma]3"}], " ", "\[Rho]132"}], "-", 
+         RowBox[{"\[ImaginaryI]", " ", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"2", " ", "\[CapitalDelta]1", " ", "\[Rho]132"}], "+", 
+            RowBox[{"\[Rho]142", " ", "\[CapitalOmega]c"}], "-", 
+            RowBox[{"\[Rho]431", " ", "\[CapitalOmega]Lc"}], "+", 
+            RowBox[{"\[Rho]121", " ", "\[CapitalOmega]mc"}], "-", 
+            RowBox[{"\[Rho]231", " ", "\[CapitalOmega]pc"}]}], ")"}]}]}], 
+        ")"}]}], "==", "0"}], ",", 
+     RowBox[{
+      RowBox[{
+       FractionBox["1", "2"], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"-", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{"\[Gamma]2", "+", "\[Gamma]3", "+", 
+              RowBox[{"2", " ", "\[ImaginaryI]", " ", 
+               RowBox[{"(", 
+                RowBox[{"\[CapitalDelta]1", "-", "\[CapitalDelta]p"}], 
+                ")"}]}]}], ")"}], " ", "\[Rho]232"}], ")"}]}], "+", 
+         RowBox[{"\[ImaginaryI]", " ", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"-", "\[Rho]242"}], " ", "\[CapitalOmega]c"}], "-", 
+            RowBox[{"\[Rho]221", " ", "\[CapitalOmega]mc"}], "+", 
+            RowBox[{"\[Rho]331", " ", "\[CapitalOmega]mc"}], "+", 
+            RowBox[{"\[Rho]131", " ", "\[CapitalOmega]p"}]}], ")"}]}]}], 
+        ")"}]}], "==", "0"}], ",", 
+     RowBox[{
+      RowBox[{
+       RowBox[{
+        RowBox[{"-", "\[Gamma]3"}], " ", "\[Rho]332"}], "+", 
+       RowBox[{
+        FractionBox["1", "2"], " ", "\[ImaginaryI]", " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"-", "\[Rho]342"}], " ", "\[CapitalOmega]c"}], "+", 
+          RowBox[{"\[Rho]432", " ", "\[CapitalOmega]cc"}], "+", 
+          RowBox[{"\[Rho]231", " ", "\[CapitalOmega]m"}], "-", 
+          RowBox[{"\[Rho]321", " ", "\[CapitalOmega]mc"}]}], ")"}]}]}], "==", 
+      "0"}], ",", 
+     RowBox[{
+      RowBox[{
+       FractionBox["1", "2"], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"-", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{"\[Gamma]3", "+", "\[Gamma]4", "+", 
+              RowBox[{"2", " ", "\[ImaginaryI]", " ", 
+               RowBox[{"(", 
+                RowBox[{"\[CapitalDelta]1", "-", "\[CapitalDelta]2"}], 
+                ")"}]}]}], ")"}], " ", "\[Rho]432"}], ")"}]}], "+", 
+         RowBox[{"\[ImaginaryI]", " ", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"\[Rho]332", " ", "\[CapitalOmega]c"}], "-", 
+            RowBox[{"\[Rho]442", " ", "\[CapitalOmega]c"}], "+", 
+            RowBox[{"\[Rho]131", " ", "\[CapitalOmega]L"}], "-", 
+            RowBox[{"\[Rho]421", " ", "\[CapitalOmega]mc"}]}], ")"}]}]}], 
+        ")"}]}], "==", "0"}], ",", 
+     RowBox[{
+      RowBox[{
+       FractionBox["1", "2"], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"-", "\[Gamma]4"}], " ", "\[Rho]142"}], "-", 
+         RowBox[{"\[ImaginaryI]", " ", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"2", " ", "\[CapitalDelta]2", " ", "\[Rho]142"}], "+", 
+            RowBox[{"\[Rho]132", " ", "\[CapitalOmega]cc"}], "+", 
+            RowBox[{"\[Rho]111", " ", "\[CapitalOmega]Lc"}], "-", 
+            RowBox[{"\[Rho]441", " ", "\[CapitalOmega]Lc"}], "-", 
+            RowBox[{"\[Rho]241", " ", "\[CapitalOmega]pc"}]}], ")"}]}]}], 
+        ")"}]}], "==", "0"}], ",", 
+     RowBox[{
+      RowBox[{
+       FractionBox["1", "2"], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"-", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{"\[Gamma]2", "+", "\[Gamma]4", "+", 
+              RowBox[{"2", " ", "\[ImaginaryI]", " ", 
+               RowBox[{"(", 
+                RowBox[{"\[CapitalDelta]2", "-", "\[CapitalDelta]p"}], 
+                ")"}]}]}], ")"}], " ", "\[Rho]242"}], ")"}]}], "+", 
+         RowBox[{"\[ImaginaryI]", " ", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"-", "\[Rho]232"}], " ", "\[CapitalOmega]cc"}], "-", 
+            RowBox[{"\[Rho]211", " ", "\[CapitalOmega]Lc"}], "+", 
+            RowBox[{"\[Rho]341", " ", "\[CapitalOmega]mc"}], "+", 
+            RowBox[{"\[Rho]141", " ", "\[CapitalOmega]p"}]}], ")"}]}]}], 
+        ")"}]}], "==", "0"}], ",", 
+     RowBox[{
+      RowBox[{
+       FractionBox["1", "2"], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"-", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{"\[Gamma]3", "+", "\[Gamma]4", "-", 
+              RowBox[{"2", " ", "\[ImaginaryI]", " ", 
+               RowBox[{"(", 
+                RowBox[{"\[CapitalDelta]1", "-", "\[CapitalDelta]2"}], 
+                ")"}]}]}], ")"}], " ", "\[Rho]342"}], ")"}]}], "+", 
+         RowBox[{"\[ImaginaryI]", " ", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"-", "\[Rho]332"}], " ", "\[CapitalOmega]cc"}], "+", 
+            RowBox[{"\[Rho]442", " ", "\[CapitalOmega]cc"}], "-", 
+            RowBox[{"\[Rho]311", " ", "\[CapitalOmega]Lc"}], "+", 
+            RowBox[{"\[Rho]241", " ", "\[CapitalOmega]m"}]}], ")"}]}]}], 
+        ")"}]}], "==", "0"}], ",", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"\[Gamma]3", " ", "\[Rho]332"}], "-", 
+       RowBox[{"\[Gamma]4", " ", "\[Rho]442"}], "+", 
+       RowBox[{
+        FractionBox["1", "2"], " ", "\[ImaginaryI]", " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"\[Rho]342", " ", "\[CapitalOmega]c"}], "-", 
+          RowBox[{"\[Rho]432", " ", "\[CapitalOmega]cc"}], "+", 
+          RowBox[{"\[Rho]141", " ", "\[CapitalOmega]L"}], "-", 
+          RowBox[{"\[Rho]411", " ", "\[CapitalOmega]Lc"}]}], ")"}]}]}], "==", 
+      "0"}], ",", 
+     RowBox[{
+      RowBox[{
+      "\[Rho]112", "+", "\[Rho]222", "+", "\[Rho]332", "+", "\[Rho]442"}], "==",
+       "1"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+    "\[Rho]112", ",", "\[Rho]122", ",", "\[Rho]132", ",", "\[Rho]142", ",", 
+     "\[Rho]212", ",", "\[Rho]222", ",", "\[Rho]232", ",", "\[Rho]242", ",", 
+     "\[Rho]312", ",", "\[Rho]322", ",", "\[Rho]332", ",", "\[Rho]342", ",", 
+     "\[Rho]412", ",", "\[Rho]422", ",", "\[Rho]432", ",", "\[Rho]442"}], 
+    "}"}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.890981292461335*^9, 3.8909812928785777`*^9}},
+ CellLabel->
+  "In[2087]:=",ExpressionUUID->"6b1a7b44-130f-42e0-b988-d04895866579"],
+
+Cell[BoxData[
+ RowBox[{"{", "}"}]], "Output",
+ CellChangeTimes->{3.8909812965134954`*^9},
+ CellLabel->
+  "Out[2089]=",ExpressionUUID->"73bbd8a3-6341-45f8-bce7-007c705da0e8"]
+}, Open  ]]
+},
+WindowSize->{1428., 741.75},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+FrontEndVersion->"13.0 for Microsoft Windows (64-bit) (2021\:5e7412\:67082\
+\:65e5)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"8319b30f-5a3b-47f1-bf4d-f77898cd60c8"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 15656, 391, 832, "Input",ExpressionUUID->"6b1a7b44-130f-42e0-b988-d04895866579"],
+Cell[16239, 415, 173, 4, 55, "Output",ExpressionUUID->"73bbd8a3-6341-45f8-bce7-007c705da0e8"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+

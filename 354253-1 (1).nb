@@ -1,0 +1,188 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      6924,        178]
+NotebookOptionsPosition[      6415,        160]
+NotebookOutlinePosition[      6841,        177]
+CellTagsIndexPosition[      6798,        174]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"Clear", "[", "\"\<Global`*\>\"", "]"}], ";"}], "\n", 
+ RowBox[{"With", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"g", "=", "9.8"}], ",", 
+     RowBox[{"l", "=", "1"}], ",", 
+     RowBox[{"\[Theta]0", "=", 
+      RowBox[{"\[Pi]", "/", "2"}]}], ",", 
+     RowBox[{"time", "=", "10"}]}], "}"}], ",", 
+   RowBox[{"Manipulate", "[", 
+    RowBox[{
+     RowBox[{"Module", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"sol", ",", "\[Theta]"}], "}"}], ",", 
+       RowBox[{
+        RowBox[{"sol", "=", 
+         RowBox[{"NDSolve", "[", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"g", " ", 
+               RowBox[{"Sin", "[", 
+                RowBox[{"\[Theta]", "[", "t", "]"}], "]"}]}], "\[Equal]", 
+              RowBox[{
+               RowBox[{"-", "l"}], " ", 
+               RowBox[{
+                RowBox[{"\[Theta]", "''"}], "[", "t", "]"}]}]}], ",", 
+             RowBox[{
+              RowBox[{"\[Theta]", "[", "0", "]"}], "\[Equal]", "\[Theta]0"}], 
+             ",", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"\[Theta]", "'"}], "[", "0", "]"}], "\[Equal]", 
+              "\[Omega]0"}]}], "}"}], ",", "\[Theta]", ",", 
+           RowBox[{"{", 
+            RowBox[{"t", ",", "0", ",", "time"}], "}"}]}], "]"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"\[Theta]", "=", 
+         RowBox[{"\[Theta]", "/.", " ", 
+          RowBox[{"sol", "[", 
+           RowBox[{"[", "1", "]"}], "]"}]}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"Plot", "[", 
+           RowBox[{
+            RowBox[{"\[Theta]", "[", "t", "]"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"t", ",", "0", ",", "time"}], "}"}], ",", 
+            RowBox[{"AxesLabel", "\[Rule]", 
+             RowBox[{"{", 
+              RowBox[{"\"\<t/s\>\"", ",", "\"\<\[Theta]/rad\>\""}], "}"}]}]}],
+            "]"}], ",", 
+          RowBox[{"ParametricPlot", "[", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"\[Theta]", "[", "t", "]"}], ",", 
+              RowBox[{
+               RowBox[{"\[Theta]", "'"}], "[", "t", "]"}]}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"t", ",", "0", ",", "time"}], "}"}], ",", 
+            RowBox[{"PlotRange", "\[Rule]", "All"}], ",", 
+            RowBox[{"AxesLabel", "\[Rule]", 
+             RowBox[{"{", 
+              RowBox[{"\"\<\[Theta]\>\"", ",", "\"\<\[Theta]'\>\""}], "}"}]}],
+             ",", 
+            RowBox[{"AspectRatio", "\[Rule]", 
+             RowBox[{"1", "/", "2"}]}]}], "]"}]}], "}"}]}]}], "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"\[Omega]0", ",", "4.3", ",", "4.5", ",", "0.01"}], "}"}], ",", 
+     RowBox[{"SaveDefinitions", "\[Rule]", "True"}]}], "]"}]}], "]"}], "\n", 
+ RowBox[{
+  RowBox[{"Clear", "[", "\"\<Global`*\>\"", "]"}], ";"}], "\n"}], "Input",
+ CellChangeTimes->{{3.9364791223655996`*^9, 3.9364791223675933`*^9}},
+ CellLabel->"In[4]:=",ExpressionUUID->"0053fe98-6f46-4905-bace-de8ae3adf69a"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`\[Omega]0$$ = 4.3, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"\:65e0\:6807\:9898\"", Typeset`specs$$ = {{
+      Hold[$CellContext`\[Omega]0$$], 4.3, 4.5, 0.01}}, Typeset`size$$ = {
+    386.8, {54., 59.59970982376608}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = False}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, "Variables" :> {$CellContext`\[Omega]0$$ = 4.3}, 
+      "ControllerVariables" :> {}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> 
+      Module[{$CellContext`sol$, $CellContext`\[Theta]$}, $CellContext`sol$ = 
+         NDSolve[{9.8 Sin[
+               $CellContext`\[Theta]$[$CellContext`t]] == (-1) 
+             Derivative[
+              2][$CellContext`\[Theta]$][$CellContext`t], $CellContext`\
+\[Theta]$[0] == Rational[1, 2] Pi, 
+            Derivative[1][$CellContext`\[Theta]$][
+             0] == $CellContext`\[Omega]0$$}, $CellContext`\[Theta]$, \
+{$CellContext`t, 0, 10}]; $CellContext`\[Theta]$ = 
+         ReplaceAll[$CellContext`\[Theta]$, 
+           Part[$CellContext`sol$, 1]]; {
+          Plot[
+           $CellContext`\[Theta]$[$CellContext`t], {$CellContext`t, 0, 10}, 
+           AxesLabel -> {"t/s", "\[Theta]/rad"}], 
+          ParametricPlot[{
+            $CellContext`\[Theta]$[$CellContext`t], 
+            Derivative[
+            1][$CellContext`\[Theta]$][$CellContext`t]}, {$CellContext`t, 0, 
+            10}, PlotRange -> All, AxesLabel -> {"\[Theta]", "\[Theta]'"}, 
+           AspectRatio -> 1/2]}], 
+      "Specifications" :> {{$CellContext`\[Omega]0$$, 4.3, 4.5, 0.01}}, 
+      "Options" :> {}, "DefaultOptions" :> {}],
+     ImageSizeCache->{665., {84., 90.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    Initialization:>({Attributes[Derivative] = {NHoldAll}}; 
+     Typeset`initDone$$ = True),
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{3.9364791248942633`*^9},
+ CellLabel->"Out[5]=",ExpressionUUID->"674244ba-0a7d-48bf-8f39-7ce5e490ebb4"]
+}, Open  ]]
+},
+WindowSize->{1140.6, 580.1999999999999},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+FrontEndVersion->"12.2 for Microsoft Windows (64-bit) (2021\:5e742\:67085\
+\:65e5)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"b6ebc261-59f7-48a1-b66f-a50119822c5e"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 3122, 79, 301, "Input",ExpressionUUID->"0053fe98-6f46-4905-bace-de8ae3adf69a"],
+Cell[3705, 103, 2694, 54, 215, "Output",ExpressionUUID->"674244ba-0a7d-48bf-8f39-7ce5e490ebb4"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+

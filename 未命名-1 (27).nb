@@ -1,0 +1,1187 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     43849,       1179]
+NotebookOptionsPosition[     41775,       1137]
+NotebookOutlinePosition[     42281,       1156]
+CellTagsIndexPosition[     42238,       1153]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"Clear", "[", 
+    RowBox[{
+    "s0", ",", "k", ",", "r", ",", "\[Sigma]", ",", "t", ",", 
+     "\[CapitalDelta]m", ",", "\[Kappa]", ",", "\[CapitalDelta]\[Kappa]", ",",
+      "\[Tau]", ",", "s"}], "]"}], ";"}], "\[IndentingNewLine]"}]], "Input",
+ CellChangeTimes->{3.879654199867833*^9},
+ CellLabel->"In[1]:=",ExpressionUUID->"c1aa70f5-00fe-415c-8d58-7ca3a902ac66"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"d1", ":=", 
+   FractionBox[
+    RowBox[{
+     RowBox[{"Log", "[", 
+      FractionBox["s0", "k"], "]"}], "+", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{"r", "+", 
+        FractionBox[
+         RowBox[{"\[Sigma]", "^", "2"}], "2"]}], ")"}], "t"}]}], 
+    RowBox[{"\[Sigma]", 
+     SqrtBox["t"]}]]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"d2", ":=", 
+   FractionBox[
+    RowBox[{
+     RowBox[{"Log", "[", 
+      FractionBox["s0", "k"], "]"}], "+", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{"r", "-", 
+        FractionBox[
+         SuperscriptBox["\[Sigma]", "2"], "2"]}], ")"}], "t"}]}], 
+    RowBox[{"\[Sigma]", 
+     SqrtBox["t"]}]]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"C0", ":=", 
+   RowBox[{
+    RowBox[{"s0", " ", 
+     RowBox[{"CDF", "[", 
+      RowBox[{
+       RowBox[{"NormalDistribution", "[", "]"}], ",", "d1"}], "]"}]}], "-", 
+    RowBox[{"k", " ", 
+     SuperscriptBox["\[ExponentialE]", 
+      RowBox[{
+       RowBox[{"-", "r"}], " ", "t"}]], 
+     RowBox[{"CDF", "[", 
+      RowBox[{
+       RowBox[{"NormalDistribution", "[", "]"}], ",", "d2"}], "]"}]}]}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"P0", ":=", 
+   RowBox[{
+    RowBox[{"k", " ", 
+     SuperscriptBox["E", 
+      RowBox[{
+       RowBox[{"-", "r"}], " ", "t"}]], 
+     RowBox[{"CDF", "[", 
+      RowBox[{
+       RowBox[{"NormalDistribution", "[", "]"}], ",", 
+       RowBox[{"-", "d2"}]}], "]"}]}], "-", 
+    RowBox[{"s0", " ", 
+     RowBox[{"CDF", "[", 
+      RowBox[{
+       RowBox[{"NormalDistribution", "[", "]"}], ",", 
+       RowBox[{"-", "d1"}]}], "]"}]}]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"\[Delta]c", "=", 
+   RowBox[{
+    SubscriptBox["\[PartialD]", "s0"], "C0"}]}], ";", 
+  RowBox[{"\[Delta]p", "=", 
+   RowBox[{
+    SubscriptBox["\[PartialD]", "s0"], "P0"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"\[Gamma]c", "=", 
+   RowBox[{"D", "[", 
+    RowBox[{"C0", ",", 
+     RowBox[{"{", 
+      RowBox[{"s0", ",", "2"}], "}"}]}], "]"}]}], ";", 
+  RowBox[{"\[Gamma]p", "=", 
+   RowBox[{"D", "[", 
+    RowBox[{"P0", ",", 
+     RowBox[{"{", 
+      RowBox[{"s0", ",", "2"}], "}"}]}], "]"}]}], ";", 
+  RowBox[{"\[Delta]tc", "=", 
+   RowBox[{"D", "[", 
+    RowBox[{"C0", ",", "t"}], "]"}]}], ";", 
+  RowBox[{"\[Gamma]tc", "=", 
+   RowBox[{"D", "[", 
+    RowBox[{"C0", ",", 
+     RowBox[{"{", 
+      RowBox[{"t", ",", "2"}], "}"}]}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"\[Delta]tp", "=", 
+   RowBox[{"D", "[", 
+    RowBox[{"P0", ",", "t"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"\[Gamma]tp", "=", 
+   RowBox[{"D", "[", 
+    RowBox[{"P0", ",", 
+     RowBox[{"{", 
+      RowBox[{"t", ",", "2"}], "}"}]}], "]"}]}], ";"}]}], "Input",
+ CellLabel->"In[2]:=",ExpressionUUID->"4d87bcb3-f141-4a11-b80f-661aa6968c70"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"s0", ":=", "s"}], ";", 
+  RowBox[{"k", ":=", "6700"}], ";", 
+  RowBox[{"r", ":=", "0.0275"}], ";", 
+  RowBox[{"\[Sigma]", ":=", "\[Sigma]"}], ";", 
+  RowBox[{"t", ":=", "\[Tau]"}], ";", 
+  RowBox[{"c1", "=", "C0"}]}]], "Input",
+ CellLabel->"In[10]:=",ExpressionUUID->"c87a8e5a-7e8b-4efe-8669-3586e2780247"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"-", "3350"}], " ", 
+   SuperscriptBox["\[ExponentialE]", 
+    RowBox[{
+     RowBox[{"-", "0.0275`"}], " ", "\[Tau]"}]], " ", 
+   RowBox[{"Erfc", "[", 
+    RowBox[{"-", 
+     FractionBox[
+      RowBox[{
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"0.0275`", "\[VeryThinSpace]", "-", 
+          FractionBox[
+           SuperscriptBox["\[Sigma]", "2"], "2"]}], ")"}], " ", "\[Tau]"}], 
+       "+", 
+       RowBox[{"Log", "[", 
+        FractionBox["s", "6700"], "]"}]}], 
+      RowBox[{
+       SqrtBox["2"], " ", "\[Sigma]", " ", 
+       SqrtBox["\[Tau]"]}]]}], "]"}]}], "+", 
+  RowBox[{
+   FractionBox["1", "2"], " ", "s", " ", 
+   RowBox[{"Erfc", "[", 
+    RowBox[{"-", 
+     FractionBox[
+      RowBox[{
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"0.0275`", "\[VeryThinSpace]", "+", 
+          FractionBox[
+           SuperscriptBox["\[Sigma]", "2"], "2"]}], ")"}], " ", "\[Tau]"}], 
+       "+", 
+       RowBox[{"Log", "[", 
+        FractionBox["s", "6700"], "]"}]}], 
+      RowBox[{
+       SqrtBox["2"], " ", "\[Sigma]", " ", 
+       SqrtBox["\[Tau]"]}]]}], "]"}]}]}]], "Output",
+ CellChangeTimes->{3.8796537848072305`*^9, 3.8796540850070324`*^9, 
+  3.879654209227833*^9},
+ CellLabel->"Out[10]=",ExpressionUUID->"a9faf3ba-a716-4b41-b972-dd0f3d63d9c5"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"s0", ":=", "s"}], ";", 
+  RowBox[{"k", ":=", 
+   RowBox[{"6700", "-", 
+    RowBox[{"2", "c1"}]}]}], ";", 
+  RowBox[{"r", ":=", "0.0275"}], ";", 
+  RowBox[{"\[Sigma]", ":=", "\[Sigma]"}], ";", 
+  RowBox[{"t", ":=", "\[Tau]"}], ";", 
+  RowBox[{"c2", "=", "C0"}]}]], "Input",
+ CellLabel->"In[11]:=",ExpressionUUID->"82ffc447-d958-46c0-94d0-a1e27d72fb1d"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"-", 
+    FractionBox["1", "2"]}], " ", 
+   SuperscriptBox["\[ExponentialE]", 
+    RowBox[{
+     RowBox[{"-", "0.0275`"}], " ", "\[Tau]"}]], " ", 
+   RowBox[{"(", 
+    RowBox[{"6700", "-", 
+     RowBox[{"2", " ", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"-", "3350"}], " ", 
+         SuperscriptBox["\[ExponentialE]", 
+          RowBox[{
+           RowBox[{"-", "0.0275`"}], " ", "\[Tau]"}]], " ", 
+         RowBox[{"Erfc", "[", 
+          RowBox[{"-", 
+           FractionBox[
+            RowBox[{
+             RowBox[{
+              RowBox[{"(", 
+               RowBox[{"0.0275`", "\[VeryThinSpace]", "-", 
+                FractionBox[
+                 SuperscriptBox["\[Sigma]", "2"], "2"]}], ")"}], " ", 
+              "\[Tau]"}], "+", 
+             RowBox[{"Log", "[", 
+              FractionBox["s", "6700"], "]"}]}], 
+            RowBox[{
+             SqrtBox["2"], " ", "\[Sigma]", " ", 
+             SqrtBox["\[Tau]"]}]]}], "]"}]}], "+", 
+        RowBox[{
+         FractionBox["1", "2"], " ", "s", " ", 
+         RowBox[{"Erfc", "[", 
+          RowBox[{"-", 
+           FractionBox[
+            RowBox[{
+             RowBox[{
+              RowBox[{"(", 
+               RowBox[{"0.0275`", "\[VeryThinSpace]", "+", 
+                FractionBox[
+                 SuperscriptBox["\[Sigma]", "2"], "2"]}], ")"}], " ", 
+              "\[Tau]"}], "+", 
+             RowBox[{"Log", "[", 
+              FractionBox["s", "6700"], "]"}]}], 
+            RowBox[{
+             SqrtBox["2"], " ", "\[Sigma]", " ", 
+             SqrtBox["\[Tau]"]}]]}], "]"}]}]}], ")"}]}]}], ")"}], " ", 
+   RowBox[{"Erfc", "[", 
+    RowBox[{"-", 
+     FractionBox[
+      RowBox[{
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"0.0275`", "\[VeryThinSpace]", "-", 
+          FractionBox[
+           SuperscriptBox["\[Sigma]", "2"], "2"]}], ")"}], " ", "\[Tau]"}], 
+       "+", 
+       RowBox[{"Log", "[", 
+        FractionBox["s", 
+         RowBox[{"6700", "-", 
+          RowBox[{"2", " ", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"-", "3350"}], " ", 
+              SuperscriptBox["\[ExponentialE]", 
+               RowBox[{
+                RowBox[{"-", "0.0275`"}], " ", "\[Tau]"}]], " ", 
+              RowBox[{"Erfc", "[", 
+               RowBox[{"-", 
+                FractionBox[
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{"(", 
+                    RowBox[{"0.0275`", "\[VeryThinSpace]", "-", 
+                    FractionBox[
+                    SuperscriptBox["\[Sigma]", "2"], "2"]}], ")"}], " ", 
+                   "\[Tau]"}], "+", 
+                  RowBox[{"Log", "[", 
+                   FractionBox["s", "6700"], "]"}]}], 
+                 RowBox[{
+                  SqrtBox["2"], " ", "\[Sigma]", " ", 
+                  SqrtBox["\[Tau]"]}]]}], "]"}]}], "+", 
+             RowBox[{
+              FractionBox["1", "2"], " ", "s", " ", 
+              RowBox[{"Erfc", "[", 
+               RowBox[{"-", 
+                FractionBox[
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{"(", 
+                    RowBox[{"0.0275`", "\[VeryThinSpace]", "+", 
+                    FractionBox[
+                    SuperscriptBox["\[Sigma]", "2"], "2"]}], ")"}], " ", 
+                   "\[Tau]"}], "+", 
+                  RowBox[{"Log", "[", 
+                   FractionBox["s", "6700"], "]"}]}], 
+                 RowBox[{
+                  SqrtBox["2"], " ", "\[Sigma]", " ", 
+                  SqrtBox["\[Tau]"]}]]}], "]"}]}]}], ")"}]}]}]], "]"}]}], 
+      RowBox[{
+       SqrtBox["2"], " ", "\[Sigma]", " ", 
+       SqrtBox["\[Tau]"]}]]}], "]"}]}], "+", 
+  RowBox[{
+   FractionBox["1", "2"], " ", "s", " ", 
+   RowBox[{"Erfc", "[", 
+    RowBox[{"-", 
+     FractionBox[
+      RowBox[{
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"0.0275`", "\[VeryThinSpace]", "+", 
+          FractionBox[
+           SuperscriptBox["\[Sigma]", "2"], "2"]}], ")"}], " ", "\[Tau]"}], 
+       "+", 
+       RowBox[{"Log", "[", 
+        FractionBox["s", 
+         RowBox[{"6700", "-", 
+          RowBox[{"2", " ", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"-", "3350"}], " ", 
+              SuperscriptBox["\[ExponentialE]", 
+               RowBox[{
+                RowBox[{"-", "0.0275`"}], " ", "\[Tau]"}]], " ", 
+              RowBox[{"Erfc", "[", 
+               RowBox[{"-", 
+                FractionBox[
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{"(", 
+                    RowBox[{"0.0275`", "\[VeryThinSpace]", "-", 
+                    FractionBox[
+                    SuperscriptBox["\[Sigma]", "2"], "2"]}], ")"}], " ", 
+                   "\[Tau]"}], "+", 
+                  RowBox[{"Log", "[", 
+                   FractionBox["s", "6700"], "]"}]}], 
+                 RowBox[{
+                  SqrtBox["2"], " ", "\[Sigma]", " ", 
+                  SqrtBox["\[Tau]"]}]]}], "]"}]}], "+", 
+             RowBox[{
+              FractionBox["1", "2"], " ", "s", " ", 
+              RowBox[{"Erfc", "[", 
+               RowBox[{"-", 
+                FractionBox[
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{"(", 
+                    RowBox[{"0.0275`", "\[VeryThinSpace]", "+", 
+                    FractionBox[
+                    SuperscriptBox["\[Sigma]", "2"], "2"]}], ")"}], " ", 
+                   "\[Tau]"}], "+", 
+                  RowBox[{"Log", "[", 
+                   FractionBox["s", "6700"], "]"}]}], 
+                 RowBox[{
+                  SqrtBox["2"], " ", "\[Sigma]", " ", 
+                  SqrtBox["\[Tau]"]}]]}], "]"}]}]}], ")"}]}]}]], "]"}]}], 
+      RowBox[{
+       SqrtBox["2"], " ", "\[Sigma]", " ", 
+       SqrtBox["\[Tau]"]}]]}], "]"}]}]}]], "Output",
+ CellChangeTimes->{3.879653825476431*^9, 3.879654088844632*^9, 
+  3.8796542132682333`*^9},
+ CellLabel->"Out[11]=",ExpressionUUID->"90a29400-7b6d-4d56-a24d-c38f099378d2"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"s0", ":=", "s"}], ";", 
+  RowBox[{"k", ":=", 
+   RowBox[{"6700", "+", 
+    RowBox[{"2", "c1"}]}]}], ";", 
+  RowBox[{"r", ":=", "0.0275"}], ";", 
+  RowBox[{"\[Sigma]", ":=", "\[Sigma]"}], ";", 
+  RowBox[{"t", ":=", "\[Tau]"}], ";", 
+  RowBox[{"c3", "=", "C0"}]}]], "Input",
+ CellChangeTimes->{{3.879653875396431*^9, 3.879653899124031*^9}},
+ CellLabel->"In[12]:=",ExpressionUUID->"86410a60-01c1-4ee4-9e5f-0d2de34a64bb"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"-", 
+    FractionBox["1", "2"]}], " ", 
+   SuperscriptBox["\[ExponentialE]", 
+    RowBox[{
+     RowBox[{"-", "0.0275`"}], " ", "\[Tau]"}]], " ", 
+   RowBox[{"(", 
+    RowBox[{"6700", "+", 
+     RowBox[{"2", " ", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"-", "3350"}], " ", 
+         SuperscriptBox["\[ExponentialE]", 
+          RowBox[{
+           RowBox[{"-", "0.0275`"}], " ", "\[Tau]"}]], " ", 
+         RowBox[{"Erfc", "[", 
+          RowBox[{"-", 
+           FractionBox[
+            RowBox[{
+             RowBox[{
+              RowBox[{"(", 
+               RowBox[{"0.0275`", "\[VeryThinSpace]", "-", 
+                FractionBox[
+                 SuperscriptBox["\[Sigma]", "2"], "2"]}], ")"}], " ", 
+              "\[Tau]"}], "+", 
+             RowBox[{"Log", "[", 
+              FractionBox["s", "6700"], "]"}]}], 
+            RowBox[{
+             SqrtBox["2"], " ", "\[Sigma]", " ", 
+             SqrtBox["\[Tau]"]}]]}], "]"}]}], "+", 
+        RowBox[{
+         FractionBox["1", "2"], " ", "s", " ", 
+         RowBox[{"Erfc", "[", 
+          RowBox[{"-", 
+           FractionBox[
+            RowBox[{
+             RowBox[{
+              RowBox[{"(", 
+               RowBox[{"0.0275`", "\[VeryThinSpace]", "+", 
+                FractionBox[
+                 SuperscriptBox["\[Sigma]", "2"], "2"]}], ")"}], " ", 
+              "\[Tau]"}], "+", 
+             RowBox[{"Log", "[", 
+              FractionBox["s", "6700"], "]"}]}], 
+            RowBox[{
+             SqrtBox["2"], " ", "\[Sigma]", " ", 
+             SqrtBox["\[Tau]"]}]]}], "]"}]}]}], ")"}]}]}], ")"}], " ", 
+   RowBox[{"Erfc", "[", 
+    RowBox[{"-", 
+     FractionBox[
+      RowBox[{
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"0.0275`", "\[VeryThinSpace]", "-", 
+          FractionBox[
+           SuperscriptBox["\[Sigma]", "2"], "2"]}], ")"}], " ", "\[Tau]"}], 
+       "+", 
+       RowBox[{"Log", "[", 
+        FractionBox["s", 
+         RowBox[{"6700", "+", 
+          RowBox[{"2", " ", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"-", "3350"}], " ", 
+              SuperscriptBox["\[ExponentialE]", 
+               RowBox[{
+                RowBox[{"-", "0.0275`"}], " ", "\[Tau]"}]], " ", 
+              RowBox[{"Erfc", "[", 
+               RowBox[{"-", 
+                FractionBox[
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{"(", 
+                    RowBox[{"0.0275`", "\[VeryThinSpace]", "-", 
+                    FractionBox[
+                    SuperscriptBox["\[Sigma]", "2"], "2"]}], ")"}], " ", 
+                   "\[Tau]"}], "+", 
+                  RowBox[{"Log", "[", 
+                   FractionBox["s", "6700"], "]"}]}], 
+                 RowBox[{
+                  SqrtBox["2"], " ", "\[Sigma]", " ", 
+                  SqrtBox["\[Tau]"]}]]}], "]"}]}], "+", 
+             RowBox[{
+              FractionBox["1", "2"], " ", "s", " ", 
+              RowBox[{"Erfc", "[", 
+               RowBox[{"-", 
+                FractionBox[
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{"(", 
+                    RowBox[{"0.0275`", "\[VeryThinSpace]", "+", 
+                    FractionBox[
+                    SuperscriptBox["\[Sigma]", "2"], "2"]}], ")"}], " ", 
+                   "\[Tau]"}], "+", 
+                  RowBox[{"Log", "[", 
+                   FractionBox["s", "6700"], "]"}]}], 
+                 RowBox[{
+                  SqrtBox["2"], " ", "\[Sigma]", " ", 
+                  SqrtBox["\[Tau]"]}]]}], "]"}]}]}], ")"}]}]}]], "]"}]}], 
+      RowBox[{
+       SqrtBox["2"], " ", "\[Sigma]", " ", 
+       SqrtBox["\[Tau]"]}]]}], "]"}]}], "+", 
+  RowBox[{
+   FractionBox["1", "2"], " ", "s", " ", 
+   RowBox[{"Erfc", "[", 
+    RowBox[{"-", 
+     FractionBox[
+      RowBox[{
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"0.0275`", "\[VeryThinSpace]", "+", 
+          FractionBox[
+           SuperscriptBox["\[Sigma]", "2"], "2"]}], ")"}], " ", "\[Tau]"}], 
+       "+", 
+       RowBox[{"Log", "[", 
+        FractionBox["s", 
+         RowBox[{"6700", "+", 
+          RowBox[{"2", " ", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"-", "3350"}], " ", 
+              SuperscriptBox["\[ExponentialE]", 
+               RowBox[{
+                RowBox[{"-", "0.0275`"}], " ", "\[Tau]"}]], " ", 
+              RowBox[{"Erfc", "[", 
+               RowBox[{"-", 
+                FractionBox[
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{"(", 
+                    RowBox[{"0.0275`", "\[VeryThinSpace]", "-", 
+                    FractionBox[
+                    SuperscriptBox["\[Sigma]", "2"], "2"]}], ")"}], " ", 
+                   "\[Tau]"}], "+", 
+                  RowBox[{"Log", "[", 
+                   FractionBox["s", "6700"], "]"}]}], 
+                 RowBox[{
+                  SqrtBox["2"], " ", "\[Sigma]", " ", 
+                  SqrtBox["\[Tau]"]}]]}], "]"}]}], "+", 
+             RowBox[{
+              FractionBox["1", "2"], " ", "s", " ", 
+              RowBox[{"Erfc", "[", 
+               RowBox[{"-", 
+                FractionBox[
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{"(", 
+                    RowBox[{"0.0275`", "\[VeryThinSpace]", "+", 
+                    FractionBox[
+                    SuperscriptBox["\[Sigma]", "2"], "2"]}], ")"}], " ", 
+                   "\[Tau]"}], "+", 
+                  RowBox[{"Log", "[", 
+                   FractionBox["s", "6700"], "]"}]}], 
+                 RowBox[{
+                  SqrtBox["2"], " ", "\[Sigma]", " ", 
+                  SqrtBox["\[Tau]"]}]]}], "]"}]}]}], ")"}]}]}]], "]"}]}], 
+      RowBox[{
+       SqrtBox["2"], " ", "\[Sigma]", " ", 
+       SqrtBox["\[Tau]"]}]]}], "]"}]}]}]], "Output",
+ CellChangeTimes->{{3.879653865849231*^9, 3.879653900730831*^9}, 
+   3.8796540933842325`*^9, 3.879654220101033*^9},
+ CellLabel->"Out[12]=",ExpressionUUID->"f9cd95ea-8703-44bd-97c6-8a4eeec6a7ea"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"-", "2"}], "c1"}], "+", "c2", "+", "c3"}]], "Input",
+ CellChangeTimes->{{3.879653921650431*^9, 3.879653932898031*^9}, 
+   3.879654058799032*^9},
+ CellLabel->"In[13]:=",ExpressionUUID->"8b8ef51b-109a-4ff2-9898-f08ce6ad231a"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"-", "2"}], " ", 
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"-", "3350"}], " ", 
+      SuperscriptBox["\[ExponentialE]", 
+       RowBox[{
+        RowBox[{"-", "0.0275`"}], " ", "\[Tau]"}]], " ", 
+      RowBox[{"Erfc", "[", 
+       RowBox[{"-", 
+        FractionBox[
+         RowBox[{
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{"0.0275`", "\[VeryThinSpace]", "-", 
+             FractionBox[
+              SuperscriptBox["\[Sigma]", "2"], "2"]}], ")"}], " ", "\[Tau]"}],
+           "+", 
+          RowBox[{"Log", "[", 
+           FractionBox["s", "6700"], "]"}]}], 
+         RowBox[{
+          SqrtBox["2"], " ", "\[Sigma]", " ", 
+          SqrtBox["\[Tau]"]}]]}], "]"}]}], "+", 
+     RowBox[{
+      FractionBox["1", "2"], " ", "s", " ", 
+      RowBox[{"Erfc", "[", 
+       RowBox[{"-", 
+        FractionBox[
+         RowBox[{
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{"0.0275`", "\[VeryThinSpace]", "+", 
+             FractionBox[
+              SuperscriptBox["\[Sigma]", "2"], "2"]}], ")"}], " ", "\[Tau]"}],
+           "+", 
+          RowBox[{"Log", "[", 
+           FractionBox["s", "6700"], "]"}]}], 
+         RowBox[{
+          SqrtBox["2"], " ", "\[Sigma]", " ", 
+          SqrtBox["\[Tau]"]}]]}], "]"}]}]}], ")"}]}], "-", 
+  RowBox[{
+   FractionBox["1", "2"], " ", 
+   SuperscriptBox["\[ExponentialE]", 
+    RowBox[{
+     RowBox[{"-", "0.0275`"}], " ", "\[Tau]"}]], " ", 
+   RowBox[{"(", 
+    RowBox[{"6700", "-", 
+     RowBox[{"2", " ", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"-", "3350"}], " ", 
+         SuperscriptBox["\[ExponentialE]", 
+          RowBox[{
+           RowBox[{"-", "0.0275`"}], " ", "\[Tau]"}]], " ", 
+         RowBox[{"Erfc", "[", 
+          RowBox[{"-", 
+           FractionBox[
+            RowBox[{
+             RowBox[{
+              RowBox[{"(", 
+               RowBox[{"0.0275`", "\[VeryThinSpace]", "-", 
+                FractionBox[
+                 SuperscriptBox["\[Sigma]", "2"], "2"]}], ")"}], " ", 
+              "\[Tau]"}], "+", 
+             RowBox[{"Log", "[", 
+              FractionBox["s", "6700"], "]"}]}], 
+            RowBox[{
+             SqrtBox["2"], " ", "\[Sigma]", " ", 
+             SqrtBox["\[Tau]"]}]]}], "]"}]}], "+", 
+        RowBox[{
+         FractionBox["1", "2"], " ", "s", " ", 
+         RowBox[{"Erfc", "[", 
+          RowBox[{"-", 
+           FractionBox[
+            RowBox[{
+             RowBox[{
+              RowBox[{"(", 
+               RowBox[{"0.0275`", "\[VeryThinSpace]", "+", 
+                FractionBox[
+                 SuperscriptBox["\[Sigma]", "2"], "2"]}], ")"}], " ", 
+              "\[Tau]"}], "+", 
+             RowBox[{"Log", "[", 
+              FractionBox["s", "6700"], "]"}]}], 
+            RowBox[{
+             SqrtBox["2"], " ", "\[Sigma]", " ", 
+             SqrtBox["\[Tau]"]}]]}], "]"}]}]}], ")"}]}]}], ")"}], " ", 
+   RowBox[{"Erfc", "[", 
+    RowBox[{"-", 
+     FractionBox[
+      RowBox[{
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"0.0275`", "\[VeryThinSpace]", "-", 
+          FractionBox[
+           SuperscriptBox["\[Sigma]", "2"], "2"]}], ")"}], " ", "\[Tau]"}], 
+       "+", 
+       RowBox[{"Log", "[", 
+        FractionBox["s", 
+         RowBox[{"6700", "-", 
+          RowBox[{"2", " ", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"-", "3350"}], " ", 
+              SuperscriptBox["\[ExponentialE]", 
+               RowBox[{
+                RowBox[{"-", "0.0275`"}], " ", "\[Tau]"}]], " ", 
+              RowBox[{"Erfc", "[", 
+               RowBox[{"-", 
+                FractionBox[
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{"(", 
+                    RowBox[{"0.0275`", "\[VeryThinSpace]", "-", 
+                    FractionBox[
+                    SuperscriptBox["\[Sigma]", "2"], "2"]}], ")"}], " ", 
+                   "\[Tau]"}], "+", 
+                  RowBox[{"Log", "[", 
+                   FractionBox["s", "6700"], "]"}]}], 
+                 RowBox[{
+                  SqrtBox["2"], " ", "\[Sigma]", " ", 
+                  SqrtBox["\[Tau]"]}]]}], "]"}]}], "+", 
+             RowBox[{
+              FractionBox["1", "2"], " ", "s", " ", 
+              RowBox[{"Erfc", "[", 
+               RowBox[{"-", 
+                FractionBox[
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{"(", 
+                    RowBox[{"0.0275`", "\[VeryThinSpace]", "+", 
+                    FractionBox[
+                    SuperscriptBox["\[Sigma]", "2"], "2"]}], ")"}], " ", 
+                   "\[Tau]"}], "+", 
+                  RowBox[{"Log", "[", 
+                   FractionBox["s", "6700"], "]"}]}], 
+                 RowBox[{
+                  SqrtBox["2"], " ", "\[Sigma]", " ", 
+                  SqrtBox["\[Tau]"]}]]}], "]"}]}]}], ")"}]}]}]], "]"}]}], 
+      RowBox[{
+       SqrtBox["2"], " ", "\[Sigma]", " ", 
+       SqrtBox["\[Tau]"]}]]}], "]"}]}], "+", 
+  RowBox[{
+   FractionBox["1", "2"], " ", "s", " ", 
+   RowBox[{"Erfc", "[", 
+    RowBox[{"-", 
+     FractionBox[
+      RowBox[{
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"0.0275`", "\[VeryThinSpace]", "+", 
+          FractionBox[
+           SuperscriptBox["\[Sigma]", "2"], "2"]}], ")"}], " ", "\[Tau]"}], 
+       "+", 
+       RowBox[{"Log", "[", 
+        FractionBox["s", 
+         RowBox[{"6700", "-", 
+          RowBox[{"2", " ", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"-", "3350"}], " ", 
+              SuperscriptBox["\[ExponentialE]", 
+               RowBox[{
+                RowBox[{"-", "0.0275`"}], " ", "\[Tau]"}]], " ", 
+              RowBox[{"Erfc", "[", 
+               RowBox[{"-", 
+                FractionBox[
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{"(", 
+                    RowBox[{"0.0275`", "\[VeryThinSpace]", "-", 
+                    FractionBox[
+                    SuperscriptBox["\[Sigma]", "2"], "2"]}], ")"}], " ", 
+                   "\[Tau]"}], "+", 
+                  RowBox[{"Log", "[", 
+                   FractionBox["s", "6700"], "]"}]}], 
+                 RowBox[{
+                  SqrtBox["2"], " ", "\[Sigma]", " ", 
+                  SqrtBox["\[Tau]"]}]]}], "]"}]}], "+", 
+             RowBox[{
+              FractionBox["1", "2"], " ", "s", " ", 
+              RowBox[{"Erfc", "[", 
+               RowBox[{"-", 
+                FractionBox[
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{"(", 
+                    RowBox[{"0.0275`", "\[VeryThinSpace]", "+", 
+                    FractionBox[
+                    SuperscriptBox["\[Sigma]", "2"], "2"]}], ")"}], " ", 
+                   "\[Tau]"}], "+", 
+                  RowBox[{"Log", "[", 
+                   FractionBox["s", "6700"], "]"}]}], 
+                 RowBox[{
+                  SqrtBox["2"], " ", "\[Sigma]", " ", 
+                  SqrtBox["\[Tau]"]}]]}], "]"}]}]}], ")"}]}]}]], "]"}]}], 
+      RowBox[{
+       SqrtBox["2"], " ", "\[Sigma]", " ", 
+       SqrtBox["\[Tau]"]}]]}], "]"}]}], "-", 
+  RowBox[{
+   FractionBox["1", "2"], " ", 
+   SuperscriptBox["\[ExponentialE]", 
+    RowBox[{
+     RowBox[{"-", "0.0275`"}], " ", "\[Tau]"}]], " ", 
+   RowBox[{"(", 
+    RowBox[{"6700", "+", 
+     RowBox[{"2", " ", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"-", "3350"}], " ", 
+         SuperscriptBox["\[ExponentialE]", 
+          RowBox[{
+           RowBox[{"-", "0.0275`"}], " ", "\[Tau]"}]], " ", 
+         RowBox[{"Erfc", "[", 
+          RowBox[{"-", 
+           FractionBox[
+            RowBox[{
+             RowBox[{
+              RowBox[{"(", 
+               RowBox[{"0.0275`", "\[VeryThinSpace]", "-", 
+                FractionBox[
+                 SuperscriptBox["\[Sigma]", "2"], "2"]}], ")"}], " ", 
+              "\[Tau]"}], "+", 
+             RowBox[{"Log", "[", 
+              FractionBox["s", "6700"], "]"}]}], 
+            RowBox[{
+             SqrtBox["2"], " ", "\[Sigma]", " ", 
+             SqrtBox["\[Tau]"]}]]}], "]"}]}], "+", 
+        RowBox[{
+         FractionBox["1", "2"], " ", "s", " ", 
+         RowBox[{"Erfc", "[", 
+          RowBox[{"-", 
+           FractionBox[
+            RowBox[{
+             RowBox[{
+              RowBox[{"(", 
+               RowBox[{"0.0275`", "\[VeryThinSpace]", "+", 
+                FractionBox[
+                 SuperscriptBox["\[Sigma]", "2"], "2"]}], ")"}], " ", 
+              "\[Tau]"}], "+", 
+             RowBox[{"Log", "[", 
+              FractionBox["s", "6700"], "]"}]}], 
+            RowBox[{
+             SqrtBox["2"], " ", "\[Sigma]", " ", 
+             SqrtBox["\[Tau]"]}]]}], "]"}]}]}], ")"}]}]}], ")"}], " ", 
+   RowBox[{"Erfc", "[", 
+    RowBox[{"-", 
+     FractionBox[
+      RowBox[{
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"0.0275`", "\[VeryThinSpace]", "-", 
+          FractionBox[
+           SuperscriptBox["\[Sigma]", "2"], "2"]}], ")"}], " ", "\[Tau]"}], 
+       "+", 
+       RowBox[{"Log", "[", 
+        FractionBox["s", 
+         RowBox[{"6700", "+", 
+          RowBox[{"2", " ", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"-", "3350"}], " ", 
+              SuperscriptBox["\[ExponentialE]", 
+               RowBox[{
+                RowBox[{"-", "0.0275`"}], " ", "\[Tau]"}]], " ", 
+              RowBox[{"Erfc", "[", 
+               RowBox[{"-", 
+                FractionBox[
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{"(", 
+                    RowBox[{"0.0275`", "\[VeryThinSpace]", "-", 
+                    FractionBox[
+                    SuperscriptBox["\[Sigma]", "2"], "2"]}], ")"}], " ", 
+                   "\[Tau]"}], "+", 
+                  RowBox[{"Log", "[", 
+                   FractionBox["s", "6700"], "]"}]}], 
+                 RowBox[{
+                  SqrtBox["2"], " ", "\[Sigma]", " ", 
+                  SqrtBox["\[Tau]"]}]]}], "]"}]}], "+", 
+             RowBox[{
+              FractionBox["1", "2"], " ", "s", " ", 
+              RowBox[{"Erfc", "[", 
+               RowBox[{"-", 
+                FractionBox[
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{"(", 
+                    RowBox[{"0.0275`", "\[VeryThinSpace]", "+", 
+                    FractionBox[
+                    SuperscriptBox["\[Sigma]", "2"], "2"]}], ")"}], " ", 
+                   "\[Tau]"}], "+", 
+                  RowBox[{"Log", "[", 
+                   FractionBox["s", "6700"], "]"}]}], 
+                 RowBox[{
+                  SqrtBox["2"], " ", "\[Sigma]", " ", 
+                  SqrtBox["\[Tau]"]}]]}], "]"}]}]}], ")"}]}]}]], "]"}]}], 
+      RowBox[{
+       SqrtBox["2"], " ", "\[Sigma]", " ", 
+       SqrtBox["\[Tau]"]}]]}], "]"}]}], "+", 
+  RowBox[{
+   FractionBox["1", "2"], " ", "s", " ", 
+   RowBox[{"Erfc", "[", 
+    RowBox[{"-", 
+     FractionBox[
+      RowBox[{
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"0.0275`", "\[VeryThinSpace]", "+", 
+          FractionBox[
+           SuperscriptBox["\[Sigma]", "2"], "2"]}], ")"}], " ", "\[Tau]"}], 
+       "+", 
+       RowBox[{"Log", "[", 
+        FractionBox["s", 
+         RowBox[{"6700", "+", 
+          RowBox[{"2", " ", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"-", "3350"}], " ", 
+              SuperscriptBox["\[ExponentialE]", 
+               RowBox[{
+                RowBox[{"-", "0.0275`"}], " ", "\[Tau]"}]], " ", 
+              RowBox[{"Erfc", "[", 
+               RowBox[{"-", 
+                FractionBox[
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{"(", 
+                    RowBox[{"0.0275`", "\[VeryThinSpace]", "-", 
+                    FractionBox[
+                    SuperscriptBox["\[Sigma]", "2"], "2"]}], ")"}], " ", 
+                   "\[Tau]"}], "+", 
+                  RowBox[{"Log", "[", 
+                   FractionBox["s", "6700"], "]"}]}], 
+                 RowBox[{
+                  SqrtBox["2"], " ", "\[Sigma]", " ", 
+                  SqrtBox["\[Tau]"]}]]}], "]"}]}], "+", 
+             RowBox[{
+              FractionBox["1", "2"], " ", "s", " ", 
+              RowBox[{"Erfc", "[", 
+               RowBox[{"-", 
+                FractionBox[
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{"(", 
+                    RowBox[{"0.0275`", "\[VeryThinSpace]", "+", 
+                    FractionBox[
+                    SuperscriptBox["\[Sigma]", "2"], "2"]}], ")"}], " ", 
+                   "\[Tau]"}], "+", 
+                  RowBox[{"Log", "[", 
+                   FractionBox["s", "6700"], "]"}]}], 
+                 RowBox[{
+                  SqrtBox["2"], " ", "\[Sigma]", " ", 
+                  SqrtBox["\[Tau]"]}]]}], "]"}]}]}], ")"}]}]}]], "]"}]}], 
+      RowBox[{
+       SqrtBox["2"], " ", "\[Sigma]", " ", 
+       SqrtBox["\[Tau]"]}]]}], "]"}]}]}]], "Output",
+ CellChangeTimes->{3.8796539336624312`*^9, 3.879654062574232*^9, 
+  3.8796540974714327`*^9, 3.8796542290554333`*^9},
+ CellLabel->"Out[13]=",ExpressionUUID->"300a0901-c15b-4d99-a585-4d20a4ec128d"]
+}, Open  ]],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{3.879654167544633*^9},
+ NumberMarks->False,ExpressionUUID->"3501a17c-7de1-4da6-aeba-fdacba97e0c4"],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.879654178168233*^9, 
+  3.879654178183833*^9}},ExpressionUUID->"a8e3c3f0-29ad-416b-a682-\
+c0603192dbb8"],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{3.8796541815534325`*^9},
+ NumberMarks->False,ExpressionUUID->"1bb52ea7-68ec-4e55-a44d-08319670af71"],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.879654186888633*^9, 
+  3.879654186888633*^9}},ExpressionUUID->"151081b7-55d2-4b9f-9531-\
+02d9b3e8b314"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", 
+  RowBox[{
+   RowBox[{"Plot3D", "[", 
+    RowBox[{"%13", ",", 
+     RowBox[{"{", 
+      RowBox[{"s", ",", "65000", ",", "69000"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"\[Tau]", ",", "0", ",", 
+       FractionBox["15", "252"]}], "}"}]}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\[Sigma]", ",", "0.1", ",", "0.4"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.8796539921946316`*^9, 3.8796539928342314`*^9}, {
+  3.879654107985832*^9, 3.8796541083602324`*^9}, {3.8796542404278336`*^9, 
+  3.8796542860266333`*^9}},
+ CellLabel->"In[16]:=",ExpressionUUID->"ab15cc13-91c3-40a8-b3a3-8be7bb0d3960"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`\[Sigma]$$ = 0.2585, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"\:65e0\:6807\:9898\"", Typeset`specs$$ = {{
+      Hold[$CellContext`\[Sigma]$$], 0.1, 0.4}}, Typeset`size$$ = {
+    56., {2., 9.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
+    Typeset`skipInitDone$$ = True}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, "Variables" :> {$CellContext`\[Sigma]$$ = 0.1}, 
+      "ControllerVariables" :> {}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> 
+      Plot3D[(-2) ((-3350) E^((-0.0275) $CellContext`\[Tau]) 
+           Erfc[-2^Rational[-1, 
+                2] $CellContext`\[Sigma]$$^(-1) $CellContext`\[Tau]^
+              Rational[-1, 2] ((0.0275 + 
+                Rational[-1, 
+                   2] $CellContext`\[Sigma]$$^2) $CellContext`\[Tau] + 
+              Log[Rational[1, 6700] $CellContext`s])] + 
+          Rational[1, 2] $CellContext`s 
+           Erfc[-2^Rational[-1, 
+                2] $CellContext`\[Sigma]$$^(-1) $CellContext`\[Tau]^
+              Rational[-1, 2] ((0.0275 + 
+                Rational[1, 2] $CellContext`\[Sigma]$$^2) $CellContext`\[Tau] + 
+              Log[Rational[1, 6700] $CellContext`s])]) + 
+        Rational[-1, 2] 
+         E^((-0.0275) $CellContext`\[Tau]) (6700 - 
+          2 ((-3350) E^((-0.0275) $CellContext`\[Tau]) 
+            Erfc[-2^Rational[-1, 
+                 2] $CellContext`\[Sigma]$$^(-1) $CellContext`\[Tau]^
+               Rational[-1, 2] ((0.0275 + 
+                 Rational[-1, 
+                    2] $CellContext`\[Sigma]$$^2) $CellContext`\[Tau] + 
+               Log[Rational[1, 6700] $CellContext`s])] + 
+           Rational[1, 2] $CellContext`s 
+            Erfc[-2^Rational[-1, 
+                 2] $CellContext`\[Sigma]$$^(-1) $CellContext`\[Tau]^
+               Rational[-1, 2] ((0.0275 + 
+                 Rational[
+                   1, 2] $CellContext`\[Sigma]$$^2) $CellContext`\[Tau] + 
+               Log[Rational[1, 6700] $CellContext`s])])) 
+         Erfc[-2^
+            Rational[-1, 2] $CellContext`\[Sigma]$$^(-1) $CellContext`\[Tau]^
+            Rational[-1, 2] ((0.0275 + 
+              Rational[-1, 2] $CellContext`\[Sigma]$$^2) $CellContext`\[Tau] + 
+            Log[$CellContext`s/(6700 - 
+              2 ((-3350) E^((-0.0275) $CellContext`\[Tau]) 
+                Erfc[-2^
+                   Rational[-1, 
+                    2] $CellContext`\[Sigma]$$^(-1) $CellContext`\[Tau]^
+                   Rational[-1, 2] ((0.0275 + 
+                    Rational[-1, 
+                    2] $CellContext`\[Sigma]$$^2) $CellContext`\[Tau] + 
+                   Log[Rational[1, 6700] $CellContext`s])] + 
+               Rational[1, 2] $CellContext`s 
+                Erfc[-2^
+                   Rational[-1, 
+                    2] $CellContext`\[Sigma]$$^(-1) $CellContext`\[Tau]^
+                   Rational[-1, 2] ((0.0275 + 
+                    Rational[
+                    1, 2] $CellContext`\[Sigma]$$^2) $CellContext`\[Tau] + 
+                   Log[Rational[1, 6700] $CellContext`s])]))])] + 
+        Rational[1, 2] $CellContext`s 
+         Erfc[-2^Rational[-1, 
+              2] $CellContext`\[Sigma]$$^(-1) $CellContext`\[Tau]^
+            Rational[-1, 2] ((0.0275 + 
+              Rational[1, 2] $CellContext`\[Sigma]$$^2) $CellContext`\[Tau] + 
+            Log[$CellContext`s/(6700 - 
+              2 ((-3350) E^((-0.0275) $CellContext`\[Tau]) 
+                Erfc[-2^
+                   Rational[-1, 
+                    2] $CellContext`\[Sigma]$$^(-1) $CellContext`\[Tau]^
+                   Rational[-1, 2] ((0.0275 + 
+                    Rational[-1, 
+                    2] $CellContext`\[Sigma]$$^2) $CellContext`\[Tau] + 
+                   Log[Rational[1, 6700] $CellContext`s])] + 
+               Rational[1, 2] $CellContext`s 
+                Erfc[-2^
+                   Rational[-1, 
+                    2] $CellContext`\[Sigma]$$^(-1) $CellContext`\[Tau]^
+                   Rational[-1, 2] ((0.0275 + 
+                    Rational[
+                    1, 2] $CellContext`\[Sigma]$$^2) $CellContext`\[Tau] + 
+                   Log[Rational[1, 6700] $CellContext`s])]))])] + 
+        Rational[-1, 2] 
+         E^((-0.0275) $CellContext`\[Tau]) (6700 + 
+          2 ((-3350) E^((-0.0275) $CellContext`\[Tau]) 
+             Erfc[-2^Rational[-1, 
+                  2] $CellContext`\[Sigma]$$^(-1) $CellContext`\[Tau]^
+                Rational[-1, 2] ((0.0275 + 
+                  Rational[-1, 
+                    2] $CellContext`\[Sigma]$$^2) $CellContext`\[Tau] + 
+                Log[Rational[1, 6700] $CellContext`s])] + 
+            Rational[1, 2] $CellContext`s 
+             Erfc[-2^Rational[-1, 
+                  2] $CellContext`\[Sigma]$$^(-1) $CellContext`\[Tau]^
+                Rational[-1, 2] ((0.0275 + 
+                  Rational[
+                    1, 2] $CellContext`\[Sigma]$$^2) $CellContext`\[Tau] + 
+                Log[Rational[1, 6700] $CellContext`s])])) 
+         Erfc[-2^Rational[-1, 
+              2] $CellContext`\[Sigma]$$^(-1) $CellContext`\[Tau]^
+            Rational[-1, 2] ((0.0275 + 
+              Rational[-1, 2] $CellContext`\[Sigma]$$^2) $CellContext`\[Tau] + 
+            Log[$CellContext`s/(6700 + 
+              2 ((-3350) E^((-0.0275) $CellContext`\[Tau]) 
+                 Erfc[-2^
+                    Rational[-1, 
+                    2] $CellContext`\[Sigma]$$^(-1) $CellContext`\[Tau]^
+                    Rational[-1, 2] ((0.0275 + 
+                    Rational[-1, 
+                    2] $CellContext`\[Sigma]$$^2) $CellContext`\[Tau] + 
+                    Log[Rational[1, 6700] $CellContext`s])] + 
+                Rational[1, 2] $CellContext`s 
+                 Erfc[-2^
+                    Rational[-1, 
+                    2] $CellContext`\[Sigma]$$^(-1) $CellContext`\[Tau]^
+                    Rational[-1, 2] ((0.0275 + 
+                    Rational[
+                    1, 2] $CellContext`\[Sigma]$$^2) $CellContext`\[Tau] + 
+                    Log[Rational[1, 6700] $CellContext`s])]))])] + 
+        Rational[1, 2] $CellContext`s 
+         Erfc[-2^Rational[-1, 
+              2] $CellContext`\[Sigma]$$^(-1) $CellContext`\[Tau]^
+            Rational[-1, 2] ((0.0275 + 
+              Rational[1, 2] $CellContext`\[Sigma]$$^2) $CellContext`\[Tau] + 
+            Log[$CellContext`s/(6700 + 
+              2 ((-3350) E^((-0.0275) $CellContext`\[Tau]) 
+                 Erfc[-2^
+                    Rational[-1, 
+                    2] $CellContext`\[Sigma]$$^(-1) $CellContext`\[Tau]^
+                    Rational[-1, 2] ((0.0275 + 
+                    Rational[-1, 
+                    2] $CellContext`\[Sigma]$$^2) $CellContext`\[Tau] + 
+                    Log[Rational[1, 6700] $CellContext`s])] + 
+                Rational[1, 2] $CellContext`s 
+                 Erfc[-2^
+                    Rational[-1, 
+                    2] $CellContext`\[Sigma]$$^(-1) $CellContext`\[Tau]^
+                    Rational[-1, 2] ((0.0275 + 
+                    Rational[
+                    1, 2] $CellContext`\[Sigma]$$^2) $CellContext`\[Tau] + 
+                    Log[Rational[
+                    1, 6700] $CellContext`s])]))])], {$CellContext`s, 65000, 
+         69000}, {$CellContext`\[Tau], 0, 15/252}], 
+      "Specifications" :> {{$CellContext`\[Sigma]$$, 0.1, 0.4}}, 
+      "Options" :> {}, "DefaultOptions" :> {}],
+     ImageSizeCache->{259., {51., 58.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{
+  3.879653993817032*^9, 3.8796541115270324`*^9, {3.879654242003433*^9, 
+   3.8796542879142337`*^9}},
+ CellLabel->"Out[16]=",ExpressionUUID->"50ff90c6-5d67-4695-a47f-7a45fbc6aa8b"]
+}, Open  ]]
+},
+WindowSize->{1360, 686},
+WindowMargins->{{-8, Automatic}, {Automatic, -8}},
+TaggingRules->{
+ "WelcomeScreenSettings" -> {"FEStarting" -> False}, "TryRealOnly" -> False},
+FrontEndVersion->"12.2 for Microsoft Windows (64-bit) (2021\:5e742\:67085\
+\:65e5)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"275ee1ac-b014-4f2f-a538-236831bc04f4"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 412, 9, 66, "Input",ExpressionUUID->"c1aa70f5-00fe-415c-8d58-7ca3a902ac66"],
+Cell[973, 31, 2863, 94, 322, "Input",ExpressionUUID->"4d87bcb3-f141-4a11-b80f-661aa6968c70"],
+Cell[CellGroupData[{
+Cell[3861, 129, 341, 8, 28, "Input",ExpressionUUID->"c87a8e5a-7e8b-4efe-8669-3586e2780247"],
+Cell[4205, 139, 1320, 41, 65, "Output",ExpressionUUID->"a9faf3ba-a716-4b41-b972-dd0f3d63d9c5"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5562, 185, 386, 10, 28, "Input",ExpressionUUID->"82ffc447-d958-46c0-94d0-a1e27d72fb1d"],
+Cell[5951, 197, 6057, 166, 291, "Output",ExpressionUUID->"90a29400-7b6d-4d56-a24d-c38f099378d2"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[12045, 368, 452, 11, 28, "Input",ExpressionUUID->"86410a60-01c1-4ee4-9e5f-0d2de34a64bb"],
+Cell[12500, 381, 6082, 166, 291, "Output",ExpressionUUID->"f9cd95ea-8703-44bd-97c6-8a4eeec6a7ea"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[18619, 552, 270, 6, 28, "Input",ExpressionUUID->"8b8ef51b-109a-4ff2-9898-f08ce6ad231a"],
+Cell[18892, 560, 13210, 367, 650, "Output",ExpressionUUID->"300a0901-c15b-4d99-a585-4d20a4ec128d"]
+}, Open  ]],
+Cell[32117, 930, 144, 2, 28, "Input",ExpressionUUID->"3501a17c-7de1-4da6-aeba-fdacba97e0c4"],
+Cell[32264, 934, 152, 3, 28, InheritFromParent,ExpressionUUID->"a8e3c3f0-29ad-416b-a682-c0603192dbb8"],
+Cell[32419, 939, 146, 2, 28, "Input",ExpressionUUID->"1bb52ea7-68ec-4e55-a44d-08319670af71"],
+Cell[32568, 943, 152, 3, 28, InheritFromParent,ExpressionUUID->"151081b7-55d2-4b9f-9531-02d9b3e8b314"],
+Cell[CellGroupData[{
+Cell[32745, 950, 648, 15, 60, "Input",ExpressionUUID->"ab15cc13-91c3-40a8-b3a3-8be7bb0d3960"],
+Cell[33396, 967, 8363, 167, 128, "Output",ExpressionUUID->"50ff90c6-5d67-4695-a47f-7a45fbc6aa8b"]
+}, Open  ]]
+}
+]
+*)
+

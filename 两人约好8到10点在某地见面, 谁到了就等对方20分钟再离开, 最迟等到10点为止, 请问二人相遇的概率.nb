@@ -1,0 +1,245 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      8442,        235]
+NotebookOptionsPosition[      8111,        218]
+NotebookOutlinePosition[      8468,        234]
+CellTagsIndexPosition[      8425,        231]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{
+    "\:95ee\:9898", ":", "\[IndentingNewLine]", 
+     "\:4e24\:4eba\:7ea6\:597d8\:523010\:70b9\:5728\:67d0\:5730\:89c1\:9762"}]\
+, ",", "\:8c01\:5230\:4e86\:5c31\:7b49\:5bf9\:65b920\:5206\:949f\:518d\:79bb\
+\:5f00", ",", "\:6700\:8fdf\:7b49\:523010\:70b9\:4e3a\:6b62", ",", 
+    "\:8bf7\:95ee\:4e8c\:4eba\:76f8\:9047\:7684\:6982\:7387"}], 
+   "\[IndentingNewLine]", "*)"}], "\[IndentingNewLine]", 
+  RowBox[{"(*", "\:65f6\:95f4\:8303\:56f4", "*)"}], 
+  RowBox[{
+   RowBox[{
+    RowBox[{"tmin", "=", "8"}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"tmax", "=", "10"}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"deltaT", "=", 
+     RowBox[{"1", "/", "3"}]}], ";", 
+    RowBox[{"(*", 
+     RowBox[{
+      RowBox[{"\:7b49\:5f85\:65f6\:95f4", " ", "20", 
+       RowBox[{"\:5206\:949f", "/", "60"}], "\:5206\:949f"}], "=", 
+      RowBox[{
+       RowBox[{"1", "/", "3"}], "\:5c0f\:65f6"}]}], "*)"}], 
+    RowBox[{"(*", "\:8ba1\:7b97\:9762\:79ef", "*)"}], 
+    RowBox[{"squareArea", "=", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{"tmax", "-", "tmin"}], ")"}], "^", "2"}]}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"triangleArea", "=", 
+     RowBox[{
+      RowBox[{"1", "/", "2"}], "*", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{"2", "-", "deltaT"}], ")"}], "^", "2"}]}]}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"greenArea", "=", 
+     RowBox[{"squareArea", "-", 
+      RowBox[{"2", "*", "triangleArea"}]}]}], ";"}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", "\:8ba1\:7b97\:6982\:7387", "*)"}], "\n", 
+   RowBox[{
+    RowBox[{"probability", "=", 
+     RowBox[{"Rationalize", "[", 
+      RowBox[{"greenArea", "/", "squareArea"}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"(*", "\:603b\:4f53\:65f6\:95f4\:533a\:57df", "*)"}], "\n", 
+   RowBox[{
+    RowBox[{"timeArea", "=", 
+     RowBox[{"Graphics", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"Opacity", "[", 
+          RowBox[{"0.5", ",", "LightGray"}], "]"}], ",", 
+         RowBox[{"Rectangle", "[", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"tmin", ",", "tmin"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"tmax", ",", "tmax"}], "}"}]}], "]"}]}], "}"}], ",", 
+       RowBox[{"Axes", "\[Rule]", "True"}]}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"(*", "\:76f8\:9047\:53ef\:80fd\:7684\:533a\:57df", "*)"}], "\n", 
+   RowBox[{
+    RowBox[{"meetingArea", "=", 
+     RowBox[{"Graphics", "[", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"Opacity", "[", 
+         RowBox[{"0.5", ",", "LightGreen"}], "]"}], ",", 
+        RowBox[{"Polygon", "[", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"tmin", ",", "tmin"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"tmin", "+", "deltaT"}], ",", "tmin"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"tmax", ",", 
+             RowBox[{"tmax", "-", "deltaT"}]}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"tmax", ",", "tmax"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"tmax", "-", "deltaT"}], ",", "tmax"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"tmin", ",", 
+             RowBox[{"tmin", "+", "deltaT"}]}], "}"}]}], "}"}], "]"}]}], 
+       "}"}], "]"}]}], ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"(*", "\:6807\:7b7e\:548c\:7ebf\:6761", "*)"}], "\n", 
+   RowBox[{
+    RowBox[{"labels", "=", 
+     RowBox[{"Graphics", "[", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"Line", "[", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"tmin", "+", "deltaT"}], ",", "tmin"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"tmax", ",", 
+             RowBox[{"tmax", "-", "deltaT"}]}], "}"}]}], "}"}], "]"}], ",", 
+        RowBox[{"Line", "[", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"tmin", ",", 
+             RowBox[{"tmin", "+", "deltaT"}]}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"tmax", "-", "deltaT"}], ",", "tmax"}], "}"}]}], "}"}], 
+         "]"}], ",", 
+        RowBox[{"Text", "[", 
+         RowBox[{"\"\<8:00\>\"", ",", 
+          RowBox[{"{", 
+           RowBox[{"tmin", ",", 
+            RowBox[{"tmin", "-", "0.1"}]}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"0", ",", 
+            RowBox[{"-", "1"}]}], "}"}]}], "]"}], ",", 
+        RowBox[{"Text", "[", 
+         RowBox[{"\"\<10:00\>\"", ",", 
+          RowBox[{"{", 
+           RowBox[{"tmax", ",", 
+            RowBox[{"tmin", "-", "0.1"}]}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"0", ",", 
+            RowBox[{"-", "1"}]}], "}"}]}], "]"}], ",", 
+        RowBox[{"Text", "[", 
+         RowBox[{
+          RowBox[{"Row", "[", 
+           RowBox[{"{", 
+            RowBox[{"\"\<Area = \>\"", ",", 
+             RowBox[{"Rationalize", "[", "greenArea", "]"}]}], "}"}], "]"}], 
+          ",", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"tmin", "+", "0.5"}], ",", 
+            RowBox[{"tmax", "-", "0.5"}]}], "}"}]}], "]"}], ",", 
+        RowBox[{"Text", "[", 
+         RowBox[{
+          RowBox[{"Row", "[", 
+           RowBox[{"{", 
+            RowBox[{"\"\<Probability = \>\"", ",", "probability"}], "}"}], 
+           "]"}], ",", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"tmin", "+", "0.5"}], ",", 
+            RowBox[{"tmax", "-", "1"}]}], "}"}]}], "]"}]}], "}"}], "]"}]}], 
+    ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"(*", "\:663e\:793a\:56fe\:5f62", "*)"}], "\n", 
+   RowBox[{"Show", "[", 
+    RowBox[{"timeArea", ",", "meetingArea", ",", "labels", ",", 
+     RowBox[{"Axes", "\[Rule]", "True"}], ",", 
+     RowBox[{"AxesLabel", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+       "\"\<Person A Arrival Time\>\"", ",", 
+        "\"\<Person B Arrival Time\>\""}], "}"}]}]}], "]"}], 
+   "\n"}]}]], "Input",
+ CellChangeTimes->{{3.902492812100531*^9, 3.902492812109527*^9}, {
+  3.902492900926823*^9, 3.9024929151055775`*^9}}],
+
+Cell[BoxData[
+ GraphicsBox[{
+   {GrayLevel[0.85], Opacity[0.5], RectangleBox[{8, 8}, {10, 10}]}, 
+   {RGBColor[0.88, 1, 0.88], Opacity[0.5], 
+    PolygonBox[
+     NCache[{{8, 8}, {Rational[25, 3], 8}, {10, Rational[29, 3]}, {10, 10}, {
+       Rational[29, 3], 10}, {8, Rational[25, 3]}}, {{8, 8}, {
+       8.333333333333334, 8}, {10, 9.666666666666666}, {10, 10}, {
+       9.666666666666666, 10}, {8, 8.333333333333334}}]]}, {
+    LineBox[NCache[{{Rational[25, 3], 8}, {10, Rational[29, 3]}}, {{
+       8.333333333333334, 8}, {10, 9.666666666666666}}]], 
+    LineBox[NCache[{{8, Rational[25, 3]}, {Rational[29, 3], 10}}, {{
+       8, 8.333333333333334}, {9.666666666666666, 10}}]], 
+    InsetBox["\<\"8:00\"\>", {8, 7.9}, {0, -1}], 
+    InsetBox["\<\"10:00\"\>", {10, 7.9}, {0, -1}], InsetBox[
+     TemplateBox[{"\"Area = \"",FractionBox["11", "9"]},
+      "RowDefault"], {8.5, 9.5}], InsetBox[
+     TemplateBox[{"\"Probability = \"",FractionBox["11", "36"]},
+      "RowDefault"], {8.5, 9}]}},
+  Axes->True,
+  AxesLabel->{
+    FormBox["\"Person A Arrival Time\"", TraditionalForm], 
+    FormBox["\"Person B Arrival Time\"", TraditionalForm]}]], "Output",
+ CellChangeTimes->{3.902492814048558*^9}]
+}, Open  ]]
+},
+WindowSize->{1018, 744},
+WindowMargins->{{Automatic, 311}, {Automatic, 69}},
+FrontEndVersion->"10.2 for Microsoft Windows (64-bit) (2015\:5e747\:67087\
+\:65e5)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 6316, 168, 835, "Input"],
+Cell[6899, 192, 1196, 23, 247, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+

@@ -1,0 +1,181 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      6215,        172]
+NotebookOptionsPosition[      5960,        158]
+NotebookOutlinePosition[      6316,        174]
+CellTagsIndexPosition[      6273,        171]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{"\:5982\:4f55\:7528", " ", "MMA", " ", 
+     RowBox[{
+     "\:6c42\:4e00\:4e2a\:53d8\:91cf\:7ec4\:7531\:4e0d\:7b49\:5f0f\:7ec4\:7ea6\
+\:675f\:7684\:591a\:9879\:5f0f\:7684\:4e0b\:9650\:503c", ":", 
+      RowBox[{"\:6709", " ", "x1"}]}]}], ",", "x2", ",", 
+    RowBox[{
+    "...", " ", "x8", " ", "\:5171", " ", "8", " ", "\:4e2a\:53d8\:91cf"}], 
+    ",", 
+    RowBox[{"\:6709\:4e09\:7ec4\:7cfb\:6570", " ", 
+     RowBox[{"(", "\:6bcf\:7ec48\:4e2a", ")"}], " ", 
+     "\:5206\:522b\:4e0e\:8fd9", " ", "8", " ", 
+     "\:4e2a\:53d8\:91cf\:76f8\:4e58"}], ",", 
+    RowBox[{"\:518d\:628a", " ", "8", " ", "\:4e2a\:79ef\:6c42\:548c"}], ",", 
+    RowBox[{
+     RowBox[{
+     "\:548c\:7684\:7ed3\:679c\:90fd\:8981", "\[GreaterEqual]", "100"}], ";", 
+     RowBox[{"\:4e09\:7ec4\:7cfb\:6570\:5206\:522b\:662f", " ", 
+      RowBox[{"{", 
+       RowBox[{
+       "4", ",", "3", ",", "3", ",", "2", ",", "1", ",", "1", ",", "0", ",", 
+        "0"}], "}"}]}]}], ",", 
+    RowBox[{"{", 
+     RowBox[{
+     "0", ",", "1", ",", "0", ",", "2", ",", "1", ",", "0", ",", "3", ",", 
+      "2"}], "}"}], ",", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "0", ",", "0", ",", "1", ",", "0", ",", "1", ",", "2", ",", "0", ",", 
+       "1"}], "}"}], ";", "\n", 
+     RowBox[{
+     "\:6700\:7ec8\:6211\:8981\:5728\:6ee1\:8db3\:4e0a\:9762\:4e09\:4e2a\:4e0d\
+\:7b49\:5f0f\:7684\:524d\:63d0\:4e0b", " ", "\:8ba1\:7b97", " ", "sum", " ", 
+      RowBox[{"(", 
+       RowBox[{"x1", ",", "x2", ",", 
+        RowBox[{"...", " ", "x8"}]}], ")"}], " ", 
+      "\:7684\:4e0b\:9650\:662f\:591a\:5c11"}]}], ",", 
+    RowBox[{"\:4ee5\:53ca", " ", "x1"}], ",", "x2", ",", 
+    RowBox[{
+    "...", " ", "x8", " ", 
+     "\:5982\:4f55\:53d6\:503c\:53ef\:5f97\:4e0b\:9650"}]}], 
+   "\[IndentingNewLine]", "*)"}], "\[IndentingNewLine]", 
+  "\[IndentingNewLine]", 
+  RowBox[{"(*", "\:5b9a\:4e49\:53d8\:91cf", "*)"}], 
+  RowBox[{
+   RowBox[{
+    RowBox[{"vars", "=", 
+     RowBox[{"Array", "[", 
+      RowBox[{"x", ",", "8"}], "]"}]}], ";"}], "\[IndentingNewLine]", "\n", 
+   RowBox[{"(*", "\:5b9a\:4e49\:53c2\:6570", "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"coefficients1", "=", 
+     RowBox[{"{", 
+      RowBox[{
+      "4", ",", "3", ",", "3", ",", "2", ",", "1", ",", "1", ",", "0", ",", 
+       "0"}], "}"}]}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"coefficients2", "=", 
+     RowBox[{"{", 
+      RowBox[{
+      "0", ",", "1", ",", "0", ",", "2", ",", "1", ",", "0", ",", "3", ",", 
+       "2"}], "}"}]}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"coefficients3", "=", 
+     RowBox[{"{", 
+      RowBox[{
+      "0", ",", "0", ",", "1", ",", "0", ",", "1", ",", "2", ",", "0", ",", 
+       "1"}], "}"}]}], ";"}], "\[IndentingNewLine]", "\n", 
+   RowBox[{"(*", "\:5b9a\:4e49\:4e0d\:7b49\:5f0f\:7ea6\:675f", "*)"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"inequalities", "=", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"Total", "[", 
+         RowBox[{"coefficients1", "*", "vars"}], "]"}], "\[GreaterEqual]", 
+        "100"}], ",", 
+       RowBox[{
+        RowBox[{"Total", "[", 
+         RowBox[{"coefficients2", "*", "vars"}], "]"}], "\[GreaterEqual]", 
+        "100"}], ",", 
+       RowBox[{
+        RowBox[{"Total", "[", 
+         RowBox[{"coefficients3", "*", "vars"}], "]"}], "\[GreaterEqual]", 
+        "100"}], ",", 
+       RowBox[{"Sequence", "@@", 
+        RowBox[{"Thread", "[", 
+         RowBox[{"vars", "\[GreaterEqual]", "0"}], "]"}]}]}], "  ", 
+      RowBox[{"(*", "\:786e\:4fdd\:53d8\:91cf\:975e\:8d1f", "*)"}], "}"}]}], 
+    ";"}], "\[IndentingNewLine]", "\n", 
+   RowBox[{"(*", 
+    RowBox[{
+    "\:5b9a\:4e49\:76ee\:6807\:51fd\:6570", "\:ff0c", 
+     "\:5373\:8981\:6700\:5c0f\:5316\:7684\:548c"}], "*)"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"objective", "=", 
+     RowBox[{"Total", "[", "vars", "]"}]}], ";"}], "\[IndentingNewLine]", 
+   "\n", 
+   RowBox[{
+   "(*", "\:4f7f\:7528Minimize\:51fd\:6570\:6c42\:89e3\:95ee\:9898", "*)"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"solution", "=", 
+     RowBox[{"Minimize", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"objective", ",", "inequalities"}], "}"}], ",", "vars"}], 
+      "]"}]}], ";"}], "\[IndentingNewLine]", "\n", 
+   RowBox[{"(*", "\:8f93\:51fa\:7ed3\:679c", "*)"}], "\[IndentingNewLine]", 
+   RowBox[{"minimumSumValue", "=", 
+    RowBox[{"objective", "/.", 
+     RowBox[{"solution", "[", 
+      RowBox[{"[", "2", "]"}], "]"}]}]}], "\n", 
+   RowBox[{"optimalValues", "=", 
+    RowBox[{"vars", "/.", 
+     RowBox[{"solution", "[", 
+      RowBox[{"[", "2", "]"}], "]"}]}]}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{"Total", "[", 
+    RowBox[{"coefficients1", "*", "optimalValues"}], "]"}], "\n", 
+   RowBox[{"Total", "[", 
+    RowBox[{"coefficients2", "*", "optimalValues"}], "]"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{"Total", "[", 
+    RowBox[{"coefficients3", "*", "optimalValues"}], "]"}], 
+   "\[IndentingNewLine]"}]}]], "Input",
+ CellChangeTimes->{{3.918547207368309*^9, 3.918547207371304*^9}, {
+   3.918547260389963*^9, 3.9185473248119287`*^9}, {3.9185477461103106`*^9, 
+   3.9185477523414154`*^9}, {3.9185555832439733`*^9, 3.9185556015656085`*^9}, 
+   3.918555726795934*^9, 3.918557518790704*^9, 3.9185575769640474`*^9, 
+   3.9185576920614944`*^9}]
+},
+WindowSize->{982, 846},
+WindowMargins->{{Automatic, 132}, {Automatic, 52}},
+FrontEndVersion->"10.2 for Microsoft Windows (64-bit) (2015\:5e747\:67087\
+\:65e5)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 5398, 136, 683, "Input"]
+}
+]
+*)
+
+(* End of internal cache information *)

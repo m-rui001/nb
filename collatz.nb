@@ -1,0 +1,1946 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 13.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     98117,       1938]
+NotebookOptionsPosition[     97080,       1909]
+NotebookOutlinePosition[     97532,       1927]
+CellTagsIndexPosition[     97489,       1924]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"prettyPrintFactorization", "[", "n_Integer", "]"}], ":=", 
+   RowBox[{"Row", "[", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"{", "\[IndentingNewLine]", 
+      RowBox[{"n", ",", "\[IndentingNewLine]", 
+       RowBox[{"Row", "[", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{"factor", "|->", 
+            RowBox[{"With", "[", "\[IndentingNewLine]", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"base", "=", 
+                 RowBox[{"factor", "[", 
+                  RowBox[{"[", "1", "]"}], "]"}]}], ",", 
+                RowBox[{"exponent", "=", 
+                 RowBox[{"factor", "[", 
+                  RowBox[{"[", "2", "]"}], "]"}]}]}], "}"}], ",", 
+              "\[IndentingNewLine]", 
+              RowBox[{"Superscript", "[", 
+               RowBox[{"base", ",", "exponent"}], "]"}]}], 
+             "\[IndentingNewLine]", "]"}]}], ")"}], "/@", 
+          RowBox[{"FactorInteger", "[", "n", "]"}]}], ",", 
+         "\[IndentingNewLine]", "\"\<\[Cross]\>\""}], "\[IndentingNewLine]", 
+        "]"}]}], "\[IndentingNewLine]", "}"}], ",", "\"\<==\>\""}], 
+    "\[IndentingNewLine]", "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"prettyPrintFactorizationList", "[", 
+    RowBox[{"list_List", ",", 
+     RowBox[{"rows_Integer", ":", "1"}]}], "]"}], ":=", 
+   RowBox[{"Grid", "[", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"Transpose", "@", 
+      RowBox[{"Array", "[", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"row", ",", "col"}], "}"}], "|->", 
+         RowBox[{"If", "[", "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{
+            RowBox[{
+             RowBox[{
+              RowBox[{"(", 
+               RowBox[{"row", "-", "1"}], ")"}], " ", "rows"}], "+", "col"}], 
+            "<=", 
+            RowBox[{"Length", "[", "list", "]"}]}], ",", 
+           "\[IndentingNewLine]", 
+           RowBox[{"prettyPrintFactorization", "[", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"(", 
+               RowBox[{"row", "-", "1"}], ")"}], " ", "rows"}], "+", "col"}], 
+            "]"}], ",", "\[IndentingNewLine]", "\"\<\>\""}], 
+          RowBox[{
+          "(*", "\:4e0b\:6807\:8d8a\:754c\:8fd4\:56de\:7a7a\:5b57\:7b26\:4e32\
+", "*)"}], "\[IndentingNewLine]", "]"}]}], ",", "\[IndentingNewLine]", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"Ceiling", "[", 
+           RowBox[{
+            RowBox[{"Length", "[", "list", "]"}], "/", "rows"}], "]"}], ",", 
+          "rows"}], "}"}]}], "\[IndentingNewLine]", "]"}]}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"Frame", "->", "All"}], ",", 
+     RowBox[{"Alignment", "->", "Left"}], ",", 
+     RowBox[{"ItemSize", "->", "All"}]}], "\[IndentingNewLine]", "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"prettyPrintFactorizationList", "[", 
+  RowBox[{
+   RowBox[{"Range", "[", 
+    RowBox[{"1", ",", "128"}], "]"}], ",", "16"}], "]"}]}], "Input",
+ CellOpen->False,
+ CellChangeTimes->{{3.894778006633604*^9, 3.8947780601645107`*^9}, {
+   3.8947781525314207`*^9, 3.894778159307276*^9}, 3.894778252297534*^9, {
+   3.8947785202265797`*^9, 3.894778522819973*^9}, 3.8947788605315175`*^9, {
+   3.894778962305162*^9, 3.8947789714855537`*^9}, 3.894779082044148*^9, {
+   3.8947794520219655`*^9, 3.8947794601261578`*^9}, 3.894779728556943*^9, {
+   3.894779790394668*^9, 3.8947797994803*^9}, 3.894779871631038*^9, 
+   3.894779953588919*^9, {3.8947802214255905`*^9, 3.894780319110547*^9}, 
+   3.89478046448827*^9, {3.894780520403961*^9, 3.894780556125604*^9}, {
+   3.8947806563785677`*^9, 3.8947806812302933`*^9}, {3.9223539316772747`*^9, 
+   3.9223539867933083`*^9}, {3.9223540731455746`*^9, 3.922354123585108*^9}, {
+   3.922354174898855*^9, 3.922354202660807*^9}, {3.922354347592802*^9, 
+   3.922354358016384*^9}, {3.922354392627514*^9, 3.922354397719475*^9}, {
+   3.9223545232421207`*^9, 3.922354541213116*^9}, {3.9223546647764683`*^9, 
+   3.9223547408051815`*^9}, {3.922354788385092*^9, 3.9223547909772453`*^9}, {
+   3.922354840622414*^9, 3.922354861213854*^9}, {3.922355024104124*^9, 
+   3.922355077894913*^9}, {3.922355134453169*^9, 3.922355147365942*^9}, 
+   3.922355179277333*^9, {3.922358774307684*^9, 3.922358883502146*^9}, {
+   3.922358921207657*^9, 3.922358921285747*^9}, {3.9223590011741467`*^9, 
+   3.9223590027608624`*^9}, {3.922359039402502*^9, 3.922359054614111*^9}, {
+   3.922359193320446*^9, 3.922359193734564*^9}, {3.922359439284097*^9, 
+   3.922359543385124*^9}, {3.922359987698259*^9, 3.922360045142311*^9}, {
+   3.922360102177927*^9, 3.9223601901977997`*^9}, {3.922360465138469*^9, 
+   3.922360528655229*^9}, 3.9223605731856728`*^9, {3.922360623005048*^9, 
+   3.9223606269365005`*^9}, {3.922360675597622*^9, 3.922360715856228*^9}, {
+   3.922360775418753*^9, 3.922360807808333*^9}, {3.922361046950374*^9, 
+   3.9223611125767975`*^9}, {3.9223611545491314`*^9, 3.922361155022604*^9}, {
+   3.922418235712183*^9, 3.922418271811999*^9}, {3.922419123776121*^9, 
+   3.9224192086037464`*^9}, {3.922419309548746*^9, 3.922419312173822*^9}, {
+   3.922419366454195*^9, 3.922419388933151*^9}, {3.92241943660749*^9, 
+   3.92241948787006*^9}, {3.922821994914797*^9, 3.922822017290739*^9}, {
+   3.922822071558687*^9, 3.922822169506054*^9}, {3.9228222062171783`*^9, 
+   3.922822357638281*^9}, {3.9228223922100697`*^9, 3.922822396586628*^9}, {
+   3.9228224426095333`*^9, 3.9228224933022537`*^9}, {3.9228225910524254`*^9, 
+   3.922822601853754*^9}},
+ FontSize->14,
+ CellLabel->"In[41]:=",ExpressionUUID->"b0bc6281-c666-4707-b5d8-5502777c37c1"],
+
+Cell[BoxData[
+ TagBox[GridBox[{
+    {
+     TemplateBox[{"==", "\"==\"", "1", 
+       TemplateBox[{"\[Cross]", "\"\[Cross]\"", 
+         TemplateBox[{"1", "1"}, "Superscript", SyntaxForm -> 
+          SuperscriptBox]}, "RowWithSeparators"]},
+      "RowWithSeparators"], 
+     TemplateBox[{"==", "\"==\"", "17", 
+       TemplateBox[{"\[Cross]", "\"\[Cross]\"", 
+         TemplateBox[{"17", "1"}, "Superscript", SyntaxForm -> 
+          SuperscriptBox]}, "RowWithSeparators"]},
+      "RowWithSeparators"], 
+     TemplateBox[{"==", "\"==\"", "33", 
+       TemplateBox[{"\[Cross]", "\"\[Cross]\"", 
+         TemplateBox[{"3", "1"}, "Superscript", SyntaxForm -> SuperscriptBox], 
+         TemplateBox[{"11", "1"}, "Superscript", SyntaxForm -> 
+          SuperscriptBox]}, "RowWithSeparators"]},
+      "RowWithSeparators"], 
+     TemplateBox[{"==", "\"==\"", "49", 
+       TemplateBox[{"\[Cross]", "\"\[Cross]\"", 
+         TemplateBox[{"7", "2"}, "Superscript", SyntaxForm -> 
+          SuperscriptBox]}, "RowWithSeparators"]},
+      "RowWithSeparators"], 
+     TemplateBox[{"==", "\"==\"", "65", 
+       TemplateBox[{"\[Cross]", "\"\[Cross]\"", 
+         TemplateBox[{"5", "1"}, "Superscript", SyntaxForm -> SuperscriptBox], 
+         TemplateBox[{"13", "1"}, "Superscript", SyntaxForm -> 
+          SuperscriptBox]}, "RowWithSeparators"]},
+      "RowWithSeparators"], 
+     TemplateBox[{"==", "\"==\"", "81", 
+       TemplateBox[{"\[Cross]", "\"\[Cross]\"", 
+         TemplateBox[{"3", "4"}, "Superscript", SyntaxForm -> 
+          SuperscriptBox]}, "RowWithSeparators"]},
+      "RowWithSeparators"], 
+     TemplateBox[{"==", "\"==\"", "97", 
+       TemplateBox[{"\[Cross]", "\"\[Cross]\"", 
+         TemplateBox[{"97", "1"}, "Superscript", SyntaxForm -> 
+          SuperscriptBox]}, "RowWithSeparators"]},
+      "RowWithSeparators"], 
+     TemplateBox[{"==", "\"==\"", "113", 
+       TemplateBox[{"\[Cross]", "\"\[Cross]\"", 
+         TemplateBox[{"113", "1"}, "Superscript", SyntaxForm -> 
+          SuperscriptBox]}, "RowWithSeparators"]},
+      "RowWithSeparators"]},
+    {
+     TemplateBox[{"==", "\"==\"", "2", 
+       TemplateBox[{"\[Cross]", "\"\[Cross]\"", 
+         TemplateBox[{"2", "1"}, "Superscript", SyntaxForm -> 
+          SuperscriptBox]}, "RowWithSeparators"]},
+      "RowWithSeparators"], 
+     TemplateBox[{"==", "\"==\"", "18", 
+       TemplateBox[{"\[Cross]", "\"\[Cross]\"", 
+         TemplateBox[{"2", "1"}, "Superscript", SyntaxForm -> SuperscriptBox], 
+         TemplateBox[{"3", "2"}, "Superscript", SyntaxForm -> 
+          SuperscriptBox]}, "RowWithSeparators"]},
+      "RowWithSeparators"], 
+     TemplateBox[{"==", "\"==\"", "34", 
+       TemplateBox[{"\[Cross]", "\"\[Cross]\"", 
+         TemplateBox[{"2", "1"}, "Superscript", SyntaxForm -> SuperscriptBox], 
+         TemplateBox[{"17", "1"}, "Superscript", SyntaxForm -> 
+          SuperscriptBox]}, "RowWithSeparators"]},
+      "RowWithSeparators"], 
+     TemplateBox[{"==", "\"==\"", "50", 
+       TemplateBox[{"\[Cross]", "\"\[Cross]\"", 
+         TemplateBox[{"2", "1"}, "Superscript", SyntaxForm -> SuperscriptBox], 
+         TemplateBox[{"5", "2"}, "Superscript", SyntaxForm -> 
+          SuperscriptBox]}, "RowWithSeparators"]},
+      "RowWithSeparators"], 
+     TemplateBox[{"==", "\"==\"", "66", 
+       TemplateBox[{"\[Cross]", "\"\[Cross]\"", 
+         TemplateBox[{"2", "1"}, "Superscript", SyntaxForm -> SuperscriptBox], 
+         TemplateBox[{"3", "1"}, "Superscript", SyntaxForm -> SuperscriptBox], 
+         TemplateBox[{"11", "1"}, "Superscript", SyntaxForm -> 
+          SuperscriptBox]}, "RowWithSeparators"]},
+      "RowWithSeparators"], 
+     TemplateBox[{"==", "\"==\"", "82", 
+       TemplateBox[{"\[Cross]", "\"\[Cross]\"", 
+         TemplateBox[{"2", "1"}, "Superscript", SyntaxForm -> SuperscriptBox], 
+         TemplateBox[{"41", "1"}, "Superscript", SyntaxForm -> 
+          SuperscriptBox]}, "RowWithSeparators"]},
+      "RowWithSeparators"], 
+     TemplateBox[{"==", "\"==\"", "98", 
+       TemplateBox[{"\[Cross]", "\"\[Cross]\"", 
+         TemplateBox[{"2", "1"}, "Superscript", SyntaxForm -> SuperscriptBox], 
+         TemplateBox[{"7", "2"}, "Superscript", SyntaxForm -> 
+          SuperscriptBox]}, "RowWithSeparators"]},
+      "RowWithSeparators"], 
+     TemplateBox[{"==", "\"==\"", "114", 
+       TemplateBox[{"\[Cross]", "\"\[Cross]\"", 
+         TemplateBox[{"2", "1"}, "Superscript", SyntaxForm -> SuperscriptBox], 
+         TemplateBox[{"3", "1"}, "Superscript", SyntaxForm -> SuperscriptBox], 
+         TemplateBox[{"19", "1"}, "Superscript", SyntaxForm -> 
+          SuperscriptBox]}, "RowWithSeparators"]},
+      "RowWithSeparators"]},
+    {
+     TemplateBox[{"==", "\"==\"", "3", 
+       TemplateBox[{"\[Cross]", "\"\[Cross]\"", 
+         TemplateBox[{"3", "1"}, "Superscript", SyntaxForm -> 
+          SuperscriptBox]}, "RowWithSeparators"]},
+      "RowWithSeparators"], 
+     TemplateBox[{"==", "\"==\"", "19", 
+       TemplateBox[{"\[Cross]", "\"\[Cross]\"", 
+         TemplateBox[{"19", "1"}, "Superscript", SyntaxForm -> 
+          SuperscriptBox]}, "RowWithSeparators"]},
+      "RowWithSeparators"], 
+     TemplateBox[{"==", "\"==\"", "35", 
+       TemplateBox[{"\[Cross]", "\"\[Cross]\"", 
+         TemplateBox[{"5", "1"}, "Superscript", SyntaxForm -> SuperscriptBox], 
+         TemplateBox[{"7", "1"}, "Superscript", SyntaxForm -> 
+          SuperscriptBox]}, "RowWithSeparators"]},
+      "RowWithSeparators"], 
+     TemplateBox[{"==", "\"==\"", "51", 
+       TemplateBox[{"\[Cross]", "\"\[Cross]\"", 
+         TemplateBox[{"3", "1"}, "Superscript", SyntaxForm -> SuperscriptBox], 
+         TemplateBox[{"17", "1"}, "Superscript", SyntaxForm -> 
+          SuperscriptBox]}, "RowWithSeparators"]},
+      "RowWithSeparators"], 
+     TemplateBox[{"==", "\"==\"", "67", 
+       TemplateBox[{"\[Cross]", "\"\[Cross]\"", 
+         TemplateBox[{"67", "1"}, "Superscript", SyntaxForm -> 
+          SuperscriptBox]}, "RowWithSeparators"]},
+      "RowWithSeparators"], 
+     TemplateBox[{"==", "\"==\"", "83", 
+       TemplateBox[{"\[Cross]", "\"\[Cross]\"", 
+         TemplateBox[{"83", "1"}, "Superscript", SyntaxForm -> 
+          SuperscriptBox]}, "RowWithSeparators"]},
+      "RowWithSeparators"], 
+     TemplateBox[{"==", "\"==\"", "99", 
+       TemplateBox[{"\[Cross]", "\"\[Cross]\"", 
+         TemplateBox[{"3", "2"}, "Superscript", SyntaxForm -> SuperscriptBox], 
+         TemplateBox[{"11", "1"}, "Superscript", SyntaxForm -> 
+          SuperscriptBox]}, "RowWithSeparators"]},
+      "RowWithSeparators"], 
+     TemplateBox[{"==", "\"==\"", "115", 
+       TemplateBox[{"\[Cross]", "\"\[Cross]\"", 
+         TemplateBox[{"5", "1"}, "Superscript", SyntaxForm -> SuperscriptBox], 
+         TemplateBox[{"23", "1"}, "Superscript", SyntaxForm -> 
+          SuperscriptBox]}, "RowWithSeparators"]},
+      "RowWithSeparators"]},
+    {
+     TemplateBox[{"==", "\"==\"", "4", 
+       TemplateBox[{"\[Cross]", "\"\[Cross]\"", 
+         TemplateBox[{"2", "2"}, "Superscript", SyntaxForm -> 
+          SuperscriptBox]}, "RowWithSeparators"]},
+      "RowWithSeparators"], 
+     TemplateBox[{"==", "\"==\"", "20", 
+       TemplateBox[{"\[Cross]", "\"\[Cross]\"", 
+         TemplateBox[{"2", "2"}, "Superscript", SyntaxForm -> SuperscriptBox], 
+         TemplateBox[{"5", "1"}, "Superscript", SyntaxForm -> 
+          SuperscriptBox]}, "RowWithSeparators"]},
+      "RowWithSeparators"], 
+     TemplateBox[{"==", "\"==\"", "36", 
+       TemplateBox[{"\[Cross]", "\"\[Cross]\"", 
+         TemplateBox[{"2", "2"}, "Superscript", SyntaxForm -> SuperscriptBox], 
+         TemplateBox[{"3", "2"}, "Superscript", SyntaxForm -> 
+          SuperscriptBox]}, "RowWithSeparators"]},
+      "RowWithSeparators"], 
+     TemplateBox[{"==", "\"==\"", "52", 
+       TemplateBox[{"\[Cross]", "\"\[Cross]\"", 
+         TemplateBox[{"2", "2"}, "Superscript", SyntaxForm -> SuperscriptBox], 
+         TemplateBox[{"13", "1"}, "Superscript", SyntaxForm -> 
+          SuperscriptBox]}, "RowWithSeparators"]},
+      "RowWithSeparators"], 
+     TemplateBox[{"==", "\"==\"", "68", 
+       TemplateBox[{"\[Cross]", "\"\[Cross]\"", 
+         TemplateBox[{"2", "2"}, "Superscript", SyntaxForm -> SuperscriptBox], 
+         TemplateBox[{"17", "1"}, "Superscript", SyntaxForm -> 
+          SuperscriptBox]}, "RowWithSeparators"]},
+      "RowWithSeparators"], 
+     TemplateBox[{"==", "\"==\"", "84", 
+       TemplateBox[{"\[Cross]", "\"\[Cross]\"", 
+         TemplateBox[{"2", "2"}, "Superscript", SyntaxForm -> SuperscriptBox], 
+         TemplateBox[{"3", "1"}, "Superscript", SyntaxForm -> SuperscriptBox], 
+         TemplateBox[{"7", "1"}, "Superscript", SyntaxForm -> 
+          SuperscriptBox]}, "RowWithSeparators"]},
+      "RowWithSeparators"], 
+     TemplateBox[{"==", "\"==\"", "100", 
+       TemplateBox[{"\[Cross]", "\"\[Cross]\"", 
+         TemplateBox[{"2", "2"}, "Superscript", SyntaxForm -> SuperscriptBox], 
+         TemplateBox[{"5", "2"}, "Superscript", SyntaxForm -> 
+          SuperscriptBox]}, "RowWithSeparators"]},
+      "RowWithSeparators"], 
+     TemplateBox[{"==", "\"==\"", "116", 
+       TemplateBox[{"\[Cross]", "\"\[Cross]\"", 
+         TemplateBox[{"2", "2"}, "Superscript", SyntaxForm -> SuperscriptBox], 
+         TemplateBox[{"29", "1"}, "Superscript", SyntaxForm -> 
+          SuperscriptBox]}, "RowWithSeparators"]},
+      "RowWithSeparators"]},
+    {
+     TemplateBox[{"==", "\"==\"", "5", 
+       TemplateBox[{"\[Cross]", "\"\[Cross]\"", 
+         TemplateBox[{"5", "1"}, "Superscript", SyntaxForm -> 
+          SuperscriptBox]}, "RowWithSeparators"]},
+      "RowWithSeparators"], 
+     TemplateBox[{"==", "\"==\"", "21", 
+       TemplateBox[{"\[Cross]", "\"\[Cross]\"", 
+         TemplateBox[{"3", "1"}, "Superscript", SyntaxForm -> SuperscriptBox], 
+         TemplateBox[{"7", "1"}, "Superscript", SyntaxForm -> 
+          SuperscriptBox]}, "RowWithSeparators"]},
+      "RowWithSeparators"], 
+     TemplateBox[{"==", "\"==\"", "37", 
+       TemplateBox[{"\[Cross]", "\"\[Cross]\"", 
+         TemplateBox[{"37", "1"}, "Superscript", SyntaxForm -> 
+          SuperscriptBox]}, "RowWithSeparators"]},
+      "RowWithSeparators"], 
+     TemplateBox[{"==", "\"==\"", "53", 
+       TemplateBox[{"\[Cross]", "\"\[Cross]\"", 
+         TemplateBox[{"53", "1"}, "Superscript", SyntaxForm -> 
+          SuperscriptBox]}, "RowWithSeparators"]},
+      "RowWithSeparators"], 
+     TemplateBox[{"==", "\"==\"", "69", 
+       TemplateBox[{"\[Cross]", "\"\[Cross]\"", 
+         TemplateBox[{"3", "1"}, "Superscript", SyntaxForm -> SuperscriptBox], 
+         TemplateBox[{"23", "1"}, "Superscript", SyntaxForm -> 
+          SuperscriptBox]}, "RowWithSeparators"]},
+      "RowWithSeparators"], 
+     TemplateBox[{"==", "\"==\"", "85", 
+       TemplateBox[{"\[Cross]", "\"\[Cross]\"", 
+         TemplateBox[{"5", "1"}, "Superscript", SyntaxForm -> SuperscriptBox], 
+         TemplateBox[{"17", "1"}, "Superscript", SyntaxForm -> 
+          SuperscriptBox]}, "RowWithSeparators"]},
+      "RowWithSeparators"], 
+     TemplateBox[{"==", "\"==\"", "101", 
+       TemplateBox[{"\[Cross]", "\"\[Cross]\"", 
+         TemplateBox[{"101", "1"}, "Superscript", SyntaxForm -> 
+          SuperscriptBox]}, "RowWithSeparators"]},
+      "RowWithSeparators"], 
+     TemplateBox[{"==", "\"==\"", "117", 
+       TemplateBox[{"\[Cross]", "\"\[Cross]\"", 
+         TemplateBox[{"3", "2"}, "Superscript", SyntaxForm -> SuperscriptBox], 
+         TemplateBox[{"13", "1"}, "Superscript", SyntaxForm -> 
+          SuperscriptBox]}, "RowWithSeparators"]},
+      "RowWithSeparators"]},
+    {
+     TemplateBox[{"==", "\"==\"", "6", 
+       TemplateBox[{"\[Cross]", "\"\[Cross]\"", 
+         TemplateBox[{"2", "1"}, "Superscript", SyntaxForm -> SuperscriptBox], 
+         TemplateBox[{"3", "1"}, "Superscript", SyntaxForm -> 
+          SuperscriptBox]}, "RowWithSeparators"]},
+      "RowWithSeparators"], 
+     TemplateBox[{"==", "\"==\"", "22", 
+       TemplateBox[{"\[Cross]", "\"\[Cross]\"", 
+         TemplateBox[{"2", "1"}, "Superscript", SyntaxForm -> SuperscriptBox], 
+         TemplateBox[{"11", "1"}, "Superscript", SyntaxForm -> 
+          SuperscriptBox]}, "RowWithSeparators"]},
+      "RowWithSeparators"], 
+     TemplateBox[{"==", "\"==\"", "38", 
+       TemplateBox[{"\[Cross]", "\"\[Cross]\"", 
+         TemplateBox[{"2", "1"}, "Superscript", SyntaxForm -> SuperscriptBox], 
+         TemplateBox[{"19", "1"}, "Superscript", SyntaxForm -> 
+          SuperscriptBox]}, "RowWithSeparators"]},
+      "RowWithSeparators"], 
+     TemplateBox[{"==", "\"==\"", "54", 
+       TemplateBox[{"\[Cross]", "\"\[Cross]\"", 
+         TemplateBox[{"2", "1"}, "Superscript", SyntaxForm -> SuperscriptBox], 
+         TemplateBox[{"3", "3"}, "Superscript", SyntaxForm -> 
+          SuperscriptBox]}, "RowWithSeparators"]},
+      "RowWithSeparators"], 
+     TemplateBox[{"==", "\"==\"", "70", 
+       TemplateBox[{"\[Cross]", "\"\[Cross]\"", 
+         TemplateBox[{"2", "1"}, "Superscript", SyntaxForm -> SuperscriptBox], 
+         TemplateBox[{"5", "1"}, "Superscript", SyntaxForm -> SuperscriptBox], 
+         TemplateBox[{"7", "1"}, "Superscript", SyntaxForm -> 
+          SuperscriptBox]}, "RowWithSeparators"]},
+      "RowWithSeparators"], 
+     TemplateBox[{"==", "\"==\"", "86", 
+       TemplateBox[{"\[Cross]", "\"\[Cross]\"", 
+         TemplateBox[{"2", "1"}, "Superscript", SyntaxForm -> SuperscriptBox], 
+         TemplateBox[{"43", "1"}, "Superscript", SyntaxForm -> 
+          SuperscriptBox]}, "RowWithSeparators"]},
+      "RowWithSeparators"], 
+     TemplateBox[{"==", "\"==\"", "102", 
+       TemplateBox[{"\[Cross]", "\"\[Cross]\"", 
+         TemplateBox[{"2", "1"}, "Superscript", SyntaxForm -> SuperscriptBox], 
+         TemplateBox[{"3", "1"}, "Superscript", SyntaxForm -> SuperscriptBox], 
+         TemplateBox[{"17", "1"}, "Superscript", SyntaxForm -> 
+          SuperscriptBox]}, "RowWithSeparators"]},
+      "RowWithSeparators"], 
+     TemplateBox[{"==", "\"==\"", "118", 
+       TemplateBox[{"\[Cross]", "\"\[Cross]\"", 
+         TemplateBox[{"2", "1"}, "Superscript", SyntaxForm -> SuperscriptBox], 
+         TemplateBox[{"59", "1"}, "Superscript", SyntaxForm -> 
+          SuperscriptBox]}, "RowWithSeparators"]},
+      "RowWithSeparators"]},
+    {
+     TemplateBox[{"==", "\"==\"", "7", 
+       TemplateBox[{"\[Cross]", "\"\[Cross]\"", 
+         TemplateBox[{"7", "1"}, "Superscript", SyntaxForm -> 
+          SuperscriptBox]}, "RowWithSeparators"]},
+      "RowWithSeparators"], 
+     TemplateBox[{"==", "\"==\"", "23", 
+       TemplateBox[{"\[Cross]", "\"\[Cross]\"", 
+         TemplateBox[{"23", "1"}, "Superscript", SyntaxForm -> 
+          SuperscriptBox]}, "RowWithSeparators"]},
+      "RowWithSeparators"], 
+     TemplateBox[{"==", "\"==\"", "39", 
+       TemplateBox[{"\[Cross]", "\"\[Cross]\"", 
+         TemplateBox[{"3", "1"}, "Superscript", SyntaxForm -> SuperscriptBox], 
+         TemplateBox[{"13", "1"}, "Superscript", SyntaxForm -> 
+          SuperscriptBox]}, "RowWithSeparators"]},
+      "RowWithSeparators"], 
+     TemplateBox[{"==", "\"==\"", "55", 
+       TemplateBox[{"\[Cross]", "\"\[Cross]\"", 
+         TemplateBox[{"5", "1"}, "Superscript", SyntaxForm -> SuperscriptBox], 
+         TemplateBox[{"11", "1"}, "Superscript", SyntaxForm -> 
+          SuperscriptBox]}, "RowWithSeparators"]},
+      "RowWithSeparators"], 
+     TemplateBox[{"==", "\"==\"", "71", 
+       TemplateBox[{"\[Cross]", "\"\[Cross]\"", 
+         TemplateBox[{"71", "1"}, "Superscript", SyntaxForm -> 
+          SuperscriptBox]}, "RowWithSeparators"]},
+      "RowWithSeparators"], 
+     TemplateBox[{"==", "\"==\"", "87", 
+       TemplateBox[{"\[Cross]", "\"\[Cross]\"", 
+         TemplateBox[{"3", "1"}, "Superscript", SyntaxForm -> SuperscriptBox], 
+         TemplateBox[{"29", "1"}, "Superscript", SyntaxForm -> 
+          SuperscriptBox]}, "RowWithSeparators"]},
+      "RowWithSeparators"], 
+     TemplateBox[{"==", "\"==\"", "103", 
+       TemplateBox[{"\[Cross]", "\"\[Cross]\"", 
+         TemplateBox[{"103", "1"}, "Superscript", SyntaxForm -> 
+          SuperscriptBox]}, "RowWithSeparators"]},
+      "RowWithSeparators"], 
+     TemplateBox[{"==", "\"==\"", "119", 
+       TemplateBox[{"\[Cross]", "\"\[Cross]\"", 
+         TemplateBox[{"7", "1"}, "Superscript", SyntaxForm -> SuperscriptBox], 
+         TemplateBox[{"17", "1"}, "Superscript", SyntaxForm -> 
+          SuperscriptBox]}, "RowWithSeparators"]},
+      "RowWithSeparators"]},
+    {
+     TemplateBox[{"==", "\"==\"", "8", 
+       TemplateBox[{"\[Cross]", "\"\[Cross]\"", 
+         TemplateBox[{"2", "3"}, "Superscript", SyntaxForm -> 
+          SuperscriptBox]}, "RowWithSeparators"]},
+      "RowWithSeparators"], 
+     TemplateBox[{"==", "\"==\"", "24", 
+       TemplateBox[{"\[Cross]", "\"\[Cross]\"", 
+         TemplateBox[{"2", "3"}, "Superscript", SyntaxForm -> SuperscriptBox], 
+         TemplateBox[{"3", "1"}, "Superscript", SyntaxForm -> 
+          SuperscriptBox]}, "RowWithSeparators"]},
+      "RowWithSeparators"], 
+     TemplateBox[{"==", "\"==\"", "40", 
+       TemplateBox[{"\[Cross]", "\"\[Cross]\"", 
+         TemplateBox[{"2", "3"}, "Superscript", SyntaxForm -> SuperscriptBox], 
+         TemplateBox[{"5", "1"}, "Superscript", SyntaxForm -> 
+          SuperscriptBox]}, "RowWithSeparators"]},
+      "RowWithSeparators"], 
+     TemplateBox[{"==", "\"==\"", "56", 
+       TemplateBox[{"\[Cross]", "\"\[Cross]\"", 
+         TemplateBox[{"2", "3"}, "Superscript", SyntaxForm -> SuperscriptBox], 
+         TemplateBox[{"7", "1"}, "Superscript", SyntaxForm -> 
+          SuperscriptBox]}, "RowWithSeparators"]},
+      "RowWithSeparators"], 
+     TemplateBox[{"==", "\"==\"", "72", 
+       TemplateBox[{"\[Cross]", "\"\[Cross]\"", 
+         TemplateBox[{"2", "3"}, "Superscript", SyntaxForm -> SuperscriptBox], 
+         TemplateBox[{"3", "2"}, "Superscript", SyntaxForm -> 
+          SuperscriptBox]}, "RowWithSeparators"]},
+      "RowWithSeparators"], 
+     TemplateBox[{"==", "\"==\"", "88", 
+       TemplateBox[{"\[Cross]", "\"\[Cross]\"", 
+         TemplateBox[{"2", "3"}, "Superscript", SyntaxForm -> SuperscriptBox], 
+         TemplateBox[{"11", "1"}, "Superscript", SyntaxForm -> 
+          SuperscriptBox]}, "RowWithSeparators"]},
+      "RowWithSeparators"], 
+     TemplateBox[{"==", "\"==\"", "104", 
+       TemplateBox[{"\[Cross]", "\"\[Cross]\"", 
+         TemplateBox[{"2", "3"}, "Superscript", SyntaxForm -> SuperscriptBox], 
+         TemplateBox[{"13", "1"}, "Superscript", SyntaxForm -> 
+          SuperscriptBox]}, "RowWithSeparators"]},
+      "RowWithSeparators"], 
+     TemplateBox[{"==", "\"==\"", "120", 
+       TemplateBox[{"\[Cross]", "\"\[Cross]\"", 
+         TemplateBox[{"2", "3"}, "Superscript", SyntaxForm -> SuperscriptBox], 
+         TemplateBox[{"3", "1"}, "Superscript", SyntaxForm -> SuperscriptBox], 
+         TemplateBox[{"5", "1"}, "Superscript", SyntaxForm -> 
+          SuperscriptBox]}, "RowWithSeparators"]},
+      "RowWithSeparators"]},
+    {
+     TemplateBox[{"==", "\"==\"", "9", 
+       TemplateBox[{"\[Cross]", "\"\[Cross]\"", 
+         TemplateBox[{"3", "2"}, "Superscript", SyntaxForm -> 
+          SuperscriptBox]}, "RowWithSeparators"]},
+      "RowWithSeparators"], 
+     TemplateBox[{"==", "\"==\"", "25", 
+       TemplateBox[{"\[Cross]", "\"\[Cross]\"", 
+         TemplateBox[{"5", "2"}, "Superscript", SyntaxForm -> 
+          SuperscriptBox]}, "RowWithSeparators"]},
+      "RowWithSeparators"], 
+     TemplateBox[{"==", "\"==\"", "41", 
+       TemplateBox[{"\[Cross]", "\"\[Cross]\"", 
+         TemplateBox[{"41", "1"}, "Superscript", SyntaxForm -> 
+          SuperscriptBox]}, "RowWithSeparators"]},
+      "RowWithSeparators"], 
+     TemplateBox[{"==", "\"==\"", "57", 
+       TemplateBox[{"\[Cross]", "\"\[Cross]\"", 
+         TemplateBox[{"3", "1"}, "Superscript", SyntaxForm -> SuperscriptBox], 
+         TemplateBox[{"19", "1"}, "Superscript", SyntaxForm -> 
+          SuperscriptBox]}, "RowWithSeparators"]},
+      "RowWithSeparators"], 
+     TemplateBox[{"==", "\"==\"", "73", 
+       TemplateBox[{"\[Cross]", "\"\[Cross]\"", 
+         TemplateBox[{"73", "1"}, "Superscript", SyntaxForm -> 
+          SuperscriptBox]}, "RowWithSeparators"]},
+      "RowWithSeparators"], 
+     TemplateBox[{"==", "\"==\"", "89", 
+       TemplateBox[{"\[Cross]", "\"\[Cross]\"", 
+         TemplateBox[{"89", "1"}, "Superscript", SyntaxForm -> 
+          SuperscriptBox]}, "RowWithSeparators"]},
+      "RowWithSeparators"], 
+     TemplateBox[{"==", "\"==\"", "105", 
+       TemplateBox[{"\[Cross]", "\"\[Cross]\"", 
+         TemplateBox[{"3", "1"}, "Superscript", SyntaxForm -> SuperscriptBox], 
+         TemplateBox[{"5", "1"}, "Superscript", SyntaxForm -> SuperscriptBox], 
+         TemplateBox[{"7", "1"}, "Superscript", SyntaxForm -> 
+          SuperscriptBox]}, "RowWithSeparators"]},
+      "RowWithSeparators"], 
+     TemplateBox[{"==", "\"==\"", "121", 
+       TemplateBox[{"\[Cross]", "\"\[Cross]\"", 
+         TemplateBox[{"11", "2"}, "Superscript", SyntaxForm -> 
+          SuperscriptBox]}, "RowWithSeparators"]},
+      "RowWithSeparators"]},
+    {
+     TemplateBox[{"==", "\"==\"", "10", 
+       TemplateBox[{"\[Cross]", "\"\[Cross]\"", 
+         TemplateBox[{"2", "1"}, "Superscript", SyntaxForm -> SuperscriptBox], 
+         TemplateBox[{"5", "1"}, "Superscript", SyntaxForm -> 
+          SuperscriptBox]}, "RowWithSeparators"]},
+      "RowWithSeparators"], 
+     TemplateBox[{"==", "\"==\"", "26", 
+       TemplateBox[{"\[Cross]", "\"\[Cross]\"", 
+         TemplateBox[{"2", "1"}, "Superscript", SyntaxForm -> SuperscriptBox], 
+         TemplateBox[{"13", "1"}, "Superscript", SyntaxForm -> 
+          SuperscriptBox]}, "RowWithSeparators"]},
+      "RowWithSeparators"], 
+     TemplateBox[{"==", "\"==\"", "42", 
+       TemplateBox[{"\[Cross]", "\"\[Cross]\"", 
+         TemplateBox[{"2", "1"}, "Superscript", SyntaxForm -> SuperscriptBox], 
+         TemplateBox[{"3", "1"}, "Superscript", SyntaxForm -> SuperscriptBox], 
+         TemplateBox[{"7", "1"}, "Superscript", SyntaxForm -> 
+          SuperscriptBox]}, "RowWithSeparators"]},
+      "RowWithSeparators"], 
+     TemplateBox[{"==", "\"==\"", "58", 
+       TemplateBox[{"\[Cross]", "\"\[Cross]\"", 
+         TemplateBox[{"2", "1"}, "Superscript", SyntaxForm -> SuperscriptBox], 
+         TemplateBox[{"29", "1"}, "Superscript", SyntaxForm -> 
+          SuperscriptBox]}, "RowWithSeparators"]},
+      "RowWithSeparators"], 
+     TemplateBox[{"==", "\"==\"", "74", 
+       TemplateBox[{"\[Cross]", "\"\[Cross]\"", 
+         TemplateBox[{"2", "1"}, "Superscript", SyntaxForm -> SuperscriptBox], 
+         TemplateBox[{"37", "1"}, "Superscript", SyntaxForm -> 
+          SuperscriptBox]}, "RowWithSeparators"]},
+      "RowWithSeparators"], 
+     TemplateBox[{"==", "\"==\"", "90", 
+       TemplateBox[{"\[Cross]", "\"\[Cross]\"", 
+         TemplateBox[{"2", "1"}, "Superscript", SyntaxForm -> SuperscriptBox], 
+         TemplateBox[{"3", "2"}, "Superscript", SyntaxForm -> SuperscriptBox], 
+         TemplateBox[{"5", "1"}, "Superscript", SyntaxForm -> 
+          SuperscriptBox]}, "RowWithSeparators"]},
+      "RowWithSeparators"], 
+     TemplateBox[{"==", "\"==\"", "106", 
+       TemplateBox[{"\[Cross]", "\"\[Cross]\"", 
+         TemplateBox[{"2", "1"}, "Superscript", SyntaxForm -> SuperscriptBox], 
+         TemplateBox[{"53", "1"}, "Superscript", SyntaxForm -> 
+          SuperscriptBox]}, "RowWithSeparators"]},
+      "RowWithSeparators"], 
+     TemplateBox[{"==", "\"==\"", "122", 
+       TemplateBox[{"\[Cross]", "\"\[Cross]\"", 
+         TemplateBox[{"2", "1"}, "Superscript", SyntaxForm -> SuperscriptBox], 
+         TemplateBox[{"61", "1"}, "Superscript", SyntaxForm -> 
+          SuperscriptBox]}, "RowWithSeparators"]},
+      "RowWithSeparators"]},
+    {
+     TemplateBox[{"==", "\"==\"", "11", 
+       TemplateBox[{"\[Cross]", "\"\[Cross]\"", 
+         TemplateBox[{"11", "1"}, "Superscript", SyntaxForm -> 
+          SuperscriptBox]}, "RowWithSeparators"]},
+      "RowWithSeparators"], 
+     TemplateBox[{"==", "\"==\"", "27", 
+       TemplateBox[{"\[Cross]", "\"\[Cross]\"", 
+         TemplateBox[{"3", "3"}, "Superscript", SyntaxForm -> 
+          SuperscriptBox]}, "RowWithSeparators"]},
+      "RowWithSeparators"], 
+     TemplateBox[{"==", "\"==\"", "43", 
+       TemplateBox[{"\[Cross]", "\"\[Cross]\"", 
+         TemplateBox[{"43", "1"}, "Superscript", SyntaxForm -> 
+          SuperscriptBox]}, "RowWithSeparators"]},
+      "RowWithSeparators"], 
+     TemplateBox[{"==", "\"==\"", "59", 
+       TemplateBox[{"\[Cross]", "\"\[Cross]\"", 
+         TemplateBox[{"59", "1"}, "Superscript", SyntaxForm -> 
+          SuperscriptBox]}, "RowWithSeparators"]},
+      "RowWithSeparators"], 
+     TemplateBox[{"==", "\"==\"", "75", 
+       TemplateBox[{"\[Cross]", "\"\[Cross]\"", 
+         TemplateBox[{"3", "1"}, "Superscript", SyntaxForm -> SuperscriptBox], 
+         TemplateBox[{"5", "2"}, "Superscript", SyntaxForm -> 
+          SuperscriptBox]}, "RowWithSeparators"]},
+      "RowWithSeparators"], 
+     TemplateBox[{"==", "\"==\"", "91", 
+       TemplateBox[{"\[Cross]", "\"\[Cross]\"", 
+         TemplateBox[{"7", "1"}, "Superscript", SyntaxForm -> SuperscriptBox], 
+         TemplateBox[{"13", "1"}, "Superscript", SyntaxForm -> 
+          SuperscriptBox]}, "RowWithSeparators"]},
+      "RowWithSeparators"], 
+     TemplateBox[{"==", "\"==\"", "107", 
+       TemplateBox[{"\[Cross]", "\"\[Cross]\"", 
+         TemplateBox[{"107", "1"}, "Superscript", SyntaxForm -> 
+          SuperscriptBox]}, "RowWithSeparators"]},
+      "RowWithSeparators"], 
+     TemplateBox[{"==", "\"==\"", "123", 
+       TemplateBox[{"\[Cross]", "\"\[Cross]\"", 
+         TemplateBox[{"3", "1"}, "Superscript", SyntaxForm -> SuperscriptBox], 
+         TemplateBox[{"41", "1"}, "Superscript", SyntaxForm -> 
+          SuperscriptBox]}, "RowWithSeparators"]},
+      "RowWithSeparators"]},
+    {
+     TemplateBox[{"==", "\"==\"", "12", 
+       TemplateBox[{"\[Cross]", "\"\[Cross]\"", 
+         TemplateBox[{"2", "2"}, "Superscript", SyntaxForm -> SuperscriptBox], 
+         TemplateBox[{"3", "1"}, "Superscript", SyntaxForm -> 
+          SuperscriptBox]}, "RowWithSeparators"]},
+      "RowWithSeparators"], 
+     TemplateBox[{"==", "\"==\"", "28", 
+       TemplateBox[{"\[Cross]", "\"\[Cross]\"", 
+         TemplateBox[{"2", "2"}, "Superscript", SyntaxForm -> SuperscriptBox], 
+         TemplateBox[{"7", "1"}, "Superscript", SyntaxForm -> 
+          SuperscriptBox]}, "RowWithSeparators"]},
+      "RowWithSeparators"], 
+     TemplateBox[{"==", "\"==\"", "44", 
+       TemplateBox[{"\[Cross]", "\"\[Cross]\"", 
+         TemplateBox[{"2", "2"}, "Superscript", SyntaxForm -> SuperscriptBox], 
+         TemplateBox[{"11", "1"}, "Superscript", SyntaxForm -> 
+          SuperscriptBox]}, "RowWithSeparators"]},
+      "RowWithSeparators"], 
+     TemplateBox[{"==", "\"==\"", "60", 
+       TemplateBox[{"\[Cross]", "\"\[Cross]\"", 
+         TemplateBox[{"2", "2"}, "Superscript", SyntaxForm -> SuperscriptBox], 
+         TemplateBox[{"3", "1"}, "Superscript", SyntaxForm -> SuperscriptBox], 
+         TemplateBox[{"5", "1"}, "Superscript", SyntaxForm -> 
+          SuperscriptBox]}, "RowWithSeparators"]},
+      "RowWithSeparators"], 
+     TemplateBox[{"==", "\"==\"", "76", 
+       TemplateBox[{"\[Cross]", "\"\[Cross]\"", 
+         TemplateBox[{"2", "2"}, "Superscript", SyntaxForm -> SuperscriptBox], 
+         TemplateBox[{"19", "1"}, "Superscript", SyntaxForm -> 
+          SuperscriptBox]}, "RowWithSeparators"]},
+      "RowWithSeparators"], 
+     TemplateBox[{"==", "\"==\"", "92", 
+       TemplateBox[{"\[Cross]", "\"\[Cross]\"", 
+         TemplateBox[{"2", "2"}, "Superscript", SyntaxForm -> SuperscriptBox], 
+         TemplateBox[{"23", "1"}, "Superscript", SyntaxForm -> 
+          SuperscriptBox]}, "RowWithSeparators"]},
+      "RowWithSeparators"], 
+     TemplateBox[{"==", "\"==\"", "108", 
+       TemplateBox[{"\[Cross]", "\"\[Cross]\"", 
+         TemplateBox[{"2", "2"}, "Superscript", SyntaxForm -> SuperscriptBox], 
+         TemplateBox[{"3", "3"}, "Superscript", SyntaxForm -> 
+          SuperscriptBox]}, "RowWithSeparators"]},
+      "RowWithSeparators"], 
+     TemplateBox[{"==", "\"==\"", "124", 
+       TemplateBox[{"\[Cross]", "\"\[Cross]\"", 
+         TemplateBox[{"2", "2"}, "Superscript", SyntaxForm -> SuperscriptBox], 
+         TemplateBox[{"31", "1"}, "Superscript", SyntaxForm -> 
+          SuperscriptBox]}, "RowWithSeparators"]},
+      "RowWithSeparators"]},
+    {
+     TemplateBox[{"==", "\"==\"", "13", 
+       TemplateBox[{"\[Cross]", "\"\[Cross]\"", 
+         TemplateBox[{"13", "1"}, "Superscript", SyntaxForm -> 
+          SuperscriptBox]}, "RowWithSeparators"]},
+      "RowWithSeparators"], 
+     TemplateBox[{"==", "\"==\"", "29", 
+       TemplateBox[{"\[Cross]", "\"\[Cross]\"", 
+         TemplateBox[{"29", "1"}, "Superscript", SyntaxForm -> 
+          SuperscriptBox]}, "RowWithSeparators"]},
+      "RowWithSeparators"], 
+     TemplateBox[{"==", "\"==\"", "45", 
+       TemplateBox[{"\[Cross]", "\"\[Cross]\"", 
+         TemplateBox[{"3", "2"}, "Superscript", SyntaxForm -> SuperscriptBox], 
+         TemplateBox[{"5", "1"}, "Superscript", SyntaxForm -> 
+          SuperscriptBox]}, "RowWithSeparators"]},
+      "RowWithSeparators"], 
+     TemplateBox[{"==", "\"==\"", "61", 
+       TemplateBox[{"\[Cross]", "\"\[Cross]\"", 
+         TemplateBox[{"61", "1"}, "Superscript", SyntaxForm -> 
+          SuperscriptBox]}, "RowWithSeparators"]},
+      "RowWithSeparators"], 
+     TemplateBox[{"==", "\"==\"", "77", 
+       TemplateBox[{"\[Cross]", "\"\[Cross]\"", 
+         TemplateBox[{"7", "1"}, "Superscript", SyntaxForm -> SuperscriptBox], 
+         TemplateBox[{"11", "1"}, "Superscript", SyntaxForm -> 
+          SuperscriptBox]}, "RowWithSeparators"]},
+      "RowWithSeparators"], 
+     TemplateBox[{"==", "\"==\"", "93", 
+       TemplateBox[{"\[Cross]", "\"\[Cross]\"", 
+         TemplateBox[{"3", "1"}, "Superscript", SyntaxForm -> SuperscriptBox], 
+         TemplateBox[{"31", "1"}, "Superscript", SyntaxForm -> 
+          SuperscriptBox]}, "RowWithSeparators"]},
+      "RowWithSeparators"], 
+     TemplateBox[{"==", "\"==\"", "109", 
+       TemplateBox[{"\[Cross]", "\"\[Cross]\"", 
+         TemplateBox[{"109", "1"}, "Superscript", SyntaxForm -> 
+          SuperscriptBox]}, "RowWithSeparators"]},
+      "RowWithSeparators"], 
+     TemplateBox[{"==", "\"==\"", "125", 
+       TemplateBox[{"\[Cross]", "\"\[Cross]\"", 
+         TemplateBox[{"5", "3"}, "Superscript", SyntaxForm -> 
+          SuperscriptBox]}, "RowWithSeparators"]},
+      "RowWithSeparators"]},
+    {
+     TemplateBox[{"==", "\"==\"", "14", 
+       TemplateBox[{"\[Cross]", "\"\[Cross]\"", 
+         TemplateBox[{"2", "1"}, "Superscript", SyntaxForm -> SuperscriptBox], 
+         TemplateBox[{"7", "1"}, "Superscript", SyntaxForm -> 
+          SuperscriptBox]}, "RowWithSeparators"]},
+      "RowWithSeparators"], 
+     TemplateBox[{"==", "\"==\"", "30", 
+       TemplateBox[{"\[Cross]", "\"\[Cross]\"", 
+         TemplateBox[{"2", "1"}, "Superscript", SyntaxForm -> SuperscriptBox], 
+         TemplateBox[{"3", "1"}, "Superscript", SyntaxForm -> SuperscriptBox], 
+         TemplateBox[{"5", "1"}, "Superscript", SyntaxForm -> 
+          SuperscriptBox]}, "RowWithSeparators"]},
+      "RowWithSeparators"], 
+     TemplateBox[{"==", "\"==\"", "46", 
+       TemplateBox[{"\[Cross]", "\"\[Cross]\"", 
+         TemplateBox[{"2", "1"}, "Superscript", SyntaxForm -> SuperscriptBox], 
+         TemplateBox[{"23", "1"}, "Superscript", SyntaxForm -> 
+          SuperscriptBox]}, "RowWithSeparators"]},
+      "RowWithSeparators"], 
+     TemplateBox[{"==", "\"==\"", "62", 
+       TemplateBox[{"\[Cross]", "\"\[Cross]\"", 
+         TemplateBox[{"2", "1"}, "Superscript", SyntaxForm -> SuperscriptBox], 
+         TemplateBox[{"31", "1"}, "Superscript", SyntaxForm -> 
+          SuperscriptBox]}, "RowWithSeparators"]},
+      "RowWithSeparators"], 
+     TemplateBox[{"==", "\"==\"", "78", 
+       TemplateBox[{"\[Cross]", "\"\[Cross]\"", 
+         TemplateBox[{"2", "1"}, "Superscript", SyntaxForm -> SuperscriptBox], 
+         TemplateBox[{"3", "1"}, "Superscript", SyntaxForm -> SuperscriptBox], 
+         TemplateBox[{"13", "1"}, "Superscript", SyntaxForm -> 
+          SuperscriptBox]}, "RowWithSeparators"]},
+      "RowWithSeparators"], 
+     TemplateBox[{"==", "\"==\"", "94", 
+       TemplateBox[{"\[Cross]", "\"\[Cross]\"", 
+         TemplateBox[{"2", "1"}, "Superscript", SyntaxForm -> SuperscriptBox], 
+         TemplateBox[{"47", "1"}, "Superscript", SyntaxForm -> 
+          SuperscriptBox]}, "RowWithSeparators"]},
+      "RowWithSeparators"], 
+     TemplateBox[{"==", "\"==\"", "110", 
+       TemplateBox[{"\[Cross]", "\"\[Cross]\"", 
+         TemplateBox[{"2", "1"}, "Superscript", SyntaxForm -> SuperscriptBox], 
+         TemplateBox[{"5", "1"}, "Superscript", SyntaxForm -> SuperscriptBox], 
+         TemplateBox[{"11", "1"}, "Superscript", SyntaxForm -> 
+          SuperscriptBox]}, "RowWithSeparators"]},
+      "RowWithSeparators"], 
+     TemplateBox[{"==", "\"==\"", "126", 
+       TemplateBox[{"\[Cross]", "\"\[Cross]\"", 
+         TemplateBox[{"2", "1"}, "Superscript", SyntaxForm -> SuperscriptBox], 
+         TemplateBox[{"3", "2"}, "Superscript", SyntaxForm -> SuperscriptBox], 
+         TemplateBox[{"7", "1"}, "Superscript", SyntaxForm -> 
+          SuperscriptBox]}, "RowWithSeparators"]},
+      "RowWithSeparators"]},
+    {
+     TemplateBox[{"==", "\"==\"", "15", 
+       TemplateBox[{"\[Cross]", "\"\[Cross]\"", 
+         TemplateBox[{"3", "1"}, "Superscript", SyntaxForm -> SuperscriptBox], 
+         TemplateBox[{"5", "1"}, "Superscript", SyntaxForm -> 
+          SuperscriptBox]}, "RowWithSeparators"]},
+      "RowWithSeparators"], 
+     TemplateBox[{"==", "\"==\"", "31", 
+       TemplateBox[{"\[Cross]", "\"\[Cross]\"", 
+         TemplateBox[{"31", "1"}, "Superscript", SyntaxForm -> 
+          SuperscriptBox]}, "RowWithSeparators"]},
+      "RowWithSeparators"], 
+     TemplateBox[{"==", "\"==\"", "47", 
+       TemplateBox[{"\[Cross]", "\"\[Cross]\"", 
+         TemplateBox[{"47", "1"}, "Superscript", SyntaxForm -> 
+          SuperscriptBox]}, "RowWithSeparators"]},
+      "RowWithSeparators"], 
+     TemplateBox[{"==", "\"==\"", "63", 
+       TemplateBox[{"\[Cross]", "\"\[Cross]\"", 
+         TemplateBox[{"3", "2"}, "Superscript", SyntaxForm -> SuperscriptBox], 
+         TemplateBox[{"7", "1"}, "Superscript", SyntaxForm -> 
+          SuperscriptBox]}, "RowWithSeparators"]},
+      "RowWithSeparators"], 
+     TemplateBox[{"==", "\"==\"", "79", 
+       TemplateBox[{"\[Cross]", "\"\[Cross]\"", 
+         TemplateBox[{"79", "1"}, "Superscript", SyntaxForm -> 
+          SuperscriptBox]}, "RowWithSeparators"]},
+      "RowWithSeparators"], 
+     TemplateBox[{"==", "\"==\"", "95", 
+       TemplateBox[{"\[Cross]", "\"\[Cross]\"", 
+         TemplateBox[{"5", "1"}, "Superscript", SyntaxForm -> SuperscriptBox], 
+         TemplateBox[{"19", "1"}, "Superscript", SyntaxForm -> 
+          SuperscriptBox]}, "RowWithSeparators"]},
+      "RowWithSeparators"], 
+     TemplateBox[{"==", "\"==\"", "111", 
+       TemplateBox[{"\[Cross]", "\"\[Cross]\"", 
+         TemplateBox[{"3", "1"}, "Superscript", SyntaxForm -> SuperscriptBox], 
+         TemplateBox[{"37", "1"}, "Superscript", SyntaxForm -> 
+          SuperscriptBox]}, "RowWithSeparators"]},
+      "RowWithSeparators"], 
+     TemplateBox[{"==", "\"==\"", "127", 
+       TemplateBox[{"\[Cross]", "\"\[Cross]\"", 
+         TemplateBox[{"127", "1"}, "Superscript", SyntaxForm -> 
+          SuperscriptBox]}, "RowWithSeparators"]},
+      "RowWithSeparators"]},
+    {
+     TemplateBox[{"==", "\"==\"", "16", 
+       TemplateBox[{"\[Cross]", "\"\[Cross]\"", 
+         TemplateBox[{"2", "4"}, "Superscript", SyntaxForm -> 
+          SuperscriptBox]}, "RowWithSeparators"]},
+      "RowWithSeparators"], 
+     TemplateBox[{"==", "\"==\"", "32", 
+       TemplateBox[{"\[Cross]", "\"\[Cross]\"", 
+         TemplateBox[{"2", "5"}, "Superscript", SyntaxForm -> 
+          SuperscriptBox]}, "RowWithSeparators"]},
+      "RowWithSeparators"], 
+     TemplateBox[{"==", "\"==\"", "48", 
+       TemplateBox[{"\[Cross]", "\"\[Cross]\"", 
+         TemplateBox[{"2", "4"}, "Superscript", SyntaxForm -> SuperscriptBox], 
+         TemplateBox[{"3", "1"}, "Superscript", SyntaxForm -> 
+          SuperscriptBox]}, "RowWithSeparators"]},
+      "RowWithSeparators"], 
+     TemplateBox[{"==", "\"==\"", "64", 
+       TemplateBox[{"\[Cross]", "\"\[Cross]\"", 
+         TemplateBox[{"2", "6"}, "Superscript", SyntaxForm -> 
+          SuperscriptBox]}, "RowWithSeparators"]},
+      "RowWithSeparators"], 
+     TemplateBox[{"==", "\"==\"", "80", 
+       TemplateBox[{"\[Cross]", "\"\[Cross]\"", 
+         TemplateBox[{"2", "4"}, "Superscript", SyntaxForm -> SuperscriptBox], 
+         TemplateBox[{"5", "1"}, "Superscript", SyntaxForm -> 
+          SuperscriptBox]}, "RowWithSeparators"]},
+      "RowWithSeparators"], 
+     TemplateBox[{"==", "\"==\"", "96", 
+       TemplateBox[{"\[Cross]", "\"\[Cross]\"", 
+         TemplateBox[{"2", "5"}, "Superscript", SyntaxForm -> SuperscriptBox], 
+         TemplateBox[{"3", "1"}, "Superscript", SyntaxForm -> 
+          SuperscriptBox]}, "RowWithSeparators"]},
+      "RowWithSeparators"], 
+     TemplateBox[{"==", "\"==\"", "112", 
+       TemplateBox[{"\[Cross]", "\"\[Cross]\"", 
+         TemplateBox[{"2", "4"}, "Superscript", SyntaxForm -> SuperscriptBox], 
+         TemplateBox[{"7", "1"}, "Superscript", SyntaxForm -> 
+          SuperscriptBox]}, "RowWithSeparators"]},
+      "RowWithSeparators"], 
+     TemplateBox[{"==", "\"==\"", "128", 
+       TemplateBox[{"\[Cross]", "\"\[Cross]\"", 
+         TemplateBox[{"2", "7"}, "Superscript", SyntaxForm -> 
+          SuperscriptBox]}, "RowWithSeparators"]},
+      "RowWithSeparators"]}
+   },
+   AutoDelete->False,
+   ColumnsEqual->True,
+   GridBoxAlignment->{"Columns" -> {{Left}}},
+   GridBoxFrame->{"Columns" -> {{True}}, "Rows" -> {{True}}},
+   GridBoxItemSize->{},
+   RowsEqual->True],
+  "Grid"]], "Output",
+ CellOpen->False,
+ CellChangeTimes->{{3.922822305454567*^9, 3.9228223614897785`*^9}, {
+  3.9228224304650497`*^9, 3.9228224455671463`*^9}, {3.9228224773976936`*^9, 
+  3.9228224938322697`*^9}, {3.9228225938851967`*^9, 3.9228226024635296`*^9}},
+ CellLabel->"Out[43]=",ExpressionUUID->"6f8fa674-32d0-574f-82db-2af0c169ebad"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"idPair", "[", "x_", "]"}], ":=", 
+    RowBox[{"{", 
+     RowBox[{"x", ",", "x"}], "}"}]}], ";"}], "\[IndentingNewLine]", 
+  RowBox[{"(*", " ", 
+   RowBox[{"Collatz", " ", "\:51fd\:6570"}], " ", "*)"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"cl", "[", "n_Integer", "]"}], ":=", 
+    RowBox[{"If", "[", 
+     RowBox[{
+      RowBox[{"EvenQ", "[", "n", "]"}], ",", 
+      RowBox[{"n", "/", "2"}], ",", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"3", " ", "n"}], "+", "1"}], ")"}], "/", "2"}]}], "]"}]}], 
+   ";"}], "\n", 
+  RowBox[{"(*", " ", 
+   RowBox[{"Collatz", " ", "\:8fed\:4ee3\:8f68\:8ff9\:5217\:8868"}], " ", 
+   "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"clTrajectory", "[", "n_Integer", "]"}], ":=", 
+    RowBox[{"NestWhileList", "[", 
+     RowBox[{"cl", ",", "n", ",", 
+      RowBox[{
+       RowBox[{"#", ">", "1"}], "&"}]}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{"(*", " ", 
+   RowBox[{"Collatz", " ", "\:8fed\:4ee3\:6700\:5927\:503c"}], " ", 
+   "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"clMaximum", "[", "n_Integer", "]"}], ":=", 
+    RowBox[{"Max", "@", 
+     RowBox[{"clTrajectory", "[", "n", "]"}]}]}], ";"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{"(*", " ", 
+   RowBox[{"Collatz", " ", "\:8fed\:4ee3\:8f68\:8ff9\:70b9"}], " ", 
+   "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"clTrajectoryPoints", "[", "n_Integer", "]"}], ":=", 
+   RowBox[{"Module", "[", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"l", "=", 
+       RowBox[{"clTrajectory", "[", "n", "]"}]}], "}"}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"res", "=", 
+       RowBox[{
+        RowBox[{"Table", "[", "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{"Sequence", "@@", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"l", "[", 
+                RowBox[{"[", "i", "]"}], "]"}], ",", 
+               RowBox[{"l", "[", 
+                RowBox[{"[", "i", "]"}], "]"}]}], "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"l", "[", 
+                RowBox[{"[", "i", "]"}], "]"}], ",", 
+               RowBox[{"l", "[", 
+                RowBox[{"[", 
+                 RowBox[{"i", "+", "1"}], "]"}], "]"}]}], "}"}]}], "}"}]}], 
+          ",", "\[IndentingNewLine]", 
+          RowBox[{"{", 
+           RowBox[{"i", ",", 
+            RowBox[{
+             RowBox[{"Length", "[", "l", "]"}], "-", "1"}]}], "}"}]}], 
+         "\[IndentingNewLine]", "]"}], "//", 
+        RowBox[{"Append", "[", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"l", "[", 
+            RowBox[{"[", 
+             RowBox[{"-", "1"}], "]"}], "]"}], ",", 
+           RowBox[{"l", "[", 
+            RowBox[{"[", 
+             RowBox[{"-", "1"}], "]"}], "]"}]}], "}"}], "]"}]}]}], ";", 
+      "\[IndentingNewLine]", "res"}]}], "\[IndentingNewLine]", "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"With", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"n", "=", "7"}], "}"}], ",", "\[IndentingNewLine]", 
+   RowBox[{"Grid", "[", 
+    RowBox[{
+     RowBox[{"{", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"cl", "[", "n", "]"}], "//", "HoldForm"}], ",", 
+         RowBox[{"cl", "[", "n", "]"}]}], "}"}], ",", "\[IndentingNewLine]", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"clTrajectory", "[", "n", "]"}], "//", "HoldForm"}], ",", 
+         RowBox[{"clTrajectory", "[", "n", "]"}]}], "}"}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"clMaximum", "[", "n", "]"}], "//", "HoldForm"}], ",", 
+         RowBox[{"clMaximum", "[", "n", "]"}]}], "}"}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"clTrajectoryPoints", "[", "n", "]"}], "//", "HoldForm"}], 
+         ",", 
+         RowBox[{"clTrajectoryPoints", "[", "n", "]"}]}], "}"}]}], 
+      "\[IndentingNewLine]", "}"}], ",", 
+     RowBox[{"Alignment", "->", "Left"}], ",", 
+     RowBox[{"Frame", "->", "All"}]}], "]"}]}], "\[IndentingNewLine]", 
+  "]"}]}], "Input",
+ CellChangeTimes->{{3.922419602596079*^9, 3.92241971252158*^9}, {
+   3.9224290860950165`*^9, 3.922429119114506*^9}, {3.922432603027828*^9, 
+   3.922432605199825*^9}, 3.922555943056772*^9, {3.92255603548201*^9, 
+   3.922556068472496*^9}, {3.92255619188826*^9, 3.9225562562126846`*^9}, {
+   3.92255647908436*^9, 3.922556555084934*^9}, {3.922556630441368*^9, 
+   3.9225567190226917`*^9}, {3.922556843175827*^9, 3.922556888182438*^9}, {
+   3.9225571545839157`*^9, 3.9225572074762554`*^9}, {3.922557273661415*^9, 
+   3.922557335968727*^9}, {3.922557453362931*^9, 3.9225574536143627`*^9}, {
+   3.9225612650447464`*^9, 3.922561279489729*^9}, {3.922581676894882*^9, 
+   3.9225817841537*^9}, {3.922581871970728*^9, 3.922581916916548*^9}, {
+   3.922581959342484*^9, 3.922582033732603*^9}, {3.922582253896129*^9, 
+   3.922582256043087*^9}, {3.922582291892067*^9, 3.922582299302952*^9}, 
+   3.922582358821869*^9, {3.92258239086582*^9, 3.922582414039444*^9}, {
+   3.9225824445114*^9, 3.922582445649002*^9}, {3.922616520044601*^9, 
+   3.922616530150156*^9}, {3.9226168593453617`*^9, 3.922616896324827*^9}, {
+   3.922617299440658*^9, 3.922617309233124*^9}, {3.922617609679323*^9, 
+   3.922617609816206*^9}, {3.922617733261793*^9, 3.922617776441885*^9}, {
+   3.922617828203287*^9, 3.922617861820774*^9}, {3.922821054364765*^9, 
+   3.922821218789997*^9}, {3.9228374773733864`*^9, 3.922837482335972*^9}, {
+   3.9228389735302353`*^9, 3.9228389750684814`*^9}, {3.9228390083083057`*^9, 
+   3.9228390837923565`*^9}, {3.9228391418087616`*^9, 
+   3.9228392006560345`*^9}, {3.922860138210846*^9, 3.922860222677902*^9}, {
+   3.922860600358692*^9, 3.9228606028192005`*^9}},
+ CellLabel->
+  "In[186]:=",ExpressionUUID->"ce059268-954a-224b-9f56-f17d6eb93225"],
+
+Cell[BoxData[
+ TagBox[GridBox[{
+    {
+     TagBox[
+      RowBox[{"cl", "[", "7", "]"}],
+      HoldForm], "11"},
+    {
+     TagBox[
+      RowBox[{"clTrajectory", "[", "7", "]"}],
+      HoldForm], 
+     RowBox[{"{", 
+      RowBox[{
+      "7", ",", "11", ",", "17", ",", "26", ",", "13", ",", "20", ",", "10", 
+       ",", "5", ",", "8", ",", "4", ",", "2", ",", "1"}], "}"}]},
+    {
+     TagBox[
+      RowBox[{"clMaximum", "[", "7", "]"}],
+      HoldForm], "26"},
+    {
+     TagBox[
+      RowBox[{"clTrajectoryPoints", "[", "7", "]"}],
+      HoldForm], 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"7", ",", "7"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"7", ",", "11"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"11", ",", "11"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"11", ",", "17"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"17", ",", "17"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"17", ",", "26"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"26", ",", "26"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"26", ",", "13"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"13", ",", "13"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"13", ",", "20"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"20", ",", "20"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"20", ",", "10"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"10", ",", "10"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"10", ",", "5"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"5", ",", "5"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"5", ",", "8"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"8", ",", "8"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"8", ",", "4"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"4", ",", "4"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"4", ",", "2"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"2", ",", "2"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"2", ",", "1"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"1", ",", "1"}], "}"}]}], "}"}]}
+   },
+   AutoDelete->False,
+   GridBoxAlignment->{"Columns" -> {{Left}}},
+   GridBoxFrame->{"Columns" -> {{True}}, "Rows" -> {{True}}},
+   GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+  "Grid"]], "Output",
+ CellChangeTimes->{3.922821223559618*^9, 3.922821743976095*^9, 
+  3.922823419972624*^9, 3.92283852866094*^9, 3.9228387402313175`*^9, 
+  3.922838975713276*^9, 3.922839011308674*^9, 3.922839091367338*^9, 
+  3.922839202735367*^9, 3.922860607725975*^9},
+ CellLabel->
+  "Out[191]=",ExpressionUUID->"6a89ef58-54c9-7d4e-94c1-7b48132ecaf7"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"DynamicModule", "[", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"{", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"pt", "=", 
+      RowBox[{"idPair", "[", "2", "]"}]}], ",", 
+     RowBox[{"(*", " ", "\:5b9a\:4f4d\:5668\:5750\:6807", " ", "*)"}], 
+     "\[IndentingNewLine]", "n", ",", 
+     RowBox[{"(*", " ", 
+      RowBox[{"Collatz", " ", "\:8fed\:4ee3\:8d77\:59cb\:6570"}], " ", "*)"}],
+      "\[IndentingNewLine]", "maxVal", ",", 
+     RowBox[{"(*", " ", 
+      RowBox[{"Collatz", " ", "\:8fed\:4ee3\:6700\:5927\:503c"}], " ", "*)"}],
+      "\[IndentingNewLine]", "trPts", ",", 
+     RowBox[{"(*", " ", 
+      RowBox[{"Collatz", " ", "\:8fed\:4ee3\:8f68\:8ff9\:70b9"}], " ", "*)"}],
+      "\[IndentingNewLine]", "plotRange", ",", 
+     RowBox[{"(*", " ", "\:6700\:5927\:7ed8\:56fe\:8303\:56f4", " ", "*)"}], 
+     "\[IndentingNewLine]", "updateLocator", ",", "updateEnd", ",", 
+     RowBox[{
+     "(*", " ", 
+      "\:5b9a\:4f4d\:5668\:5750\:6807\:66f4\:65b0\:4ee5\:53ca\:66f4\:65b0\
+\:5b8c\:6210\:51fd\:6570", " ", "*)"}], "\[IndentingNewLine]", 
+     "locAppearance", ",", 
+     RowBox[{
+     "(*", " ", "\:5b9a\:4f4d\:5668\:5916\:89c2\:51fd\:6570", " ", "*)"}], 
+     "\[IndentingNewLine]", "graph"}], 
+    RowBox[{"(*", " ", "\:6700\:7ec8\:56fe\:5f62", " ", "*)"}], 
+    "\[IndentingNewLine]", "}"}], ",", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"updateLocator", "=", 
+     RowBox[{"(", 
+      RowBox[{"newPt", "|->", 
+       RowBox[{"pt", "=", 
+        RowBox[{"Round", "/@", 
+         RowBox[{"idPair", "@", 
+          RowBox[{"Max", "[", 
+           RowBox[{"1", ",", 
+            RowBox[{"First", "@", "newPt"}]}], "]"}]}]}]}]}], ")"}]}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{"updateEnd", "=", 
+     RowBox[{
+      RowBox[{"(", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"n", "=", 
+         RowBox[{"First", "@", "pt"}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{"maxVal", "=", 
+         RowBox[{
+          RowBox[{"Max", "[", 
+           RowBox[{"3", ",", 
+            RowBox[{"clMaximum", "[", "n", "]"}]}], "]"}], "+", "3"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"trPts", "=", 
+         RowBox[{"clTrajectoryPoints", "[", "n", "]"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"plotRange", "=", 
+         RowBox[{"idPair", "@", 
+          RowBox[{"{", 
+           RowBox[{"0", ",", "maxVal"}], "}"}]}]}], ";"}], 
+       "\[IndentingNewLine]", ")"}], "&"}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{"updateEnd", "[", "]"}], ";", "\[IndentingNewLine]", 
+    "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"locAppearance", "[", "]"}], ":=", 
+     RowBox[{"locAppearance", "@", 
+      RowBox[{"idPair", "[", "0", "]"}]}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"locAppearance", "[", "pos_", "]"}], ":=", 
+     RowBox[{"{", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"Directive", "[", 
+        RowBox[{"White", ",", 
+         RowBox[{"PointSize", "[", ".02", "]"}]}], "]"}], ",", 
+       RowBox[{"Point", "[", "pos", "]"}], ",", "\[IndentingNewLine]", 
+       RowBox[{"Directive", "[", 
+        RowBox[{"Red", ",", 
+         RowBox[{"PointSize", "[", ".01", "]"}]}], "]"}], ",", 
+       RowBox[{"Point", "[", "pos", "]"}]}], "\[IndentingNewLine]", "}"}]}], 
+    ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+    RowBox[{"graph", "=", 
+     RowBox[{"Dynamic", "[", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"n", ";", "\[IndentingNewLine]", 
+        RowBox[{"Module", "[", "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"arrows", ",", "ticks"}], "}"}], ",", 
+          "\[IndentingNewLine]", 
+          RowBox[{"(*", " ", 
+           RowBox[{
+           "\:7ed9\:5b9a\:8f68\:8ff9\:70b9", "\:ff0c", 
+            "\:8fd4\:56de\:7bad\:5934\:8def\:5f84\:56fe\:5f62"}], " ", "*)"}],
+           "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"arrows", "[", "pts_", "]"}], ":=", 
+            RowBox[{"Module", "[", "\[IndentingNewLine]", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{"vecs", "=", 
+                RowBox[{"Partition", "[", 
+                 RowBox[{"pts", ",", "2", ",", "1"}], "]"}]}], "}"}], ",", 
+              "\[IndentingNewLine]", 
+              RowBox[{
+               RowBox[{"If", "[", 
+                RowBox[{
+                 RowBox[{
+                  RowBox[{"Length", "[", "vecs", "]"}], "<=", "1"}], ",", 
+                 RowBox[{"Return", "[", 
+                  RowBox[{"{", "}"}], "]"}]}], "]"}], ";", 
+               "\[IndentingNewLine]", 
+               RowBox[{"maxVal", "=", 
+                RowBox[{"Max", "[", "vecs", "]"}]}], ";", 
+               "\[IndentingNewLine]", 
+               RowBox[{"maxDis", "=", 
+                RowBox[{"Max", "[", 
+                 RowBox[{"EuclideanDistance", "@@@", "vecs"}], "]"}]}], ";", 
+               "\[IndentingNewLine]", 
+               RowBox[{
+                RowBox[{"thickness", "[", 
+                 RowBox[{"vec_", ",", "scale_"}], "]"}], ":=", 
+                RowBox[{"0.01", 
+                 RowBox[{
+                  RowBox[{"EuclideanDistance", "@@", "vec"}], "/", 
+                  "scale"}]}]}], ";", "\[IndentingNewLine]", 
+               RowBox[{
+                RowBox[{"arrowHeadsSpec", "[", 
+                 RowBox[{"vec_", ",", "scale_"}], "]"}], ":=", 
+                RowBox[{"0.04", 
+                 RowBox[{
+                  RowBox[{"Max", "[", "vec", "]"}], "/", "scale"}]}]}], ";", 
+               "\[IndentingNewLine]", 
+               RowBox[{
+                RowBox[{"(", 
+                 RowBox[{"vec", "|->", 
+                  RowBox[{"{", "\[IndentingNewLine]", 
+                   RowBox[{
+                    RowBox[{"Thickness", "[", 
+                    RowBox[{"thickness", "[", 
+                    RowBox[{"vec", ",", "maxDis"}], "]"}], "]"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"Arrowheads", "[", 
+                    RowBox[{"arrowHeadsSpec", "[", 
+                    RowBox[{"vec", ",", "maxVal"}], "]"}], "]"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"Arrow", "[", "vec", "]"}]}], 
+                   "\[IndentingNewLine]", "}"}]}], ")"}], "/@", "vecs"}]}]}], 
+             "\[IndentingNewLine]", "]"}]}], ";", "\[IndentingNewLine]", 
+           RowBox[{"(*", " ", 
+            RowBox[{
+            "\:6700\:591a\:663e\:793a", " ", "10", " ", 
+             "\:4e2a\:6574\:6570\:523b\:5ea6"}], " ", "*)"}], 
+           "\[IndentingNewLine]", 
+           RowBox[{
+            RowBox[{"ticks", "[", 
+             RowBox[{"min_", ",", "max_"}], "]"}], ":=", 
+            RowBox[{
+             RowBox[{"(", 
+              RowBox[{"t", "|->", 
+               RowBox[{"{", 
+                RowBox[{"t", ",", 
+                 RowBox[{"Style", "[", 
+                  RowBox[{"t", ",", "6"}], "]"}], ",", 
+                 RowBox[{"{", 
+                  RowBox[{"0", ",", ".04"}], "}"}]}], "}"}]}], ")"}], "/@", 
+             RowBox[{"FindDivisions", "[", 
+              RowBox[{
+               RowBox[{"{", 
+                RowBox[{"min", ",", "max", ",", "1"}], "}"}], ",", "10"}], 
+              "]"}]}]}], ";", "\[IndentingNewLine]", 
+           RowBox[{"Show", "[", "\[IndentingNewLine]", 
+            RowBox[{
+             RowBox[{"{", "\[IndentingNewLine]", 
+              RowBox[{
+               RowBox[{"Plot", "[", 
+                RowBox[{
+                "(*", " ", "\:7ed8\:5236\:4e09\:6761\:76f4\:7ebf", " ", 
+                 "*)"}], "\[IndentingNewLine]", 
+                RowBox[{
+                 RowBox[{"{", 
+                  RowBox[{
+                   RowBox[{"x", "/", "2"}], ",", "x", ",", 
+                   RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"3", "x"}], "+", "1"}], ")"}], "/", "2"}]}], 
+                  "}"}], ",", 
+                 RowBox[{"{", 
+                  RowBox[{"x", ",", "0", ",", 
+                   RowBox[{"2", "maxVal"}]}], "}"}], ",", 
+                 "\[IndentingNewLine]", 
+                 RowBox[{"PlotHighlighting", "->", "Red"}]}], 
+                "\[IndentingNewLine]", "]"}], ",", "\[IndentingNewLine]", 
+               RowBox[{
+                RowBox[{"ListLinePlot", "[", 
+                 RowBox[{
+                 "(*", " ", 
+                  "\:7ed8\:5236\:8fed\:4ee3\:8f68\:8ff9\:8def\:5f84", " ", 
+                  "*)"}], "\[IndentingNewLine]", 
+                 RowBox[{"trPts", ",", "\[IndentingNewLine]", 
+                  RowBox[{"PlotRange", "->", "plotRange"}], ",", 
+                  "\[IndentingNewLine]", 
+                  RowBox[{"PlotHighlighting", "->", "None"}]}], 
+                 "\[IndentingNewLine]", "]"}], "/.", 
+                RowBox[{"Line", "->", "arrows"}]}], ",", 
+               "\[IndentingNewLine]", 
+               RowBox[{"ListPlot", "[", 
+                RowBox[{
+                "(*", " ", "\:7ed8\:5236\:8fed\:4ee3\:8f68\:8ff9\:70b9", " ", 
+                 "*)"}], "\[IndentingNewLine]", 
+                RowBox[{
+                 RowBox[{"ControlActive", "[", 
+                  RowBox[{
+                   RowBox[{"{", "}"}], ",", "trPts"}], "]"}], ",", 
+                 "\[IndentingNewLine]", 
+                 RowBox[{"PlotRange", "->", "plotRange"}], ",", 
+                 "\[IndentingNewLine]", 
+                 RowBox[{"PlotStyle", "->", 
+                  RowBox[{"PointSize", "[", "Medium", "]"}]}]}], 
+                "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]", "}"}], 
+             ",", "\[IndentingNewLine]", 
+             RowBox[{"AspectRatio", "->", "1"}], ",", "\[IndentingNewLine]", 
+             RowBox[{"PlotRange", "->", "plotRange"}], ",", 
+             "\[IndentingNewLine]", 
+             RowBox[{"PlotRangePadding", "->", 
+              RowBox[{"idPair", "@", 
+               RowBox[{"{", 
+                RowBox[{"0", ",", 
+                 RowBox[{"Scaled", "[", "0.05", "]"}]}], "}"}]}]}], ",", 
+             "\[IndentingNewLine]", 
+             RowBox[{"GridLines", "->", "Automatic"}], ",", 
+             "\[IndentingNewLine]", 
+             RowBox[{"Ticks", "->", "ticks"}], ",", "\[IndentingNewLine]", 
+             RowBox[{"Epilog", "->", 
+              RowBox[{"locAppearance", "[", 
+               RowBox[{"First", "@", "trPts"}], "]"}]}]}], 
+            "\[IndentingNewLine]", "]"}]}]}], "\[IndentingNewLine]", "]"}]}], 
+       ",", "\[IndentingNewLine]", "None", ",", "\[IndentingNewLine]", 
+       RowBox[{"SynchronousUpdating", "->", "Automatic"}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{"TrackedSymbols", ":>", 
+        RowBox[{"{", "n", "}"}]}]}], "\[IndentingNewLine]", "]"}]}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{"LocatorPane", "[", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"Dynamic", "[", 
+       RowBox[{"pt", ",", 
+        RowBox[{"{", 
+         RowBox[{"updateLocator", ",", "updateLocator", ",", "updateEnd"}], 
+         "}"}]}], "]"}], ",", "\[IndentingNewLine]", "graph"}], 
+     "\[IndentingNewLine]", "]"}]}]}], "\[IndentingNewLine]", "]"}]], "Input",
+ CellChangeTimes->{{3.922432836818851*^9, 3.922432977897293*^9}, {
+   3.922433467719979*^9, 3.922433483095058*^9}, {3.922433710345963*^9, 
+   3.922433807118519*^9}, {3.9224340251649513`*^9, 3.922434067112725*^9}, {
+   3.9224341965991287`*^9, 3.922434225561222*^9}, {3.9224343003339176`*^9, 
+   3.922434304625709*^9}, {3.922434467568344*^9, 3.922434534496176*^9}, {
+   3.922434587190853*^9, 3.922434668563553*^9}, {3.922436488729704*^9, 
+   3.92243656087228*^9}, 3.922436594211529*^9, {3.922436760297798*^9, 
+   3.922436776213665*^9}, {3.922436856424019*^9, 3.922436862162691*^9}, {
+   3.9224369693989563`*^9, 3.9224369786278152`*^9}, {3.9224376582082844`*^9, 
+   3.922437701027678*^9}, {3.922437739184009*^9, 3.922437742169733*^9}, {
+   3.922437775650481*^9, 3.922437785948*^9}, {3.922437833256401*^9, 
+   3.922437834563631*^9}, {3.922437952073927*^9, 3.922438017070359*^9}, {
+   3.922438048760325*^9, 3.922438060522093*^9}, {3.9224382015155888`*^9, 
+   3.922438258699763*^9}, {3.922438326052564*^9, 3.9224383660126057`*^9}, {
+   3.922438452627423*^9, 3.922438488253839*^9}, {3.922438532043384*^9, 
+   3.922438556078615*^9}, {3.922438665128595*^9, 3.9224387121230125`*^9}, {
+   3.922438830159515*^9, 3.922438874989689*^9}, {3.922439010722958*^9, 
+   3.9224390277554264`*^9}, 3.9224393767330303`*^9, {3.9224394447018185`*^9, 
+   3.922439485210968*^9}, {3.922439725777483*^9, 3.9224397513052216`*^9}, {
+   3.9224397970522804`*^9, 3.922439889130361*^9}, {3.922439971350847*^9, 
+   3.922439990557625*^9}, {3.9224400320722523`*^9, 3.9224400533050423`*^9}, {
+   3.922440141054115*^9, 3.922440160413683*^9}, {3.922440216380464*^9, 
+   3.922440295872177*^9}, {3.922440335631056*^9, 3.922440369847906*^9}, 
+   3.922440403067751*^9, {3.922440643843033*^9, 3.922440693796711*^9}, {
+   3.922440724558548*^9, 3.922440741643856*^9}, {3.922440797434954*^9, 
+   3.922440813602913*^9}, {3.922441070106241*^9, 3.922441078655733*^9}, {
+   3.922442251410715*^9, 3.92244227663855*^9}, {3.922442307721241*^9, 
+   3.922442374975357*^9}, {3.922442441538635*^9, 3.922442445560873*^9}, {
+   3.922442586453251*^9, 3.922442607769508*^9}, {3.922442669245701*^9, 
+   3.922442704143671*^9}, {3.922442761144945*^9, 3.922442776372745*^9}, {
+   3.922442823903064*^9, 3.922442824871279*^9}, {3.92244314992143*^9, 
+   3.922443155783943*^9}, {3.922443222991953*^9, 3.922443229005113*^9}, {
+   3.922443302344597*^9, 3.922443357867071*^9}, {3.922443410538427*^9, 
+   3.922443469829508*^9}, {3.922443536540716*^9, 3.92244356749481*^9}, {
+   3.922443617060209*^9, 3.922443651090477*^9}, {3.922443695247461*^9, 
+   3.9224436982646523`*^9}, {3.922443740494131*^9, 3.9224437463878193`*^9}, {
+   3.922443780324732*^9, 3.922443880687101*^9}, {3.922446397483276*^9, 
+   3.922446399535582*^9}, {3.922446783814882*^9, 3.922446787803364*^9}, {
+   3.9224468486501465`*^9, 3.922446851826727*^9}, {3.922446929976599*^9, 
+   3.922447059324688*^9}, {3.922447091003243*^9, 3.922447115009241*^9}, {
+   3.9224473464771824`*^9, 3.922447357772637*^9}, {3.9224473947415524`*^9, 
+   3.922447413815182*^9}, {3.92244747769203*^9, 3.922447498089094*^9}, {
+   3.922447573719343*^9, 3.9224475861406307`*^9}, {3.922447668403599*^9, 
+   3.9224476785876064`*^9}, {3.9224478433161507`*^9, 3.922447847188789*^9}, {
+   3.922447922305162*^9, 3.922448067113119*^9}, {3.922448105126974*^9, 
+   3.922448166110122*^9}, 3.922448197011101*^9, {3.9224482832879734`*^9, 
+   3.922448313207332*^9}, {3.922448420216473*^9, 3.922448446874826*^9}, {
+   3.922448586484197*^9, 3.922448735932119*^9}, {3.922449772225277*^9, 
+   3.922449872526718*^9}, {3.92244992384454*^9, 3.922450060400057*^9}, {
+   3.922450280411884*^9, 3.922450314209493*^9}, {3.922450364913723*^9, 
+   3.922450503505621*^9}, {3.922450544672264*^9, 3.9224505480102844`*^9}, 
+   3.92245059775358*^9, {3.9224515152867126`*^9, 3.922451569368702*^9}, {
+   3.922451767932053*^9, 3.9224518531379833`*^9}, {3.9224519952559624`*^9, 
+   3.92245199625213*^9}, 3.922452108850469*^9, {3.922452154593219*^9, 
+   3.922452162684221*^9}, {3.922452598834803*^9, 3.922452606748526*^9}, {
+   3.922453505803535*^9, 3.922453516069597*^9}, {3.922453598242143*^9, 
+   3.922453634474716*^9}, {3.9224537922342873`*^9, 3.922454014293678*^9}, {
+   3.922454078099224*^9, 3.922454104290327*^9}, {3.922454187124744*^9, 
+   3.922454187914146*^9}, {3.922454305071621*^9, 3.9224543179826717`*^9}, {
+   3.922454588355871*^9, 3.9224546167424088`*^9}, {3.9224548982747326`*^9, 
+   3.922454901497211*^9}, {3.922454989825237*^9, 3.922455007287977*^9}, 
+   3.922455101443148*^9, 3.922503565495096*^9, {3.922553257974983*^9, 
+   3.922553261410227*^9}, {3.922553458755963*^9, 3.922553466961561*^9}, {
+   3.922553741814644*^9, 3.922553748581282*^9}, {3.922553794230299*^9, 
+   3.9225537958709984`*^9}, {3.922553933601864*^9, 3.922553962038553*^9}, {
+   3.92255399649049*^9, 3.922554012263571*^9}, {3.922554302552164*^9, 
+   3.9225543516072254`*^9}, {3.9225544549016857`*^9, 
+   3.9225544647345753`*^9}, {3.922554579949312*^9, 3.922554596931963*^9}, {
+   3.9225547850187607`*^9, 3.922554937203838*^9}, 3.9225551469904766`*^9, {
+   3.922555187435554*^9, 3.922555199022499*^9}, {3.922557528449484*^9, 
+   3.922557538501309*^9}, {3.922561420683424*^9, 3.922561494520387*^9}, {
+   3.9225615390563755`*^9, 3.922561565116253*^9}, {3.922561621977169*^9, 
+   3.922561739930273*^9}, {3.9225618377742825`*^9, 3.92256191127557*^9}, {
+   3.922562259787269*^9, 3.9225623013412*^9}, {3.922562473080433*^9, 
+   3.9225625526726*^9}, {3.9225625966714916`*^9, 3.922562668789652*^9}, {
+   3.922562839632559*^9, 3.922562942680151*^9}, {3.9225630604450607`*^9, 
+   3.9225630780075836`*^9}, 3.9225632806117916`*^9, {3.9225634887712765`*^9, 
+   3.922563524264061*^9}, {3.922563565962757*^9, 3.922563581308378*^9}, {
+   3.922563629033752*^9, 3.9225636798112144`*^9}, {3.922563760807213*^9, 
+   3.922563782792759*^9}, 3.922563846321554*^9, {3.9225639014333897`*^9, 
+   3.922563948028374*^9}, {3.9225640134334908`*^9, 3.922564048166945*^9}, 
+   3.922564080902769*^9, {3.922564140065609*^9, 3.922564141557328*^9}, {
+   3.9225642203958664`*^9, 3.922564236548525*^9}, {3.9225642959478455`*^9, 
+   3.922564345321783*^9}, {3.9225643968047504`*^9, 3.922564455854582*^9}, {
+   3.922564510322436*^9, 3.9225645926116085`*^9}, {3.922564626855938*^9, 
+   3.922564690897593*^9}, {3.922564795677428*^9, 3.922564800438954*^9}, {
+   3.922564865817904*^9, 3.922564875969242*^9}, {3.922564931255459*^9, 
+   3.922564960951329*^9}, {3.9225651730224724`*^9, 3.922565233439724*^9}, {
+   3.922565273078764*^9, 3.922565357554096*^9}, {3.9225655551210155`*^9, 
+   3.9225655624783516`*^9}, {3.9225725510700817`*^9, 3.922572599070144*^9}, {
+   3.922574622441405*^9, 3.9225746644207726`*^9}, {3.922574821150418*^9, 
+   3.9225748246721706`*^9}, {3.922574894416708*^9, 3.922574930201233*^9}, {
+   3.92257497933802*^9, 3.922575059680055*^9}, {3.922575094121759*^9, 
+   3.92257530824811*^9}, {3.9225753604300766`*^9, 3.922575360746132*^9}, {
+   3.922575402761701*^9, 3.922575410704357*^9}, {3.922575601522932*^9, 
+   3.9225756211621*^9}, {3.92257596668502*^9, 3.9225759667867737`*^9}, {
+   3.922576008632904*^9, 3.922576012187594*^9}, {3.922576055549906*^9, 
+   3.922576075550972*^9}, {3.9225761649099674`*^9, 3.922576173452364*^9}, {
+   3.9225762239865437`*^9, 3.922576224393757*^9}, {3.9225763337373314`*^9, 
+   3.922576416387882*^9}, {3.922576471777996*^9, 3.92257647208206*^9}, {
+   3.922576564903635*^9, 3.922576593151781*^9}, {3.922577102220677*^9, 
+   3.9225771945576744`*^9}, {3.922578315848995*^9, 3.92257833423459*^9}, {
+   3.922578445503704*^9, 3.922578484326258*^9}, {3.92257864542232*^9, 
+   3.9225786459869614`*^9}, 3.9225787019742165`*^9, 3.922578753431114*^9, 
+   3.922578783629461*^9, {3.922578841665579*^9, 3.922578874837019*^9}, {
+   3.922578918309213*^9, 3.922578924419102*^9}, {3.922579023923798*^9, 
+   3.922579047535578*^9}, {3.922579146615301*^9, 3.9225791474625206`*^9}, 
+   3.922579216025236*^9, 3.922579259797219*^9, {3.9225793078924046`*^9, 
+   3.9225794285933514`*^9}, {3.922579492002081*^9, 3.922579516956154*^9}, {
+   3.9225811950102367`*^9, 3.92258119953076*^9}, {3.922581247809916*^9, 
+   3.922581272037554*^9}, {3.922581422892769*^9, 3.922581472562619*^9}, {
+   3.922581541472746*^9, 3.922581655511364*^9}, {3.9225824573941917`*^9, 
+   3.922582489390588*^9}, {3.922586232081076*^9, 3.922586248526348*^9}, {
+   3.9225865534251575`*^9, 3.9225867639247437`*^9}, {3.922586795825796*^9, 
+   3.92258685627318*^9}, {3.922586887705345*^9, 3.92258693041225*^9}, {
+   3.92258697851244*^9, 3.922586979304903*^9}, {3.9225968303911953`*^9, 
+   3.922596834479822*^9}, {3.9225968716193676`*^9, 3.9225968738069*^9}, {
+   3.9225969183915005`*^9, 3.922596969344816*^9}, {3.922597274815569*^9, 
+   3.922597275183533*^9}, {3.922597650087761*^9, 3.922597657110743*^9}, 
+   3.922597708631687*^9, {3.92259786121113*^9, 3.922597884808208*^9}, {
+   3.922597926919504*^9, 3.922597928047315*^9}, {3.922597997010554*^9, 
+   3.9225980170263786`*^9}, {3.92259853303899*^9, 3.922598543428486*^9}, 
+   3.922598646631796*^9, {3.9225987103657017`*^9, 3.92259872418075*^9}, {
+   3.92259875966831*^9, 3.922598864772412*^9}, {3.922598907306818*^9, 
+   3.922598942815386*^9}, {3.9225989802094803`*^9, 3.922599048951477*^9}, 
+   3.922599080475569*^9, {3.922599133606848*^9, 3.922599166782919*^9}, 
+   3.9225999195826607`*^9, 3.922599965746504*^9, {3.922600024266866*^9, 
+   3.922600034923816*^9}, {3.922600133391945*^9, 3.922600141320999*^9}, {
+   3.9226002598196983`*^9, 3.922600291564851*^9}, {3.922600345443903*^9, 
+   3.922600414038686*^9}, {3.922600473071579*^9, 3.922600490872881*^9}, {
+   3.922600752674551*^9, 3.9226007810911674`*^9}, {3.922600846037483*^9, 
+   3.922600853449625*^9}, {3.922601648073303*^9, 3.922601655423174*^9}, {
+   3.9226017034606743`*^9, 3.922601740865959*^9}, {3.922601782157278*^9, 
+   3.922601818277098*^9}, {3.9226018554335957`*^9, 3.922601920888262*^9}, {
+   3.9226019561593113`*^9, 3.922601987080332*^9}, {3.922602020605646*^9, 
+   3.922602028357435*^9}, 3.922602240360487*^9, {3.9226035634312363`*^9, 
+   3.922603607361627*^9}, {3.9226036598920803`*^9, 3.922603664043016*^9}, {
+   3.922603744742358*^9, 3.92260382785914*^9}, {3.922603909211727*^9, 
+   3.922603930679558*^9}, {3.922603994200886*^9, 3.9226039975723915`*^9}, 
+   3.9226040659557457`*^9, 3.922604435662218*^9, {3.9226044705205383`*^9, 
+   3.922604486698095*^9}, {3.922604969030533*^9, 3.922605171632324*^9}, {
+   3.92260522009943*^9, 3.922605229737217*^9}, {3.922605282360337*^9, 
+   3.922605308345854*^9}, {3.922605353894344*^9, 3.922605356922649*^9}, {
+   3.922605399884325*^9, 3.922605456309694*^9}, {3.922605563632045*^9, 
+   3.922605591966081*^9}, {3.922605653146076*^9, 3.9226057010701237`*^9}, {
+   3.922605744248913*^9, 3.922605749797985*^9}, {3.9226057918664913`*^9, 
+   3.922605795370903*^9}, {3.922605834641636*^9, 3.922605846427418*^9}, {
+   3.922605917914859*^9, 3.922605987227085*^9}, {3.922606025867765*^9, 
+   3.922606029070219*^9}, 3.9226060996960773`*^9, {3.922607031341858*^9, 
+   3.9226070560772705`*^9}, {3.922607135886923*^9, 3.922607181973631*^9}, {
+   3.922607267183424*^9, 3.922607273253074*^9}, {3.9226073299052773`*^9, 
+   3.922607337363577*^9}, 3.922607383886463*^9, {3.922607470997854*^9, 
+   3.922607496183042*^9}, {3.922607629275665*^9, 3.922607663055588*^9}, {
+   3.922607726111014*^9, 3.9226077501486034`*^9}, 3.9226077949832325`*^9, {
+   3.922608561416361*^9, 3.922608603347921*^9}, {3.92260872619561*^9, 
+   3.922608781263708*^9}, {3.922608929875555*^9, 3.92260894584408*^9}, 
+   3.922608978298809*^9, {3.922609097963167*^9, 3.922609155387928*^9}, {
+   3.922609219577928*^9, 3.922609234314668*^9}, {3.922609312005392*^9, 
+   3.922609322208257*^9}, {3.922609365681486*^9, 3.9226094004004135`*^9}, 
+   3.92260954853295*^9, {3.922609857063383*^9, 3.922609858694025*^9}, {
+   3.922609969625601*^9, 3.922609982536522*^9}, {3.922610017070736*^9, 
+   3.922610021641464*^9}, 3.922616570161236*^9, {3.922616613528969*^9, 
+   3.922616615961822*^9}, {3.922616975168663*^9, 3.922616975443609*^9}, {
+   3.922617185007334*^9, 3.922617254563917*^9}, 3.922617286730335*^9, {
+   3.9226173831089077`*^9, 3.9226173872822857`*^9}, {3.922618150537248*^9, 
+   3.922618274087572*^9}, {3.922618358104742*^9, 3.922618435984943*^9}, {
+   3.922618623752516*^9, 3.922618627879103*^9}, {3.9226187465119095`*^9, 
+   3.92261875244919*^9}, {3.922618970321548*^9, 3.9226190181733704`*^9}, {
+   3.922619091065542*^9, 3.922619111561582*^9}, {3.922619145262665*^9, 
+   3.9226191683997726`*^9}, {3.922619561354868*^9, 3.922619575144045*^9}, {
+   3.9226199402409344`*^9, 3.922619970091156*^9}, {3.9226200815373096`*^9, 
+   3.922620117548614*^9}, {3.9226204085345497`*^9, 3.9226204125701733`*^9}, {
+   3.922620643969366*^9, 3.922620676763681*^9}, 3.922620711520836*^9, 
+   3.922620748531481*^9, {3.922621455708937*^9, 3.9226215386095657`*^9}, {
+   3.922621619826839*^9, 3.922621624505146*^9}, {3.9226216550891*^9, 
+   3.922621658218819*^9}, {3.922621867009815*^9, 3.922621899769581*^9}, {
+   3.922622183611025*^9, 3.922622184484804*^9}, {3.9226222379669266`*^9, 
+   3.922622248074274*^9}, {3.9226225463376274`*^9, 3.922622562451395*^9}, {
+   3.922622599358629*^9, 3.9226226596421337`*^9}, {3.922622689759567*^9, 
+   3.922622701565719*^9}, {3.9226321439124794`*^9, 3.9226321802674828`*^9}, {
+   3.922632231690336*^9, 3.9226323343915577`*^9}, {3.922632409877058*^9, 
+   3.922632412106983*^9}, {3.9226324717026424`*^9, 3.922632501357769*^9}, {
+   3.9226325645453033`*^9, 3.922632571121893*^9}, {3.922632697265585*^9, 
+   3.9226326991174603`*^9}, {3.922632857248228*^9, 3.922632860901537*^9}, {
+   3.922715399642906*^9, 3.922715400818622*^9}, {3.922720157570374*^9, 
+   3.922720166599434*^9}, 3.922720227811001*^9, {3.9227207302152557`*^9, 
+   3.922720796106125*^9}, {3.9227208313340664`*^9, 3.9227208489585495`*^9}, {
+   3.922720887673744*^9, 3.922720913980028*^9}, {3.922721823803375*^9, 
+   3.922721870751416*^9}, {3.922721903420271*^9, 3.922721908421507*^9}, {
+   3.922721969943348*^9, 3.922721999498235*^9}, {3.922722046585303*^9, 
+   3.922722050085083*^9}, {3.9227220954372997`*^9, 3.922722243594108*^9}, {
+   3.9227222759066944`*^9, 3.922722305459059*^9}, {3.9227223450370483`*^9, 
+   3.922722412218698*^9}, {3.9227228187186413`*^9, 3.922722870757084*^9}, {
+   3.9227229169603424`*^9, 3.9227229226472607`*^9}, {3.922723016108848*^9, 
+   3.9227230197043457`*^9}, 3.922723080772257*^9, {3.922723113415855*^9, 
+   3.922723116932026*^9}, 3.9228210989032383`*^9, {3.922821245586001*^9, 
+   3.922821314964422*^9}, {3.922821352820658*^9, 3.922821392779724*^9}, {
+   3.922821423763126*^9, 3.922821548922215*^9}, {3.9228218405102425`*^9, 
+   3.922821954704838*^9}, {3.922822649981556*^9, 3.922822665021227*^9}, {
+   3.9228227177221413`*^9, 3.9228227376753483`*^9}, {3.9228228601827545`*^9, 
+   3.922822978589779*^9}, {3.922823016099058*^9, 3.922823045707041*^9}, {
+   3.922823116192398*^9, 3.922823138873138*^9}, {3.9228231818009663`*^9, 
+   3.922823240554596*^9}, {3.922823336808128*^9, 3.9228233758848476`*^9}, {
+   3.922823473786167*^9, 3.922823481482797*^9}, {3.92282352473788*^9, 
+   3.922823686700685*^9}, {3.922823728362772*^9, 3.922823827841336*^9}, {
+   3.922823944095276*^9, 3.922823994571457*^9}, {3.922824057772732*^9, 
+   3.922824146839546*^9}, 3.9228241774567966`*^9, {3.922824299725727*^9, 
+   3.922824334611625*^9}, {3.922826631713623*^9, 3.922826643250145*^9}, {
+   3.9228267437957687`*^9, 3.9228268534677067`*^9}, {3.922827000524809*^9, 
+   3.922827038712651*^9}, {3.922827105813509*^9, 3.922827125874822*^9}, {
+   3.922827156132641*^9, 3.9228271671810665`*^9}, {3.922827209468483*^9, 
+   3.922827214887966*^9}, {3.922827285066374*^9, 3.9228274824210625`*^9}, {
+   3.922827547669413*^9, 3.9228276090614376`*^9}, {3.92282770806234*^9, 
+   3.922827738435028*^9}, {3.922828136823242*^9, 3.9228281627336063`*^9}, {
+   3.922828207057827*^9, 3.922828239199539*^9}, {3.922828273176443*^9, 
+   3.922828311110672*^9}, {3.9228283846714783`*^9, 3.922828399748316*^9}, {
+   3.922828432945255*^9, 3.922828494980717*^9}, {3.9228285585397644`*^9, 
+   3.922828637895155*^9}, {3.922828671778038*^9, 3.922828730865144*^9}, {
+   3.922828771104341*^9, 3.9228288574993515`*^9}, {3.922830060709854*^9, 
+   3.9228301480616684`*^9}, {3.9228301958871517`*^9, 3.922830288512987*^9}, {
+   3.9228303301529694`*^9, 3.922830344092415*^9}, {3.922830444909773*^9, 
+   3.9228304510756264`*^9}, {3.9228308725054493`*^9, 
+   3.9228310364016037`*^9}, {3.922831076076014*^9, 3.922831125875805*^9}, {
+   3.922831171865982*^9, 3.922831206321541*^9}, {3.922831308567227*^9, 
+   3.922831363518125*^9}, {3.922831844727082*^9, 3.9228318616938972`*^9}, {
+   3.922831902919161*^9, 3.922831903867399*^9}, {3.922832173638637*^9, 
+   3.922832252167815*^9}, {3.922832300800722*^9, 3.922832351646528*^9}, {
+   3.922832382067307*^9, 3.922832386099834*^9}, {3.922832449406128*^9, 
+   3.922832627771879*^9}, {3.922832715489429*^9, 3.922832787608265*^9}, {
+   3.9228328417588577`*^9, 3.922832914926239*^9}, {3.9228330682536087`*^9, 
+   3.92283318899695*^9}, {3.922833224935627*^9, 3.9228332468314357`*^9}, {
+   3.922833290045143*^9, 3.922833356770445*^9}, {3.922833389276016*^9, 
+   3.9228334064810653`*^9}, 3.922833507141476*^9, 3.922833546902256*^9, {
+   3.9228344155262775`*^9, 3.922834503327519*^9}, {3.922834599074161*^9, 
+   3.922834675923185*^9}, 3.922834723104814*^9, {3.92283475686277*^9, 
+   3.9228348322516003`*^9}, {3.92283498537418*^9, 3.922835000250051*^9}, {
+   3.922835037304794*^9, 3.922835071934501*^9}, {3.922835206532791*^9, 
+   3.922835213622957*^9}, {3.922835246416685*^9, 3.922835359270988*^9}, {
+   3.9228353988388596`*^9, 3.922835409220697*^9}, {3.922835478491907*^9, 
+   3.922835549848013*^9}, {3.92283559924575*^9, 3.922835630533363*^9}, 
+   3.92283573313944*^9, {3.9228357657127495`*^9, 3.922835799517282*^9}, {
+   3.922835864567911*^9, 3.9228359301341*^9}, {3.922835970481582*^9, 
+   3.9228359712952538`*^9}, {3.922836001526762*^9, 3.922836007721571*^9}, {
+   3.922836055594414*^9, 3.922836099623127*^9}, {3.922836765864723*^9, 
+   3.922836809482828*^9}, {3.922836906240059*^9, 3.9228369189476986`*^9}, {
+   3.922836958932036*^9, 3.922837086805994*^9}, {3.9228372438838*^9, 
+   3.922837251463679*^9}, {3.922837302019438*^9, 3.922837366029604*^9}, 
+   3.9228374355574684`*^9, {3.9228374721062984`*^9, 3.922837474112301*^9}, {
+   3.9228375096588073`*^9, 3.922837675273761*^9}, {3.9228377233523693`*^9, 
+   3.9228377504445095`*^9}, {3.9228378341960335`*^9, 3.922837936187947*^9}, {
+   3.922838022158319*^9, 3.9228380362195*^9}, {3.922838177760063*^9, 
+   3.922838284792141*^9}, {3.9228383284417763`*^9, 3.9228383413552647`*^9}, 
+   3.922838593972688*^9, {3.9228388222068424`*^9, 3.9228388229347305`*^9}, {
+   3.9228388755796223`*^9, 3.9228389132038746`*^9}, {3.9228392196690025`*^9, 
+   3.9228393652239017`*^9}, {3.9228394631038837`*^9, 
+   3.9228395661123257`*^9}, {3.9228403429626503`*^9, 3.922840366229109*^9}, {
+   3.9228404132682896`*^9, 3.9228404267798634`*^9}, {3.9228404578724766`*^9, 
+   3.922840475212883*^9}, {3.92284074564196*^9, 3.922840804004574*^9}, 
+   3.922840890774231*^9, {3.922840960848713*^9, 3.9228409741638317`*^9}, {
+   3.922841141831894*^9, 3.922841141948965*^9}, {3.9228412092488575`*^9, 
+   3.9228412221516266`*^9}, {3.9228416835595207`*^9, 3.922841895905752*^9}, {
+   3.922841941246521*^9, 3.9228419624327374`*^9}, 3.922842060528326*^9, {
+   3.922842114566124*^9, 3.9228421170289497`*^9}, 3.922842182555973*^9, {
+   3.922842320086447*^9, 3.9228423214198895`*^9}, {3.9228424422337914`*^9, 
+   3.922842465540739*^9}, {3.9228426027885685`*^9, 3.922842611428156*^9}, {
+   3.9228426434620323`*^9, 3.922842692318329*^9}, {3.9228427291422462`*^9, 
+   3.9228427498635044`*^9}, {3.922842786338461*^9, 3.9228428931884365`*^9}, {
+   3.922843051157095*^9, 3.9228430933582096`*^9}, {3.9228431707290344`*^9, 
+   3.922843246985777*^9}, {3.9228432917103405`*^9, 3.922843426774418*^9}, {
+   3.922843497987211*^9, 3.9228435077193356`*^9}, {3.922843541467436*^9, 
+   3.9228436760759735`*^9}, {3.922843907036253*^9, 3.922843915098625*^9}, {
+   3.9228440508427563`*^9, 3.9228442241381416`*^9}, {3.922844281384348*^9, 
+   3.922844358895006*^9}, {3.9228445439818325`*^9, 3.922844572438978*^9}, {
+   3.9228446104597664`*^9, 3.9228446661368904`*^9}, {3.922844706447853*^9, 
+   3.9228447798713856`*^9}, {3.92284481771142*^9, 3.922844964615795*^9}, {
+   3.9228449996128387`*^9, 3.9228450078090153`*^9}, {3.9228450763046436`*^9, 
+   3.922845092358965*^9}, {3.9228451928883953`*^9, 3.922845196846855*^9}, {
+   3.9228453133993416`*^9, 3.9228454355939636`*^9}, {3.9228454897753353`*^9, 
+   3.922845623138962*^9}, {3.922845654942341*^9, 3.922845679413212*^9}, {
+   3.9228457319818764`*^9, 3.922845739250105*^9}, 3.9228459409840183`*^9, {
+   3.92284597167935*^9, 3.9228459949041405`*^9}, {3.9228460311549625`*^9, 
+   3.9228460559131775`*^9}, {3.9228461642494526`*^9, 
+   3.9228461687035084`*^9}, {3.9228465535772324`*^9, 
+   3.9228465879134407`*^9}, {3.9228466233781796`*^9, 3.92284662663863*^9}, {
+   3.9228468534282265`*^9, 3.92284697498094*^9}, {3.922847037426077*^9, 
+   3.922847047270134*^9}, {3.9228472401035366`*^9, 3.922847247629797*^9}, {
+   3.922847296035225*^9, 3.922847359375456*^9}, {3.922847407360592*^9, 
+   3.922847429243988*^9}, {3.92284749091654*^9, 3.922847539860224*^9}, {
+   3.922847575900961*^9, 3.9228475768677177`*^9}, {3.92284765088406*^9, 
+   3.9228476526039906`*^9}, {3.9228477121625175`*^9, 
+   3.9228477123904533`*^9}, {3.9228478246923313`*^9, 
+   3.9228478543193207`*^9}, {3.9228478862333755`*^9, 
+   3.9228478888599205`*^9}, {3.9228479418491364`*^9, 3.922848080595951*^9}, {
+   3.9228481645608273`*^9, 3.9228484831391754`*^9}, {3.9228486566199265`*^9, 
+   3.922848700589094*^9}, {3.9228487870316677`*^9, 3.922848802284704*^9}, {
+   3.922848833931566*^9, 3.922848847690647*^9}, 3.9228489145000153`*^9, {
+   3.9228490253807316`*^9, 3.9228490516117268`*^9}, {3.922849105197979*^9, 
+   3.922849148251505*^9}, {3.9228493415771923`*^9, 3.922849350514141*^9}, {
+   3.922850778730318*^9, 3.9228508099743843`*^9}, {3.9228508895016193`*^9, 
+   3.9228510292877693`*^9}, {3.9228512115229626`*^9, 3.922851266530241*^9}, {
+   3.9228513019934025`*^9, 3.922851453215029*^9}, {3.9228600138138714`*^9, 
+   3.922860127479391*^9}, {3.9228602305010986`*^9, 3.9228603443811836`*^9}, {
+   3.922860376500204*^9, 3.922860521084448*^9}, {3.9228605625648823`*^9, 
+   3.9228605950275707`*^9}, {3.9228606267612915`*^9, 3.922860654778942*^9}},
+ CellLabel->
+  "In[192]:=",ExpressionUUID->"55997096-579d-af4b-a27b-69f981601c9f"],
+
+Cell[BoxData[
+ DynamicModuleBox[{$CellContext`pt$$ = {2, 2}, $CellContext`n$$ = 
+  2, $CellContext`maxVal$$ = 2., $CellContext`trPts$$ = {{2, 2}, {2, 1}, {1, 
+  1}}, $CellContext`plotRange$$ = {{0, 6}, {0, 
+  6}}, $CellContext`updateLocator$$ = 
+  Function[$CellContext`newPt$, $CellContext`pt$$ = Map[Round, 
+     $CellContext`idPair[
+      Max[1, 
+       First[$CellContext`newPt$]]]]], $CellContext`updateEnd$$ = \
+($CellContext`n$$ = First[$CellContext`pt$$]; $CellContext`maxVal$$ = Max[3, 
+      $CellContext`clMaximum[$CellContext`n$$]] + 
+    3; $CellContext`trPts$$ = \
+$CellContext`clTrajectoryPoints[$CellContext`n$$]; $CellContext`plotRange$$ = \
+$CellContext`idPair[{0, $CellContext`maxVal$$}]; 
+  Null)& , $CellContext`locAppearance$$, $CellContext`graph$$ = 
+  Dynamic[$CellContext`n$$; 
+   Module[{$CellContext`arrows$, $CellContext`ticks$}, $CellContext`arrows$[
+        Pattern[$CellContext`pts$, 
+         Blank[]]] := 
+      Module[{$CellContext`vecs$ = Partition[$CellContext`pts$, 2, 1]}, 
+        If[Length[$CellContext`vecs$] <= 1, 
+          Return[{}]]; $CellContext`maxVal$$ = 
+         Max[$CellContext`vecs$]; $CellContext`maxDis = Max[
+           MapApply[
+           EuclideanDistance, $CellContext`vecs$]]; $CellContext`thickness[
+           Pattern[$CellContext`vec, 
+            Blank[]], 
+           Pattern[$CellContext`scale, 
+            Blank[]]] := 
+         0.01 (Apply[
+            EuclideanDistance, $CellContext`vec]/$CellContext`scale); \
+$CellContext`arrowHeadsSpec[
+           Pattern[$CellContext`vec, 
+            Blank[]], 
+           Pattern[$CellContext`scale, 
+            Blank[]]] := 0.04 (Max[$CellContext`vec]/$CellContext`scale); Map[
+          Function[$CellContext`vec$, {
+            Thickness[
+             $CellContext`thickness[$CellContext`vec$, $CellContext`maxDis]], 
+            Arrowheads[
+             $CellContext`arrowHeadsSpec[$CellContext`vec$, \
+$CellContext`maxVal$$]], 
+            
+            Arrow[$CellContext`vec$]}], $CellContext`vecs$]]; \
+$CellContext`ticks$[
+        Pattern[$CellContext`min, 
+         Blank[]], 
+        Pattern[$CellContext`max, 
+         Blank[]]] := Map[
+        Function[$CellContext`t, {$CellContext`t, 
+          Style[$CellContext`t, 6], {0, 0.04}}], 
+        FindDivisions[{$CellContext`min, $CellContext`max, 1}, 10]]; Show[{
+        Plot[{$CellContext`x/2, $CellContext`x, (3 $CellContext`x + 1)/
+          2}, {$CellContext`x, 0, 2 $CellContext`maxVal$$}, PlotHighlighting -> 
+         Red], 
+        ReplaceAll[
+         ListLinePlot[$CellContext`trPts$$, 
+          PlotRange -> $CellContext`plotRange$$, PlotHighlighting -> None], 
+         Line -> $CellContext`arrows$], 
+        ListPlot[
+         ControlActive[{}, $CellContext`trPts$$], 
+         PlotRange -> $CellContext`plotRange$$, PlotStyle -> 
+         PointSize[Medium]]}, AspectRatio -> 1, 
+       PlotRange -> $CellContext`plotRange$$, 
+       PlotRangePadding -> $CellContext`idPair[{0, 
+          Scaled[0.05]}], GridLines -> Automatic, 
+       Ticks -> $CellContext`ticks$, Epilog -> $CellContext`locAppearance$$[
+         First[$CellContext`trPts$$]]]], None, SynchronousUpdating -> 
+   Automatic, TrackedSymbols :> {$CellContext`n$$}]}, 
+  LocatorPaneBox[Dynamic[$CellContext`pt$$, {
+     Function[$CellContext`newPt$, $CellContext`pt$$ = Map[Round, 
+        $CellContext`idPair[
+         Max[1, 
+          First[$CellContext`newPt$]]]]], 
+     Function[$CellContext`newPt$, $CellContext`pt$$ = Map[Round, 
+        $CellContext`idPair[
+         Max[1, 
+          First[$CellContext`newPt$]]]]], ($CellContext`n$$ = 
+      First[$CellContext`pt$$]; $CellContext`maxVal$$ = Max[3, 
+         $CellContext`clMaximum[$CellContext`n$$]] + 
+       3; $CellContext`trPts$$ = \
+$CellContext`clTrajectoryPoints[$CellContext`n$$]; $CellContext`plotRange$$ = \
+$CellContext`idPair[{0, $CellContext`maxVal$$}]; Null)& }], 
+   DynamicBox[
+    ToBoxes[$CellContext`n$$; 
+     Module[{$CellContext`arrows$, $CellContext`ticks$}, $CellContext`arrows$[
+          Pattern[$CellContext`pts$, 
+           Blank[]]] := 
+        Module[{$CellContext`vecs$ = Partition[$CellContext`pts$, 2, 1]}, 
+          If[Length[$CellContext`vecs$] <= 1, 
+            Return[{}]]; $CellContext`maxVal$$ = 
+           Max[$CellContext`vecs$]; $CellContext`maxDis = Max[
+             MapApply[
+             EuclideanDistance, $CellContext`vecs$]]; $CellContext`thickness[
+             Pattern[$CellContext`vec, 
+              Blank[]], 
+             Pattern[$CellContext`scale, 
+              Blank[]]] := 
+           0.01 (Apply[
+              EuclideanDistance, $CellContext`vec]/$CellContext`scale); \
+$CellContext`arrowHeadsSpec[
+             Pattern[$CellContext`vec, 
+              Blank[]], 
+             Pattern[$CellContext`scale, 
+              Blank[]]] := 0.04 (Max[$CellContext`vec]/$CellContext`scale); 
+          Map[
+            Function[$CellContext`vec$, {
+              Thickness[
+               $CellContext`thickness[$CellContext`vec$, \
+$CellContext`maxDis]], 
+              Arrowheads[
+               $CellContext`arrowHeadsSpec[$CellContext`vec$, \
+$CellContext`maxVal$$]], 
+              
+              Arrow[$CellContext`vec$]}], $CellContext`vecs$]]; \
+$CellContext`ticks$[
+          Pattern[$CellContext`min, 
+           Blank[]], 
+          Pattern[$CellContext`max, 
+           Blank[]]] := Map[
+          Function[$CellContext`t, {$CellContext`t, 
+            Style[$CellContext`t, 6], {0, 0.04}}], 
+          FindDivisions[{$CellContext`min, $CellContext`max, 1}, 10]]; Show[{
+          
+          Plot[{$CellContext`x/2, $CellContext`x, (3 $CellContext`x + 1)/
+            2}, {$CellContext`x, 0, 2 $CellContext`maxVal$$}, 
+           PlotHighlighting -> Red], 
+          ReplaceAll[
+           
+           ListLinePlot[$CellContext`trPts$$, 
+            PlotRange -> $CellContext`plotRange$$, PlotHighlighting -> None], 
+           Line -> $CellContext`arrows$], 
+          ListPlot[
+           ControlActive[{}, $CellContext`trPts$$], 
+           PlotRange -> $CellContext`plotRange$$, PlotStyle -> 
+           PointSize[Medium]]}, AspectRatio -> 1, 
+         PlotRange -> $CellContext`plotRange$$, 
+         PlotRangePadding -> $CellContext`idPair[{0, 
+            Scaled[0.05]}], GridLines -> Automatic, 
+         Ticks -> $CellContext`ticks$, Epilog -> $CellContext`locAppearance$$[
+           First[$CellContext`trPts$$]]]], StandardForm], None,
+    ImageSizeCache->{540., {270., 278.1386718750001}},
+    SynchronousUpdating->Automatic,
+    TrackedSymbols:>{$CellContext`n$$}]],
+  DynamicModuleValues:>{{
+    DownValues[$CellContext`locAppearance$$] = {HoldPattern[
+         $CellContext`locAppearance$$[]] :> $CellContext`locAppearance$$[
+         $CellContext`idPair[0]], HoldPattern[
+         $CellContext`locAppearance$$[
+          Pattern[$CellContext`pos, 
+           Blank[]]]] :> {
+         Directive[White, 
+          PointSize[0.02]], 
+         Point[$CellContext`pos], 
+         Directive[Red, 
+          PointSize[0.01]], 
+         Point[$CellContext`pos]}}}}]], "Output",
+ CellChangeTimes->{
+  3.9228404774917603`*^9, 3.9228409131140633`*^9, 3.922840964284317*^9, 
+   3.9228410546297016`*^9, {3.922841127781887*^9, 3.9228411427850056`*^9}, {
+   3.922841227272459*^9, 3.9228412363623714`*^9}, 3.922841905313116*^9, {
+   3.922841937634472*^9, 3.9228419662432537`*^9}, 3.9228421186603928`*^9, 
+   3.9228421867151737`*^9, 3.9228423220007954`*^9, 3.9228424660719604`*^9, {
+   3.9228426069611454`*^9, 3.922842613296789*^9}, {3.9228426458329926`*^9, 
+   3.922842656851738*^9}, 3.9228426928892*^9, {3.922842732050812*^9, 
+   3.9228427504082947`*^9}, {3.9228428021806126`*^9, 
+   3.9228428937731667`*^9}, {3.9228430910834923`*^9, 
+   3.9228430939282627`*^9}, {3.922843175113722*^9, 3.9228432264101143`*^9}, {
+   3.9228432940413666`*^9, 3.9228434272857685`*^9}, 3.922843508781479*^9, 
+   3.9228435434468*^9, 3.9228435778052826`*^9, {3.9228436249579487`*^9, 
+   3.92284364024411*^9}, 3.9228436765516396`*^9, 3.922843766413233*^9, 
+   3.9228440544395065`*^9, {3.9228441151802635`*^9, 3.9228441247003727`*^9}, {
+   3.922844179156845*^9, 3.9228441986203156`*^9}, {3.922844313241291*^9, 
+   3.922844360907652*^9}, 3.922844580651449*^9, {3.9228446312554092`*^9, 
+   3.9228446463419914`*^9}, 3.922844709376356*^9, 3.922844780275015*^9, 
+   3.9228448220959244`*^9, 3.9228448527325935`*^9, {3.922844888366686*^9, 
+   3.922844904568653*^9}, 3.9228449657098446`*^9, 3.9228450935030136`*^9, 
+   3.922845628628927*^9, 3.922845686273346*^9, 3.922845740546093*^9, {
+   3.922845943249298*^9, 3.922845973120476*^9}, 3.9228460646366253`*^9, 
+   3.922846169277956*^9, {3.9228465762051983`*^9, 3.9228465884786663`*^9}, 
+   3.922846873009121*^9, {3.9228473021673737`*^9, 3.9228473597934456`*^9}, {
+   3.92284742488698*^9, 3.9228474333002605`*^9}, 3.9228475424839935`*^9, 
+   3.922847578873911*^9, 3.9228477130188503`*^9, {3.9228478393900433`*^9, 
+   3.9228478566655006`*^9}, 3.922847945735029*^9, 3.92284797928059*^9, 
+   3.9228480229564953`*^9, {3.922848062025881*^9, 3.9228480706773834`*^9}, 
+   3.922848104403055*^9, {3.9228481693174953`*^9, 3.9228482465654182`*^9}, 
+   3.9228483384435463`*^9, {3.922848373909424*^9, 3.9228483838390865`*^9}, {
+   3.9228484608764343`*^9, 3.922848484238121*^9}, {3.9228486592792454`*^9, 
+   3.922848701123478*^9}, {3.9228488072849693`*^9, 3.9228488499080906`*^9}, 
+   3.9228489151520023`*^9, {3.922849034742998*^9, 3.9228490522709923`*^9}, {
+   3.9228491154657383`*^9, 3.9228491301982136`*^9}, 3.9228493511637306`*^9, 
+   3.922851144235298*^9, 3.9228512671399364`*^9, {3.922851306395849*^9, 
+   3.9228513178354263`*^9}, 3.922851348723009*^9, 3.9228514579346447`*^9, 
+   3.9228606625846004`*^9},
+ CellLabel->
+  "Out[192]=",ExpressionUUID->"549044ff-9f28-8348-acb0-cd48c0abb25e"]
+}, Open  ]]
+},
+WindowSize->{1280, 732},
+WindowMargins->{{-5.5, Automatic}, {Automatic, -5.5}},
+Magnification:>1. Inherited,
+FrontEndVersion->"14.0 for Microsoft Windows (64-bit) (2023\:5e7412\:670812\
+\:65e5)",
+StyleDefinitions->"ReverseColor.nb",
+ExpressionUUID->"aedd4151-5639-43ee-aa8e-f00e020f0d93"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 5704, 114, 28, "Input",ExpressionUUID->"b0bc6281-c666-4707-b5d8-5502777c37c1",
+ CellOpen->False],
+Cell[6287, 138, 38358, 767, 28, "Output",ExpressionUUID->"6f8fa674-32d0-574f-82db-2af0c169ebad",
+ CellOpen->False]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[44682, 910, 6170, 154, 1094, "Input",ExpressionUUID->"ce059268-954a-224b-9f56-f17d6eb93225"],
+Cell[50855, 1066, 2720, 81, 198, "Output",ExpressionUUID->"6a89ef58-54c9-7d4e-94c1-7b48132ecaf7"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[53612, 1152, 33667, 557, 3371, "Input",ExpressionUUID->"55997096-579d-af4b-a27b-69f981601c9f"],
+Cell[87282, 1711, 9782, 195, 585, "Output",ExpressionUUID->"549044ff-9f28-8348-acb0-cd48c0abb25e"]
+}, Open  ]]
+}
+]
+*)
+

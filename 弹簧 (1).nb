@@ -1,0 +1,145 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 14.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      4118,        137]
+NotebookOptionsPosition[      3736,        122]
+NotebookOutlinePosition[      4164,        139]
+CellTagsIndexPosition[      4121,        136]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     FormBox[
+      RowBox[{
+       RowBox[{"x0", "=", "1.6"}], ";", 
+       RowBox[{"y0", "=", "1.5"}], ";", 
+       RowBox[{"m", "=", "5"}], ";", 
+       RowBox[{"g", "=", "9.81"}], ";", 
+       RowBox[{"k", "=", "100"}], ";", 
+       RowBox[{"d", "=", "20"}], ";"}],
+      TraditionalForm], "L"}], "=", "10"}], ";"}], 
+  RowBox[{"(*", "\:5411\:4e0a\:4e3a\:6b63\:65b9\:5411", "*)"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"LA", "=", 
+   SqrtBox[
+    RowBox[{
+     SuperscriptBox[
+      RowBox[{"(", 
+       FractionBox["d", "2"], ")"}], "2"], "+", 
+     SuperscriptBox["h0", "2"]}]]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"LB", "=", 
+   SqrtBox[
+    RowBox[{
+     SuperscriptBox[
+      RowBox[{"(", 
+       FractionBox["d", "2"], ")"}], "2"], "+", 
+     SuperscriptBox["h0", "2"]}]]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"s", "=", 
+   RowBox[{"Solve", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{"k", "*", 
+        RowBox[{"(", 
+         RowBox[{"LA", "-", "10"}], ")"}], "*", 
+        RowBox[{"(", 
+         RowBox[{"h0", "/", "LA"}], ")"}]}], "+", 
+       RowBox[{"k", "*", 
+        RowBox[{"(", 
+         RowBox[{"LB", "-", "10"}], ")"}], "*", 
+        RowBox[{"(", 
+         RowBox[{"h0", "/", "LB"}], ")"}]}]}], "==", 
+      RowBox[{"m", " ", "g"}]}], ",", "h0"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"ss", "=", 
+   RowBox[{"NDSolve", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{
+        RowBox[{
+         RowBox[{"2", " ", "k", " ", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"(", 
+             FormBox[
+              SqrtBox[
+               RowBox[{
+                SuperscriptBox[
+                 RowBox[{"(", 
+                  FractionBox["d", "2"], ")"}], "2"], "+", 
+                SuperscriptBox["h", "2"]}]],
+              TraditionalForm], ")"}], "-", "10"}], ")"}]}], "+", 
+         RowBox[{"20", " ", 
+          RowBox[{"Sin", "[", "t", "]"}]}], "-", 
+         RowBox[{"m", " ", "g"}]}], "==", 
+        RowBox[{"m", " ", 
+         RowBox[{
+          RowBox[{"y", "''"}], "[", "t", "]"}]}]}], ",", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"y", "[", "0", "]"}], "\[Equal]", 
+         RowBox[{"-", "h0"}]}], "/.", "s"}], ",", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"y", "'"}], "[", "0", "]"}], "\[Equal]", "0"}]}], "}"}], ",",
+      "y", ",", 
+     RowBox[{"{", 
+      RowBox[{"t", ",", "0", ",", "20"}], "}"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Plot", "[", 
+  RowBox[{
+   RowBox[{"Evaluate", "[", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"y", "[", "t", "]"}], "/.", "ss"}], "}"}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"t", ",", "0", ",", "2"}], "}"}], ",", 
+   RowBox[{"PlotRange", "\[Rule]", "All"}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.932700921509865*^9, 3.9327009479570675`*^9}, {
+  3.9327015537876267`*^9, 3.93270159106258*^9}, {3.9327016266250267`*^9, 
+  3.932701659690712*^9}, {3.9327023511279736`*^9, 
+  3.9327023532380867`*^9}},ExpressionUUID->"bb42b59c-c107-6347-becf-\
+d69ee7628a1c"]
+},
+WindowSize->{1141.2, 646.1999999999999},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+FrontEndVersion->"14.0 for Microsoft Windows (64-bit) (2023\:5e7412\:670812\
+\:65e5)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"f5a7e24c-bedf-8f4c-bd1f-5a981d75dcb4"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 3174, 100, 340, "Input",ExpressionUUID->"bb42b59c-c107-6347-becf-d69ee7628a1c"]
+}
+]
+*)
+
